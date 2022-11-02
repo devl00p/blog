@@ -17,19 +17,19 @@ Pour résoudre l'exercice je ne me suis donc pas tourné vers un quelconque logi
 
 Pour celà il suffit d'ouvrir le fichier chiffré comme s'il s'agissait d'une image brute (*GIMP -> open as raw*) :  
 
-![Ouverture en mode raw](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_raw_open.png)  
+![Ouverture en mode raw](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_raw_open.png)
 
 Comme les entêtes sont inconnus on doit spécifier nous même la longueur et largeur de l'image :  
 
-![Premiere ouverture](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_alpha_rvb.png)  
+![Premiere ouverture](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_alpha_rvb.png)
 
 Par tâtonnements on trouve des paramètres valides :  
 
-![Recherche des bons paramètres](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_ecb_size.png)  
+![Recherche des bons paramètres](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_ecb_size.png)
 
 Et après quelques retouches artistiques :  
 
-![Après quelques retouches](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_final.png)  
+![Après quelques retouches](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_final.png)
 
 Le flag est BoxingDesktopGutter798.  
 
@@ -225,7 +225,7 @@ Bien sûr ça ne scanne pas avec les lecteurs QR de smartphones. La première ch
 
 J'ai aussi ajouté le *finder* caché (voir plus loin pour les explications) :  
 
-![QR clean](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/qr.png)  
+![QR clean](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/qr.png)
 
 Bien sûr ça ne scanne toujours pas :p  
 
@@ -241,7 +241,7 @@ Un module c'est la plus petite unité graphique du code QR, c'est à dire un pet
 
 Voici une image de ma création représentant la structure d'un code QR (ici en version 3 qui est la version du challenge).  
 
-![QR code V3](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/pattern_big.png)  
+![QR code V3](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/pattern_big.png)
 
 Sur 3 coins du code QR on trouve des *"finders"*, ce sont des carrés qui permettent aux scanneurs de code barre de délimiter la zone du code QR et déterminer son orientation.  
 

@@ -108,7 +108,7 @@ Le fichier CSV uploadé à cette forme (il doit respecter les colonnes du phoneb
 
 Ce qui permet alors l'exécution de commandes :  
 
-![Dina VulnHub playSMS interface](https://raw.githubusercontent.com/devl00p/blog/master/images/dina_playsms.png)  
+![Dina VulnHub playSMS interface](https://raw.githubusercontent.com/devl00p/blog/master/images/dina_playsms.png)
 
 Comme pour le précédent challenge j'ai eu recours à [tcp\_pty\_bind.py](https://github.com/infodox/python-pty-shells/blob/master/tcp_pty_bind.py) qui s'avère bien pratique.  
 

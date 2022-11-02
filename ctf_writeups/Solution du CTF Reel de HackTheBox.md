@@ -542,7 +542,7 @@ Claire dispose de la permission writeDACL sur le groupe backup admins :
 
 et ce groupe dispose pour ainsi dire de rien du tout (il n'y a que des relations entrantes).  
 
-![HackTheBox Reel BloodHound backup admins relation graph LDAP](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reel_backup_admins.png)  
+![HackTheBox Reel BloodHound backup admins relation graph LDAP](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reel_backup_admins.png)
 
 Si on se rencarde un peu [sur ce type de groupe](https://ss64.com/nt/syntax-security_groups.html) on voit que les membres ont généralement un accès non-limité au système de fichier :  
 

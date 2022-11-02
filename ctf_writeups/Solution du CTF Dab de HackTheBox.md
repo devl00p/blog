@@ -405,6 +405,7 @@ void seclogin(void)
 On compile, on place la librairie dans */tmp*, on exécute *myexec*, on rentre le mot de passe attendu et à nous le shell root et le flag final :)  
 
 ![HackTheBox Dab CTF  final exploit](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/dab/dab_root.png)
+
 Outro
 -----
 

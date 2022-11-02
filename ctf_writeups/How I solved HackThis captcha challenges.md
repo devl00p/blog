@@ -333,7 +333,7 @@ You would have to glue the several scripts and install the dependancies to compl
 
 ### Level 2
 
-![HackThis captcha 2](https://raw.githubusercontent.com/devl00p/blog/master/images/hackthis/captcha2_example.png)  
+![HackThis captcha 2](https://raw.githubusercontent.com/devl00p/blog/master/images/hackthis/captcha2_example.png)
 
 Let's move to smileys ! If you pay attention you should see in the challenge webpage source that the caption is not made of pictures but characters.  
 
@@ -666,7 +666,8 @@ I finally reached those parameters (let's call this script *write.php*):
 
 Can you spot the differences between those images ? One is provided by the challenge, one is my own generated image :  
 
-![HacThis captcha 5](https://raw.githubusercontent.com/devl00p/blog/master/images/hackthis/example.png) ![My generated image](https://raw.githubusercontent.com/devl00p/blog/master/images/hackthis/generated.png)
+![HacThis captcha 5](https://raw.githubusercontent.com/devl00p/blog/master/images/hackthis/example.png)
+ ![My generated image](https://raw.githubusercontent.com/devl00p/blog/master/images/hackthis/generated.png)
 
 No let's move to bluring ! Bluring images in PHP using GD is not complicated but we need to find how many times the blur filter have been applied on the text.  
 

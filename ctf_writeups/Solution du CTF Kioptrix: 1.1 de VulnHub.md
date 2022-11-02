@@ -88,7 +88,7 @@ Table: users
 
 Avec ces identifiants on peut passer la page de login et on tombe sur une classique faille d'exécution de commande :  
 
-![Kioptrix 1.1 ping command execution](https://raw.githubusercontent.com/devl00p/blog/master/images/kioptrix/kioptrix2.png)  
+![Kioptrix 1.1 ping command execution](https://raw.githubusercontent.com/devl00p/blog/master/images/kioptrix/kioptrix2.png)
 
 On en profite pour chercher quelques identifiants :  
 

@@ -245,7 +245,7 @@ sock.close()
 
 A ma grande surprise on peut faire exécuter des commandes linux depuis l'invite de commande récupérée (j'ai testé préalablement sur ma machine et ça ne fonctionnait pas).  
 
-![Linux command from wine](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_1/linux_wine.png)  
+![Linux command from wine](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_1/linux_wine.png)
 
 Comme sur le *Brainpan1*, j'uploade un *tshd* car aucun serveur SSH ne tourne sur le système.  
 

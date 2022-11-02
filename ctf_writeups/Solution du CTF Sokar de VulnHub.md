@@ -27,7 +27,7 @@ Comme je n'ai pas eu plus de résultats avec les ports UDP je me suis dit que si
 
 Quand la VM se lance on observe un *DHCP Discover* partant de la VM tournant sur un système *CentOS* :  
 
-![Sokar CTF - DHCP Discover](https://raw.githubusercontent.com/devl00p/blog/master/images/sokar/capt1.png)  
+![Sokar CTF - DHCP Discover](https://raw.githubusercontent.com/devl00p/blog/master/images/sokar/capt1.png)
 
 On remarque aussi qu'une fois que la machine a obtenu un bail DHCP elle fait des requêtes DNS concernant *sokar* en utilisant le serveur DNS de *Google* (8.8.8.8).  
 

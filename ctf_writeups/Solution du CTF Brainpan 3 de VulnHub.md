@@ -1236,6 +1236,7 @@ with open("bad_message.msg", "wb") as fd:
 On copie le fichier généré dans */opt/.messenger* et notre backdoor */tmp/foo* est exécutée, nous donnant les droits root et l'accès au flag qui est sous format TROFF (manpage) :)  
 
 ![Brainpan 3 final flag](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_flag.png)
+
 Outro dramatique
 ----------------
 

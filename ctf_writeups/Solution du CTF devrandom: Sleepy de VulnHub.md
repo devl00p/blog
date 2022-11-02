@@ -96,11 +96,11 @@ Et qui dit débogueur dit possibilité de détourner le flot d'exécution d'un p
 
 Une recherche sur le sujet nous retourne [un premier document de *prdelka*](https://packetstormsecurity.com/files/122525/JDWP-Exploitation.html) qui nous laisse sur notre fin quand aux résultats obtenus :  
 
-![JDB access on Sleepy CTF with basic command execution](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/sleepy_jdb.png)  
+![JDB access on Sleepy CTF with basic command execution](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/sleepy_jdb.png)
 
 Certes on peut exécuter des commandes, mais ne pas être en mesure de récupérer l'output ce n'est pas terrible. Je pars alors à la recherche de *tips and tricks* concernant jdb et [je trouve une petite pépite](https://blog.silentsignal.eu/2014/02/09/jdb-tricks-hacking-java-debug-wire/) :)  
 
-![JDB command execution with first line output](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/sleepy.png)  
+![JDB command execution with first line output](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/sleepy.png)
 
 Pas mal, ça nous permet de lancer une commande et de récupérer la première ligne de la sortie. Suffisant pour récupérer le nom d'utilisateur sous lequel on tourne via la commande suivante :  
 
@@ -153,7 +153,7 @@ Il s'agit d'utiliser l'un des shells du projet *Laudanum* :
 > 
 > They provide functionality such as shell, DNS query, LDAP retrieval and others.
 
-![Sleepy WAR JSP backdoor](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/sleepy_war.png)  
+![Sleepy WAR JSP backdoor](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/sleepy_war.png)
 
 Ce shell est certes plus sexy à première vue... mais on s'aperçoit vite qu'il gère mal aussi les pipes et compagnie... Et il nous faut absolument pouvoir uploader une backdoor digne de ce nom.  
 
@@ -248,15 +248,15 @@ Le binaire continue alors son exécution dans un handler mis en place pour attra
 
 La boucle ne semble pas contenir de faille :  
 
-![nightmare sleepy CTF main function](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/nightmare_main.png)  
+![nightmare sleepy CTF main function](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/nightmare_main.png)
 
 Il en va de même pour les fonctions appelant les programmes externes (les paths sont absolus) :  
 
-![nightmare sleepy CTF fire and train functions](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/nightmare_fire_and_train.png)  
+![nightmare sleepy CTF fire and train functions](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/nightmare_fire_and_train.png)
 
 J'ai cherché comment exploiter cette situation et après quelques recherches j'ai finalement testé shellshock :  
 
-![Sleepy CTF nightmare shellshock exploitation](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/sleepy_root_flag.png)  
+![Sleepy CTF nightmare shellshock exploitation](https://raw.githubusercontent.com/devl00p/blog/master/images/sleepy/sleepy_root_flag.png)
 
 Il faut pouvoir faire un *kill -2* depuis un autre shell pour rentrer dans la section du code qui appelle */usr/bin/sl* (depuis le jsp c'est parfait).  
 

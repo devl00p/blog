@@ -53,7 +53,7 @@ http://192.168.1.42/g0rmint/secrets.php - HTTP 302 (0 bytes, plain) redirects to
 
 Le fichier *header.php* est particulièrement intéressant car il semble faire partie d'une zone authentifié du site et fait référence à un compte *Noman Riffat* qui est l'auteur du CTF.  
 
-![g0rmit CTF header.php](https://raw.githubusercontent.com/devl00p/blog/master/images/g0rmint.png)  
+![g0rmit CTF header.php](https://raw.githubusercontent.com/devl00p/blog/master/images/g0rmint.png)
 
 Un peu de recherche Google nous permet de retrouver le mail de la personne : *w3bdrilld3r@gmail.com*.  
 

@@ -206,7 +206,7 @@ La seconde attaque est plus simple à mettre en oeuvre. Il suffit d'être en mes
 
 Cela peut se faire via l'ancien *Opera (12.60)* ou les outils de développement intégrés à *Google Chrome* via l'onglet *Eléments* (clic-droit puis *Edit attribute* sur le champ souhaité).  
 
-![Edit attribute - Google Chrome](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnimage_html.png)  
+![Edit attribute - Google Chrome](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnimage_html.png)
 
 Comme signature on mettra un code très classique :  
 

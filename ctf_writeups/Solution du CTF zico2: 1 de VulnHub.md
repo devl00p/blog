@@ -136,7 +136,7 @@ L'accès à l'URL *http://192.168.1.47/view.php?page=../../usr/databases/test\_u
 
 On efface la nouvelle table et on en recrée une qui fait une backdoor *system()*.  
 
-![php backdoor via sqlite DB file](https://raw.githubusercontent.com/devl00p/blog/master/images/zico2_phpliteadmin.png)  
+![php backdoor via sqlite DB file](https://raw.githubusercontent.com/devl00p/blog/master/images/zico2_phpliteadmin.png)
 
 Via cet accès on découvre que le dossier */var/www* est accessible par root uniquement donc on ne peut pas créer de fichier *.ssh/authorized\_keys*.  
 

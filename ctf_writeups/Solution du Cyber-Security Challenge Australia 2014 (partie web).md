@@ -35,6 +35,7 @@ Avec l'extension de navigateur *Chrome* *EditThisCookie* on voit très facilemen
 On change cette valeur à 1, on recharge la page et hop... l'accès au blog est possible et nous révèle le flag *ComplexKillingInverse411*. Court et facile.  
 
 ![EditThisCookie VIP](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca_vip.png)
+
 Om nom nom nom (160 points)
 ---------------------------
 

@@ -66,11 +66,11 @@ Il y a un serveur *Eclipse Jetty* sur le port 50000 qui n'est pas soumis à une 
 
 Le port 80 est une copie du site *ask.com* de l'époque (maintenant il n'y a plus *Jeeves*) et tous les liens retournent une image d'erreur en relation avec Java (indice ?)  
 
-![Jeeves HTB default page](https://raw.githubusercontent.com/devl00p/blog/master/images/htb_jeeves/jeeves_80.png)  
+![Jeeves HTB default page](https://raw.githubusercontent.com/devl00p/blog/master/images/htb_jeeves/jeeves_80.png)
 
 Il fallait alors faire preuve d'une certaine logique ou être armé d'un dictionnaire bien fournit et lancer un directory-buster sur le port 50000 et ainsi trouver une installation *Jenkins* non protégée (pas d'authentification) à l'adresse /askjeeves/.  
 
-![Jeeves HTB open Jenkins installation](https://raw.githubusercontent.com/devl00p/blog/master/images/htb_jeeves/jeeves_jenkins.png)  
+![Jeeves HTB open Jenkins installation](https://raw.githubusercontent.com/devl00p/blog/master/images/htb_jeeves/jeeves_jenkins.png)
 
 Boss de milieu de jeu
 ---------------------
@@ -128,7 +128,7 @@ Pour autant ce module s'est montré récalcitrant à exécuter des commandes plu
 
 En tant que développeur je ne connais pas *Jenkins* mais je connais mieux *Gitlab* et ses mécanismes d'intégration et tests continus. Aussi je n'ai pas été surpris de trouver une option où l'on peut faire exécuter un script bat en rajoutant une étape de *build* à un projet.  
 
-![Jeeves HTB build step](https://raw.githubusercontent.com/devl00p/blog/master/images/htb_jeeves/jenkins_build_step.png)  
+![Jeeves HTB build step](https://raw.githubusercontent.com/devl00p/blog/master/images/htb_jeeves/jenkins_build_step.png)
 
 Il n'y a plus qu'à créer un nouveau projet vide et rajouter les commandes suivantes pour télécharger et exécuter un reverse *Meterpreter* (j'ai nommé le fichier *jre.exe* pour plus de discrétion) :  
 
@@ -163,7 +163,7 @@ CEH:$keepass$*2*6000*222*1af405cc00f979ddb9bb387c4594fcea2fd01a6a0757c000e1873f3
 
 Armé de la wordlist *rockyou* le mot de passe tombe relativement vite (*moonshine1*). On peut alors ouvrir l'archive *KeePass* pour voir les mots de passes stockés.  
 
-![Jeeves HTB Keepass vault](https://raw.githubusercontent.com/devl00p/blog/master/images/htb_jeeves/keepass2_screenshot.png)  
+![Jeeves HTB Keepass vault](https://raw.githubusercontent.com/devl00p/blog/master/images/htb_jeeves/keepass2_screenshot.png)
 
 On remarque surtout la présence d'un hash au format Windows (Lanman/NTML) qu'on s'empresse d'utiliser avec le module *psexec* de *Metasploit* :  
 

@@ -136,7 +136,7 @@ Une fois rendu sur l'URL indiquée, on a un formulaire avec trois champs : usern
 
 On dispose aussi du code source de la page à notre disposition :  
 
-![Homeless MD5 check source code](https://raw.githubusercontent.com/devl00p/blog/master/images/homeless_ctf_md5.png)  
+![Homeless MD5 check source code](https://raw.githubusercontent.com/devl00p/blog/master/images/homeless_ctf_md5.png)
 
 Simple non ? Hmmm... pas vraiment.  
 

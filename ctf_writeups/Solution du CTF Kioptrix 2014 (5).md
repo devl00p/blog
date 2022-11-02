@@ -46,7 +46,7 @@ Armé de *Wapiti* et de *Wireshark* je me suis rendu compte que le premier ne re
 
 J'ai mis en place *Charles Proxy* pour qu'il réécrive mes requêtes HTTP et les fasse correspondre à ce qu'envoie *Wapiti* en temps normal. Il s'est ainsi avéré que le site sur le port 8080 éjecte les visiteurs qui n'ont un navigateur avec le User-Agent *Mozilla/4.0* (coup de bol c'est celui que j'ai défini dans *Wapiti*).  
 
-![Rewriting user-agent with Charles Proxy](https://raw.githubusercontent.com/devl00p/blog/master/images/charles_ua.png)  
+![Rewriting user-agent with Charles Proxy](https://raw.githubusercontent.com/devl00p/blog/master/images/charles_ua.png)
 
 Go !
 ----

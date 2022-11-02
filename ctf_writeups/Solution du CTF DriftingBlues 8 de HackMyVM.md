@@ -210,7 +210,7 @@ J'aurais aimé pouvoir écrire un code d'exploitation plus fiable en réutilisan
 
 Petit schéma pour tenter d'illustrer le mécanisme de l'exploitation :  
 
-![DriftingBlues #8 CTF stack overflow exploitation](https://raw.githubusercontent.com/devl00p/blog/master/images/hackmyvm/drifting_blues_8_stack_overflow.png)  
+![DriftingBlues #8 CTF stack overflow exploitation](https://raw.githubusercontent.com/devl00p/blog/master/images/hackmyvm/drifting_blues_8_stack_overflow.png)
 
 Pour avoir l'adresse mémoire des variables d'environnement j'ai écrit un code C qui peut se résumer à :  
 

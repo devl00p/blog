@@ -202,7 +202,7 @@ Une fois le cookie réutilisé dans le navigateur j’accède à l'interface d'a
 
 Via le tableau HTML du dashboard et les noms de colonnes on devine qu'il y a une table *orders* avec au moins un champ nommé *cvv*. Je tente donc une simple édition :  
 
-![Credit Card Scammers VulnHub CTF admin interface](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/scammers.png)  
+![Credit Card Scammers VulnHub CTF admin interface](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/scammers.png)
 
 ```plain
 update orders set cvv=current_user();

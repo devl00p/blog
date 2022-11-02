@@ -194,7 +194,7 @@ L'exécutable semble packé et pour ne pas perdre du temps inutilement je l'ai s
 
 Il semble que le binaire soit packé avec UPX 1.25 (mais les noms classiques des sections n'apparaissent pas) et l'exécutable à des infos de copyright faisant référence à [Xlight FTP Server](http://www.xlightftpd.com/) en version 3.8.8.  
 
-![Xlight FTP Server copyright and version infos](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_xlightftp_version.png)  
+![Xlight FTP Server copyright and version infos](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_xlightftp_version.png)
 
 Les captures prises par les sandbox confirment le nom du logiciel mais le numéro de version n’apparaît pas.  
 
@@ -509,7 +509,7 @@ Une fois le serveur lancé en local on peut faire notre essai d'injection de com
 http://www.perdu.com/ & echo PWNED > c:/windows/temp/yolo.txt & notepad c:/windows/temp/yolo.txt &
 ```
 
-![c0m80 command injection test](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_ftp_command_injection.png)  
+![c0m80 command injection test](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_ftp_command_injection.png)
 
 Dès lors j'ai tenté quelques injections sympas Windows related :  
 
@@ -731,6 +731,7 @@ Il semble que bob se soit écrit un password manager maison en javascript. L'ind
 Cette fois c'est clair qu'on dispose du password pour se connecter graphiquement. L'autre mot de passe correspond au pass-manager graphique utilisé par bob, ce qui va nous permettre de déchiffrer sa clé privée et de nous connecter sur le compte d'alice (enfin !).  
 
 ![c0m80 alice shell](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_al1ce_shell.png)
+
 Like a déjà vu
 --------------
 

@@ -29,7 +29,7 @@ La page d'index est d'une lenteur... sans faille. D'ailleurs d'autres parties du
 
 Pour le reste il s'agit d'une appli web de gestion d'un hôtel avec la possibilité de réserver une chambre. La grande majorité des fonctionnalités a sans doute été retiré sur le site ce qui fait qu'au final il reste un formulaire de login et un formulaire de contact.  
 
-![VulnHub worst western hotel index page](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/index.png)  
+![VulnHub worst western hotel index page](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/index.png)
 
 Le site semble basé sur PrestaShop d'après les balises méta :  
 
@@ -320,7 +320,7 @@ images[5] = "4063830e548b8aea3586473c668aac826516be33/6.jpg";
 
 Celle qui a le path le plus long est particulièrement intéressante car on peut y voir un bureau avec un écran d'ordinateur sur lequel est collé un postit avec la mention suivante :  
 
-![Worst Western Hotel VulnHub CTF password on postit](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/postit.png)  
+![Worst Western Hotel VulnHub CTF password on postit](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/postit.png)
 
 ```plain
 peterg
@@ -333,7 +333,7 @@ J'ai fouillé un très long moment dans l'interface web avant de trouver quelque
 
 La technique pour obtenir un webshell sur du PrestaShop est relativement similaire à ce qu'on ferait sur du Wordpress ou un autre CMS. La différence est que l'on ne peut pas éditer un fichier PHP directement, il faut créer un nouveau thème à partir d'un déjà existant, exporter ce nouveau thème, le supprimer, l'éditer en local (pour injecter notre backdoor) puis l'uploader sur le site.  
 
-![VulnHub Worst Western Hotel Prestashop theme duplication](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/duplicate_prestashop_theme.png)  
+![VulnHub Worst Western Hotel Prestashop theme duplication](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/duplicate_prestashop_theme.png)
 
 En temps normal ça ne doit pas prendre une demi heure (arghh !).  
 
@@ -530,7 +530,7 @@ Il s'agit d'une appli web qui expose à ce stade deux fonctionnalités : login e
 
 On peut changer la configuration de *Proxy Toggle* dans Firefox pour le faire pointer vers notre SOCKS4 local. De là quelques tests permettent de constater que le formulaire de récupération de mot de passe est vulnérable à une faille d'injection SQL de type test booléen.  
 
-![VulnHub CTF worst western hotel boolean-based SQL injection](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/boolean_sql.png)  
+![VulnHub CTF worst western hotel boolean-based SQL injection](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/boolean_sql.png)
 
 Par défaut (en ne passant que les options de base) SQLmap s'y cassait les dents, il a donc fallut le tenir par la main pour qu'il voit l'exploitation boolean-based :  
 

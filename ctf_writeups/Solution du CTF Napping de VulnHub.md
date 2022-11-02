@@ -74,7 +74,7 @@ Le site propose de s'enregistrer alors je créé un compte avec *devloop* / *123
 
 Une fois sur cette page on peut soumettre une URL via un formulaire avec la promesse que la page *"sera revue par l'administrateur"*.  
 
-![Napping VulnHub CTF challenge link submit](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/napping_submit.png)  
+![Napping VulnHub CTF challenge link submit](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/napping_submit.png)
 
 A regarder le code source des pages on ne remarque rien de particulier (du type un champ caché qui permettrait de choisir un ID utilisateur pour la fonction de réinitialisation du mot de passe).  
 

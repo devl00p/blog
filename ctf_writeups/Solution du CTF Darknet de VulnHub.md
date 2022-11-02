@@ -306,7 +306,7 @@ L'accès au *xpanel* n'apporte à première vue pas grand chose... Mais en comme
 
 Il s'agit bien sûr d'un script d'upload mais le fichier ne sera accepté que si on trouve le bon code...  
 
-![DarkNet CTF upload script requiring code](https://raw.githubusercontent.com/devl00p/blog/master/images/darknet/darknet_upload_script.png)  
+![DarkNet CTF upload script requiring code](https://raw.githubusercontent.com/devl00p/blog/master/images/darknet/darknet_upload_script.png)
 
 Les valeurs de chaque checkbox sont numériques on aura donc une combinaison de ces valeurs à trouver :  
 

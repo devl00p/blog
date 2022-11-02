@@ -12,7 +12,7 @@ La première difficulté de ce challenge (les mauvaises langues diront la seule)
 
 Finalement il faudra seulement aller dans *Fichier > Paramètres > Réseau* dans *VirtualBox* et créer un réseau privé hôte qui reprends ces infos (j'ai mis .4 et ça a marché mais dans la logique il faut sans mettre .0 si c'est pour le réseau) :  
 
-![Congiguration VirtualBox](https://raw.githubusercontent.com/devl00p/blog/master/images/vboxnet0.png)  
+![Congiguration VirtualBox](https://raw.githubusercontent.com/devl00p/blog/master/images/vboxnet0.png)
 
 Après on peut lancer Nmap pour trouver l'adresse de notre future victime :  
 
@@ -27,7 +27,7 @@ Nmap done: 8 IP addresses (1 host up) scanned in 16.75 seconds
 
 On pointe directement notre navigateur dessus et on trouve le site web de *Rattus Labs* qui contient différents contacts :  
 
-![Rattus Labs](https://raw.githubusercontent.com/devl00p/blog/master/images/rattus.png)  
+![Rattus Labs](https://raw.githubusercontent.com/devl00p/blog/master/images/rattus.png)
 
 Nadia Vlad, CEO.  
 
@@ -194,7 +194,7 @@ medusa -h 10.8.7.2 -u operator -P john/wordlists/password.lst -M smbnt
 
 Toujours bredouille :( On revient à nos moutons et on tente une connexion en SSH avec le compte *mhog* : et bingo ça passe !  
 
-![ssh access as mhog](https://raw.githubusercontent.com/devl00p/blog/master/images/rattus2.png)  
+![ssh access as mhog](https://raw.githubusercontent.com/devl00p/blog/master/images/rattus2.png)
 
 Cliffhanger Linux
 -----------------

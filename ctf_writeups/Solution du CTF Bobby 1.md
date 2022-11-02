@@ -82,7 +82,7 @@ Rien d'intéressant au niveau de ces pages. Le dossier */printers/* requiert des
 
 La page d'index du site est le blog d'un certain *Bobby* mais *Bobby* est un peu trop bavard :  
 
-![Blog de Bobby](https://raw.githubusercontent.com/devl00p/blog/master/images/bobby_blog.png)  
+![Blog de Bobby](https://raw.githubusercontent.com/devl00p/blog/master/images/bobby_blog.png)
 
 On trouve d'autres informations en commentaire dans le code HTML :  
 

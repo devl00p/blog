@@ -101,11 +101,11 @@ La seconde boucle s'occupe de la communication avec le client : le programme dem
 
 On peut voir ici la logique de if/else pour chaque cas. Tous ces cas sont très simples (provoquent juste de l'envoi de données) et ne sont donc pas exploitables.  
 
-![VulnHub CTF Fawkes logic graph](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_perform_magic.png)  
+![VulnHub CTF Fawkes logic graph](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_perform_magic.png)
 
 En revanche juste après la réception des données (on voit que le programme cherche à lire jusqu'à 0x400 octets dans le buffer *var\_450h*) ces dernières sont passées en argument à une fonction baptisée *copy()* que voici :  
 
-![VulnHub CTF Fawkes read loop](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_read_loop.png)  
+![VulnHub CTF Fawkes read loop](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_read_loop.png)
 
 ![VulnHub CTF Fawkes copy disassembly](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_vulnerable_copy.png)
 

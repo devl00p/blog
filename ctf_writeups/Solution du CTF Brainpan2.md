@@ -90,7 +90,7 @@ Je décide en dernier recours de lancer [DirBuster](https://sourceforge.net/proj
 
 Mais quand on l'analyse il ne s'agit que d'une image JPEG. Un coup de *hexdump* confirme qu'il n'y a pas d'exécutable PE à l'intérieur.  
 
-![Image Mario Bros](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan.jpg)  
+![Image Mario Bros](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan.jpg)
 
 Du coup je me retranche sur le port 9999 auquel je me connecte via *ncat*. On a affaire à un serveur de commandes fait maison qui comporte une poignée de commandes dont certaines ne sont pas implémentées (USERS, MSG) ou non-accessibles avec nos privilèges (SYSTEM).
 

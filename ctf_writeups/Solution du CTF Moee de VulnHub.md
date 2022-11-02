@@ -97,7 +97,7 @@ $ echo -e '\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d\x49\x48\x44\x52\x00<
 
 L'upload ne se fait pas depuis le dashboard mais depuis la page d'un des articles où il faut remarquer que l'utilisation d'un compte a rajouté un petit bouton dédié à l'upload d'image :  
 
-![Moee VulnHub CTF wpDiscuz upload vulnerability](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/mooe.png)  
+![Moee VulnHub CTF wpDiscuz upload vulnerability](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/mooe.png)
 
 el8 gr3p 5ki11z
 ---------------

@@ -275,7 +275,7 @@ On a :
 
 C'est maintenant que ça devient plus compliqué mais pour faire simple le code lit les caractères depuis *s1* (obtenus lors du *recv()*) deux à deux.  
 
-![CTF BigHead strtoul loop](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_strtoul_loop.png)  
+![CTF BigHead strtoul loop](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_strtoul_loop.png)
 
 Dès que l'un des deux caractères est un octet nul la boucle s'arrête.  
 
@@ -1060,7 +1060,7 @@ Il ne reste normalement plus qu'à casser le mot de passe du *KeePass* (on extra
 
 Il y avait tout de même une subtilité puisque la dernière release officielle de JTR Jumbo ne supporte pas les *KeyFile*. Heureusement il existe [un Github plus à jour](https://github.com/magnumripper/JohnTheRipper) (merci *opt1kz*) qui permet de spécifier le *KeyFile* avec l'option -k (youpi) de d'obtenir le flag final :)  
 
-![BigHead CTF root flag KeePass](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_root_flag.png)  
+![BigHead CTF root flag KeePass](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_root_flag.png)
 
 Outro
 -----

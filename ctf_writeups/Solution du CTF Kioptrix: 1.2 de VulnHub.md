@@ -204,7 +204,7 @@ On sait que l'utilisateur peut lancer [HT Editor](http://devloop.users.sourcefor
 
 *HT* est un désassembler mais aussi un éditeur de texte classique. Il suffit donc d'aller ouvrir le dossier /root puis de lire le flag (*Congrats.txt*).  
 
-![Kioptrix3 flag opened with HT Editor](https://raw.githubusercontent.com/devl00p/blog/master/images/kioptrix/kioptrix3_ht.png)  
+![Kioptrix3 flag opened with HT Editor](https://raw.githubusercontent.com/devl00p/blog/master/images/kioptrix/kioptrix3_ht.png)
 
 Une erreur *Error opening terminal: xterm-256color* empêchait tout de même d'exécuter *HT*, il fallait y rémédier avec la commande *export TERM=xterm*.  
 

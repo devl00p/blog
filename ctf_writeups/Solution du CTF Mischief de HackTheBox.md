@@ -224,7 +224,7 @@ Une fois connecté on a un champ de texte pour la saisie d'une commande Linux. O
 
 *whoami* fait partie des commandes autorisées. On voit aussi une référence à un fichier nommé *credentials*.  
 
-![Mischief IPv6 RCE Apache HackTheBox CTF](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/mischief_rce.png)  
+![Mischief IPv6 RCE Apache HackTheBox CTF](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/mischief_rce.png)
 
 A titre d'exemple on ne peut pas utiliser *ls* ou son alias *dir* mais on peut exécuter ça :  
 

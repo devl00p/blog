@@ -55,7 +55,7 @@ Sur /dev/ on trouve un message intéressant de la part d'un certain *Alan Brooke
 
 Dans cette page on trouve aussi différents noms de contacts de la team dev que l'on garde de côté pour en faire une wordlist.  
 
-![List of contacts from Bulldog Industries website](https://raw.githubusercontent.com/devl00p/blog/master/images/bulldog1/contacts.png)  
+![List of contacts from Bulldog Industries website](https://raw.githubusercontent.com/devl00p/blog/master/images/bulldog1/contacts.png)
 
 Enfin on trouve un lien vers un web shell mais ce dernier nous répond *"Please authenticate with the server to use Web-Shell".*  
 
@@ -63,7 +63,7 @@ Après avoir essayé de passer quelques noms de paramètres évidents (username,
 
 Sous /admin/, l'autre URL trouvée, une mire de login marquée Django nous fait de l’œil.  
 
-![Django based login page](https://raw.githubusercontent.com/devl00p/blog/master/images/bulldog1/django_admin.png)  
+![Django based login page](https://raw.githubusercontent.com/devl00p/blog/master/images/bulldog1/django_admin.png)
 
 On remarque dans le code HTML que le formulaire a un champ anti Cross Site Request Forgery mais après plusieurs essais avec les developer tools ouvertes on voit bien que la valeur du champ ne change pas du moment que la session est ouverte.  
 
@@ -137,7 +137,7 @@ Une fois les credentials utilisés sur /admin/ (qui ne fournit rien d'intéressa
 
 Force est de constater que celui-ci réutilise la session de l'interface d'administration.  
 
-![Command injection on Bulldog:1 CTF web-shell](https://raw.githubusercontent.com/devl00p/blog/master/images/bulldog1/shell_injection.png)  
+![Command injection on Bulldog:1 CTF web-shell](https://raw.githubusercontent.com/devl00p/blog/master/images/bulldog1/shell_injection.png)
 
 On a affaire à une classique faille d'injection de commande. J'ai utilisé les backticks mais on peut parier que d'autres techniques fonctionnent.  
 

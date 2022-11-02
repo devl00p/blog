@@ -64,7 +64,7 @@ Le nouveau domaine nous amène sur une installation de [PHP Server Monitor](http
 
 Ainsi on a l'erreur suivante lorsque l'on saisit par exemple *test* :  
 
-![PHP Server Monitor username enumeration](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bart_phpservermonitor_forgot.png)  
+![PHP Server Monitor username enumeration](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bart_phpservermonitor_forgot.png)
 
 Alors que si l'on rentre *daniel* ou *harvey* que l'on a noté plus tôt on obtient le message *An email has been sent to you with information how to reset your password.*  
 

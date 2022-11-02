@@ -37,11 +37,11 @@ Références
 
 La page d'index correspond à la page par défaut de *Tomcat* mais le script *test.jsp* semble permettre l'exécution de commande.  
 
-![Depth command execution](https://raw.githubusercontent.com/devl00p/blog/master/images/depth_rce.png)  
+![Depth command execution](https://raw.githubusercontent.com/devl00p/blog/master/images/depth_rce.png)
 
 Cela dis l'exploitation est rendu compliquée par le fait que l'output de la commande exécutée est découpé en colonnes et que seules certaines colonnes sont affichées.  
 
-![Depth command execution, output splitted](https://raw.githubusercontent.com/devl00p/blog/master/images/depth_echo.png)  
+![Depth command execution, output splitted](https://raw.githubusercontent.com/devl00p/blog/master/images/depth_echo.png)
 
 Malgré cela en fouillant dans les pages de manuel des commandes système on peut trouver différentes astuces pour remonter d'autres infos.  
 
