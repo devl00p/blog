@@ -188,7 +188,7 @@ mais tout en majuscules cela fonctionne :
 <!--#EXEC cmd="ls" --> 
 ```
 
-![SSI injenction result](https://github.com/devl00p/blog/raw/master/images/hastevm.png)  
+![SSI injenction result](https://raw.githubusercontent.com/devl00p/blog/master/images/hastevm.png)  
 
 A Python was good
 -----------------
@@ -289,4 +289,4 @@ Mais j'ai fouillé en long, en large, en travers sans aucun résultat. Épluché
 
 Dans les commentaires liés à l'annonce de la VM l'auteur laisse entendre [sur son blog](https://securityshards.wordpress.com/2017/09/13/new-h-a-s-t-e-hacking-challenge/) que l'on peut avoir les privilèges root mais plus tard il indique que ça ne fait pas partie du challenge... Plus de clarifications sur le sujet aurait été bénéfiques :(
 
-*Published October 29 2017 at 11 01*
+*Published October 29 2017 at 11:01*

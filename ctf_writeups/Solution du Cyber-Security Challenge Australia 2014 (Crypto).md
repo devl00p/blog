@@ -444,4 +444,4 @@ Il y a plein de façons d'améliorer l'attaque :
 
 Jusqu'à présent l'épreuve crypto est celle qui m'a pris le moins de temps o\_O
 
-*Published May 16 2015 at 16 31*
+*Published May 16 2015 at 16:31*

@@ -169,7 +169,7 @@ Bien sûr on peut tout aussi bien utiliser OpenSSH dans notre cas (*ssh -L 80:19
 
 Le site dispose de deux liens, l'un pour modifier la configuration DNS et l'autre pour tester une configuration OpenVPN :  
 
-![Vault HackTheBox CTF OpenVPN Configurator RCE](https://github.com/devl00p/blog/raw/master/images/htb/vault_openvpn.png)
+![Vault HackTheBox CTF OpenVPN Configurator RCE](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/vault_openvpn.png)
 
 Il nous faut seulement trouver un moyen d’appeler une commande depuis une configuration *OpenVPN*, [ce qui n'est pas compliqué](https://medium.com/tenable-techblog/reverse-shell-from-an-openvpn-configuration-file-73fd8b1d38da).  
 
@@ -431,4 +431,4 @@ That's it ! En comparaison du CTF *Reddish* les problématiques de port-forwardi
 L'utilisation d'un port source spécifique est une bonne idée sur un CTF mais je l'aurais bien vu en tout début pour scanner la box.  
 
 
-*Published April 06 2019 at 21 07*
+*Published April 06 2019 at 21:07*

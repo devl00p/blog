@@ -187,4 +187,4 @@ fi
 Un peu déçu sur ce CTF par rapport aux autres en raison d'un peu de guessing. Il aurait fallut que l'image ait un nom plus explicite et le script final devrait fonctionner à partir du moment où le fichier attendu est présent.  
 
 
-*Published January 20 2022 at 18 11*
+*Published January 20 2022 at 18:11*

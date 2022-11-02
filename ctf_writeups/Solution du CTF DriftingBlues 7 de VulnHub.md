@@ -120,4 +120,4 @@ congratulations!
 
 Voilà voilà... C'est terminé. A noter que le port 66 fait tourner le serveur HTTP builtin de Python depuis le dossier de root du coup via énumération on peut aussi obtenir le flag.
 
-*Published January 21 2022 at 12 04*
+*Published January 21 2022 at 12:04*

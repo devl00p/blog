@@ -60,7 +60,7 @@ Il y a donc un service fait-maison sur le port 666 ainsi que deux URLs à fouill
 
 L'URL */personal/* est le site d'un fan-club de *g0tmi1k* (le créateur de *VulnHub*).  
 
-![g0tmi1k fan club](https://github.com/devl00p/blog/raw/master/images/hell_1.png)
+![g0tmi1k fan club](https://raw.githubusercontent.com/devl00p/blog/master/images/hell_1.png)
 
 Sur l'URL */super\_secret\_login\_path\_muhahaha/* on tombe sur une section *"Admin"* demandant des identifiants.  
 
@@ -1071,4 +1071,4 @@ while 1:
 
 C'était donc uniquement un leurre... Même le message de segfault était faux. Le binaire ELF 64bit ne tourne à aucun moment sur la machine, il y a juste un code Python (U mad bro ?)
 
-*Published July 13 2014 at 18 10*
+*Published July 13 2014 at 18:10*

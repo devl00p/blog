@@ -233,4 +233,4 @@ exit
 
 That's it!
 
-*Published January 20 2022 at 18 10*
+*Published January 20 2022 at 18:10*

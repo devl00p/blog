@@ -13,11 +13,11 @@ U JAD BRO? (120 points)
 
 Ce premier exécutable à analyser et une application Java (archive .jar). Une fois lancé on se retrouve face à une mire de connexion très basique qui affiche un message d'erreur lorsque l'on rentre des identifiants incorrects.  
 
-![cysca reverse level 1](https://github.com/devl00p/blog/raw/master/images/cysca/jar_gui.png)
+![cysca reverse level 1](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/jar_gui.png)
 
 Plutôt que de sortir un vieux *JAD* du placard j'ai décidé de fouiller sur le web pour trouver une application plus agréable me doutant que des progrès avaient du être fait depuis. Et effectivement je suis rapidement tombé sur *JD-GUI* ([Java Decompiler](http://jd.benow.ca/) ) qui fonctionne à merveille.  
 
-![cysca java decompiler](https://github.com/devl00p/blog/raw/master/images/cysca/jar_hash.png)
+![cysca java decompiler](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/jar_hash.png)
 
 Dans la classe *PRAuthService* on trouve un nom d'utilisateur (*Hero33*) ainsi qu'un hash SHA-256 (f483ad5dea697e7e75ebc791028502da183258cd23aeff0327957dc56f703af3) sous la forme d'un tableau d'octets signés.  
 
@@ -979,4 +979,4 @@ Breakpoint 3, 0x0804a097 in ?? ()
 
 ROOT DANCE !!!
 
-*Published December 26 2014 at 11 46*
+*Published December 26 2014 at 11:46*

@@ -268,4 +268,4 @@ A noter que j'ai tenté de casser les hashs des utilisateurs *john* et *harold* 
 Des walkthrough pour les autres CTF de la série vont suivre... stay tuned.  
 
 
-*Published February 14 2018 at 18 03*
+*Published February 14 2018 at 18:03*

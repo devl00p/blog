@@ -438,4 +438,4 @@ Au final pas de *NIS*, ni de *Yellow Pages* si ce n'est le process *ypldap* qui 
 
 Pour ce qui est de l'utilisateur *bob8791* je cherche encore son utilité :p
 
-*Published February 09 2019 at 17 05*
+*Published February 09 2019 at 17:05*

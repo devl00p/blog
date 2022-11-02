@@ -275,4 +275,4 @@ uid=0(root) gid=0(root) groups=0(root)
 Et un CTF de plus dans la liste ! De mon point de vue, trop de guessing sur la partie énumération qui n'apportait de plus rien d'intéressant. Le base 58 et l'exploitation de *pip* étaient plus amusantes mais ne requièrent pas de technicité particulière (on aurait pu toutefois chercher nous même à exploiter *pip* via l'écriture et la publication d'un paquet custom).  
 
 
-*Published November 22 2021 at 22 24*
+*Published November 22 2021 at 22:24*

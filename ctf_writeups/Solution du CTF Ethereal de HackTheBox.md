@@ -25,4 +25,4 @@ PORT     STATE SERVICE
 Le FTP accepte les connexions anonymes en lecture seule. On peut récupérer son contenu de cette façon :  
 
 
-*Published March 09 2019 at 17 26*
+*Published March 09 2019 at 17:26*

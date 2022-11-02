@@ -7,11 +7,11 @@ Un port SSH, un port HTTP... difficile de faire plus classique comme début.
 
 Sur la page d'index un système de gestion de listes :  
 
-![Waldo CTF HackTheBox list manager](https://github.com/devl00p/blog/raw/master/images/htb/waldo_list_manager.png)
+![Waldo CTF HackTheBox list manager](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/waldo_list_manager.png)
 
 En ouvrant les dev-tools on trouve des requêtes XHR comme cette requête vers *dirRead.php* pour lister les listes et qui sent bon le path traversal :  
 
-![Waldo CTF HackTheBox list manager XHR](https://github.com/devl00p/blog/raw/master/images/htb/waldo_xhr.png)
+![Waldo CTF HackTheBox list manager XHR](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/waldo_xhr.png)
 
 Si on accède à une liste c'est *fileRead.php* qui est appelé. Même pressentiment :)  
 
@@ -93,7 +93,7 @@ ssh-rsa AAAAB3NzaC1---snip---Y4jBHvf monitor@waldo
 
 Si on réutilise la clé pour accéder au serveur SSH depuis le docker :  
 
-![Waldo CTF HackTheBox monitor ssh account ascii art](https://github.com/devl00p/blog/raw/master/images/htb/waldo_ascii_art.png)
+![Waldo CTF HackTheBox monitor ssh account ascii art](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/waldo_ascii_art.png)
 
 On peut facilement bypasser le lancement du rbash (un bash restreint) en spécifiant le shell que l'on souhaite à SSH (on utilisera ici les options -t bash --noprofile).  
 
@@ -165,4 +165,4 @@ monitor@waldo:~/app-dev$ tac /root/root.txt
 ```
 
 
-*Published December 15 2018 at 19 09*
+*Published December 15 2018 at 19:09*

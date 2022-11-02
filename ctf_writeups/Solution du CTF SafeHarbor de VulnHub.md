@@ -796,4 +796,4 @@ listen = 127.0.0.1:9000
 Les serveurs Apache se chargeaient de contacter ce service pour faire exécuter le code PHP avant de renvoyer l'output.  
 
 
-*Published December 21 2021 at 23 11*
+*Published December 21 2021 at 23:11*

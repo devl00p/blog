@@ -304,4 +304,4 @@ Une autre solution aurait été à priori de bruteforcer les acocunts IRC.
 C'était vraiment facile et du coup je m'interroge sur l'utilité du restricted bash ^\_^  
 
 
-*Published October 26 2017 at 18 35*
+*Published October 26 2017 at 18:35*

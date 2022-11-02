@@ -17,7 +17,7 @@ Il y a sur la page des profils de divers employés fictifs, j'ai préféré rele
 
 La page dispose aussi d'un formulaire de contact vers un domaine *mailer.bighead.htb*.  
 
-![BigHead mailer form](https://github.com/devl00p/blog/raw/master/images/htb/bighead_mailer.png)
+![BigHead mailer form](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_mailer.png)
 
  Il y a aussi une adresse email en *@bachmanity.htb*. Cela nous donne donc deux domaines possibles à énumérer.  
 
@@ -238,19 +238,19 @@ Dans le main (*sym.\_main*) on trouve les étapes classiques de la création d'u
 
 Pour chaque client connecté un nouveau thread est lancé (via *CreateThread*) avec la fonction *sym.\_ConnectionHandler* qui reçoit le descripteur de socket retourné par *accept()*.  
 
-![BigHead CTF CreateThread](https://github.com/devl00p/blog/raw/master/images/htb/bighead_create_thread.png)
+![BigHead CTF CreateThread](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_create_thread.png)
 
 La première chose que fait cette fonction, en dehors de réserver 1080 octets sur la pile, c'est allouer deux buffer sur le tas, l'un de 524 (*s1*) et l'autre de 1024 octets.  
 
-![BigHead CTF handler function init](https://github.com/devl00p/blog/raw/master/images/htb/bighead_handler_init.png)
+![BigHead CTF handler function init](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_handler_init.png)
 
 Le buffer de 524 est utilisé pour stocker les données reçues par *recv()* qui tente justement de lire 524 octets.  
 
-![BigHead CTF handler recv](https://github.com/devl00p/blog/raw/master/images/htb/bighead_handler_recv.png)
+![BigHead CTF handler recv](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_handler_recv.png)
 
 Juste après cela on a le premier point vraiment intéressant : la quantité de données obtenues via *recv()* est comparée à 219 (0xdb).  
 
-![BigHead CTF request length check](https://github.com/devl00p/blog/raw/master/images/htb/bighead_recv_length_check.png)
+![BigHead CTF request length check](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_recv_length_check.png)
 
 Si la taille est supérieure alors on part vers différents embranchements qui regarderont si la requête est :  
 
@@ -264,7 +264,7 @@ La seule partie intéressante du binaire est le traitement des requêtes HEAD do
 
 D'abord le code initialise certaines données avant d'entrer dans une boucle :  
 
-![CTF BigHead strtoul loop init](https://github.com/devl00p/blog/raw/master/images/htb/bighead_strtoul_loop_init.png)
+![CTF BigHead strtoul loop init](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_strtoul_loop_init.png)
 
 On a :  
 
@@ -275,7 +275,7 @@ On a :
 
 C'est maintenant que ça devient plus compliqué mais pour faire simple le code lit les caractères depuis *s1* (obtenus lors du *recv()*) deux à deux.  
 
-![CTF BigHead strtoul loop](https://github.com/devl00p/blog/raw/master/images/htb/bighead_strtoul_loop.png)  
+![CTF BigHead strtoul loop](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_strtoul_loop.png)  
 
 Dès que l'un des deux caractères est un octet nul la boucle s'arrête.  
 
@@ -287,7 +287,7 @@ Le résultat de ce décodage est stocké dans *local\_2ch* de taille 12, sauf qu
 
 Maintenant, on pourrait penser que la faille est là, mais si on regarde la *Function4* qui traite notre buffer hex-décodé on voit un beau *strcpy* des familles :  
 
-![BigHead strcpy vulnerability CTF](https://github.com/devl00p/blog/raw/master/images/htb/bighead_strcpy.png)
+![BigHead strcpy vulnerability CTF](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_strcpy.png)
 
 Ici l'espace alloué sur la pile est de 56 (0x38) octets. Cela signifie que notre buffer initial doit dépasser 112 caractères (56 \* 2) pour écraser l'adresse de retour et qu'on doit hex-encoder notre payload pour qu'il passe.  
 
@@ -340,7 +340,7 @@ La première exécution nous signale l'absence de DLLs spécifiques à MingW. Po
 
 Je commence par un simple script Python qui me permettra de provoquer le crash et d'analyser le contexte à ce moment :  
 
-![BigHead crash in ImmunityDebugger](https://github.com/devl00p/blog/raw/master/images/htb/bighead_crash.png)
+![BigHead crash in ImmunityDebugger](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_crash.png)
 
 Bonne nouvelle, non seulement on écrase bien EIP (en rouge sur la capture) mais en plus EAX (en blanc) pointe sur le début de notre requête, juste après le *HEAD /* (c'est raccord avec l'analyse précédente).  
 
@@ -379,7 +379,7 @@ buff += hexlify(struct.pack("I", jmp_eax)).decode()
 sock.send(buff.encode())
 ```
 
-![BigHead CTF jmp eax to int 3](https://github.com/devl00p/blog/raw/master/images/htb/bighead_jmp_eax_cc.png)
+![BigHead CTF jmp eax to int 3](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_jmp_eax_cc.png)
 
 On voit ici que l'on atteint bien notre instruction, preuve que la pile est exécutable et qu'on pourra mettre notre shellcode :)  
 
@@ -483,11 +483,11 @@ On peut facilement reproduire l’environnement du CTF en récupérant [Nginx po
 
 On peut voir ainsi que si on chaîne deux requêtes en keep-alive sur le *Nginx* (par exemple en Python avec le système de session du module requests) :  
 
-![BigHead CTF Nginx Keep-Alive Wireshark capture](https://github.com/devl00p/blog/raw/master/images/htb/bighead_keep_alive.png)
+![BigHead CTF Nginx Keep-Alive Wireshark capture](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_keep_alive.png)
 
 Et bien malgré tout nos requêtes sont transformées en deux streams TCP différents et *Nginx* ajoute un entête *Connection: close*  
 
-![BigHead CTF Nginx proxy_pass Connection: Close Wireshark capture](https://github.com/devl00p/blog/raw/master/images/htb/bighead_cnx_close.png)
+![BigHead CTF Nginx proxy_pass Connection: Close Wireshark capture](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_cnx_close.png)
 
 Il semble qu'aucun bypass ne soit possible en raison du buffering, pas même l'emploi d'un transfert [chunked](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)...  
 
@@ -1060,7 +1060,7 @@ Il ne reste normalement plus qu'à casser le mot de passe du *KeePass* (on extra
 
 Il y avait tout de même une subtilité puisque la dernière release officielle de JTR Jumbo ne supporte pas les *KeyFile*. Heureusement il existe [un Github plus à jour](https://github.com/magnumripper/JohnTheRipper) (merci *opt1kz*) qui permet de spécifier le *KeyFile* avec l'option -k (youpi) de d'obtenir le flag final :)  
 
-![BigHead CTF root flag KeePass](https://github.com/devl00p/blog/raw/master/images/htb/bighead_root_flag.png)  
+![BigHead CTF root flag KeePass](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/bighead_root_flag.png)  
 
 Outro
 -----
@@ -1162,4 +1162,4 @@ Ici le shellcode est placé après l'adresse de retour (0x62501331 qui correspon
 
 Il prend plus de place et met plus de temps à s'exécuter que le mien donc pas de regret :p
 
-*Published May 04 2019 at 17 04*
+*Published May 04 2019 at 17:04*

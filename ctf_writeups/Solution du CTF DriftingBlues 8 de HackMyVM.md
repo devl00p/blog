@@ -210,7 +210,7 @@ J'aurais aimé pouvoir écrire un code d'exploitation plus fiable en réutilisan
 
 Petit schéma pour tenter d'illustrer le mécanisme de l'exploitation :  
 
-![DriftingBlues #8 CTF stack overflow exploitation](https://github.com/devl00p/blog/raw/master/images/hackmyvm/drifting_blues_8_stack_overflow.png)  
+![DriftingBlues #8 CTF stack overflow exploitation](https://raw.githubusercontent.com/devl00p/blog/master/images/hackmyvm/drifting_blues_8_stack_overflow.png)  
 
 Pour avoir l'adresse mémoire des variables d'environnement j'ai écrit un code C qui peut se résumer à :  
 
@@ -246,4 +246,4 @@ L'autre décalage entre l'adresse donnée en argument au binaire et la véritabl
 
 C'est donc terminé pour cette série de CTF faciles (en la majeure) mais sympathiques.
 
-*Published January 24 2022 at 18 17*
+*Published January 24 2022 at 18:17*

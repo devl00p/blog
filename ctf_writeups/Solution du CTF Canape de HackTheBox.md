@@ -304,7 +304,7 @@ meterpreter > portfwd add -l 5984 -p 5984 -r 127.0.0.1
 
 Cela permet d'accéder à l'interface web *Fauxton* via l'adresse */\_utils* :  
 
-![HTB Canape CouchDB Fauxton web interface](https://github.com/devl00p/blog/raw/master/images/htb/canape_fauxton.png)
+![HTB Canape CouchDB Fauxton web interface](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/canape_fauxton.png)
 
 Cette version de *CouchDB* est vulnérable [à un exploit](https://justi.cz/security/2017/11/14/couchdb-rce-npm.html) permettant de créer un compte administrateur.  
 
@@ -337,7 +337,7 @@ J'ai passé 3 jours à essayer de comprendre ce que je faisais mal et à tenter 
 
 Finalement j'ai vu dans les options de l'interface web cette option :  
 
-![HTB Canape CouchDB data option](https://github.com/devl00p/blog/raw/master/images/htb/canape_couchdb_option.png)
+![HTB Canape CouchDB data option](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/canape_couchdb_option.png)
 
 Et j'ai maudit sur 7 générations les développeurs qui ont pensé cette interface (comme d'habitude ce sera la faute du frontend).  
 
@@ -346,7 +346,7 @@ Casse-toi Flanders !
 
 Une fois activée c'est mieux :')  
 
-![HTB Canape Couchdb ssh password](https://github.com/devl00p/blog/raw/master/images/htb/canape_passwords.png)
+![HTB Canape Couchdb ssh password](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/canape_passwords.png)
 
 ```plain
   "item": "ssh",
@@ -422,4 +422,4 @@ Ce CTF me laisse un souvenir impérissable avec cette \*\*\*\*\*\* d'option de C
 
 Pour le reste c'était sympa d'exploiter les subtilités du script Flask :)
 
-*Published September 15 2018 at 18 08*
+*Published September 15 2018 at 18:08*

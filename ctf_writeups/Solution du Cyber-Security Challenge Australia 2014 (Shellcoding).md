@@ -1234,4 +1234,4 @@ Received RoofTitleSuspicious854A SIGSEGV was raised during shellcode execution. 
 La solution donné par les organisateurs est plus compliquée : faire un ROP chain qui appelle [mprotect()](http://linux.die.net/man/2/mprotect) pour rendre la zone mémoire du payload exécutable pour sauter dessus.  
 
 
-*Published May 12 2015 at 14 08*
+*Published May 12 2015 at 14:08*

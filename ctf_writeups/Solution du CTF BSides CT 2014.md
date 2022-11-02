@@ -22,7 +22,7 @@ Une fois que l'on a entré *"guest"* on est invité à entrer une chaîne de car
 
 J'ouvre l'extension *EditThisCookie* depuis *Chrome* et remarque que 3 cookies ont été définis :  
 
-![EditThisCookie](https://github.com/devl00p/blog/raw/master/images/editthiscookie.png)
+![EditThisCookie](https://raw.githubusercontent.com/devl00p/blog/master/images/editthiscookie.png)
 
 Le cookie *role* contient un hash SHA-1 qui après recherche sur *DuckDuckGo* se révèle correspondre à *guest*.  
 
@@ -194,4 +194,4 @@ for fname in images:
 
 Un petit CTF amusant :)
 
-*Published September 21 2014 at 21 01*
+*Published September 21 2014 at 21:01*

@@ -180,4 +180,4 @@ a673d1b1fa95c276c5ef2aa13d9dcc7c
 ```
 
 
-*Published June 17 2018 at 10 00*
+*Published June 17 2018 at 10:00*

@@ -7,7 +7,7 @@ Sur ce CTF facile de [Wizard Labs](https://labs.wizard-security.net/) se trouve 
 
 Du coup on n'est pas trop surpris de trouver ceci à l'URL */dev* :  
 
-![WizardLabs CTF Devlife python interpreter RCE](https://github.com/devl00p/blog/raw/master/images/wizard-labs/devlife_interpreter.png)
+![WizardLabs CTF Devlife python interpreter RCE](https://raw.githubusercontent.com/devl00p/blog/master/images/wizard-labs/devlife_interpreter.png)
 
 On remarque vite que l'output des commandes ne nous est pas retourné. Il semble aussi que l'interpréteur a du mal à digérer les double-quotes, peut être le signe d'une injection de commande shell (on peut imaginer un appel du type *python2 -c "your\_payload\_here"*).  
 
@@ -86,4 +86,4 @@ d360adc7e9c5ceb3588a79bd88e3cec7a5d14368
 ```
 
 
-*Published April 04 2019 at 18 05*
+*Published April 04 2019 at 18:05*

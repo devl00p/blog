@@ -29,7 +29,7 @@ La page d'index est d'une lenteur... sans faille. D'ailleurs d'autres parties du
 
 Pour le reste il s'agit d'une appli web de gestion d'un hôtel avec la possibilité de réserver une chambre. La grande majorité des fonctionnalités a sans doute été retiré sur le site ce qui fait qu'au final il reste un formulaire de login et un formulaire de contact.  
 
-![VulnHub worst western hotel index page](https://github.com/devl00p/blog/raw/master/images/vulnhub/wwhotel/index.png)  
+![VulnHub worst western hotel index page](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/index.png)  
 
 Le site semble basé sur PrestaShop d'après les balises méta :  
 
@@ -199,7 +199,7 @@ socks5 192.168.56.9 1080 Prime tinkerbell1
 
 Et pour Firefox la configuration Proxy Toggle :  
 
-![VulnHub Worst Western Hotel Socks proxy configuration](https://github.com/devl00p/blog/raw/master/images/vulnhub/wwhotel/proxy_toggle.png)
+![VulnHub Worst Western Hotel Socks proxy configuration](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/proxy_toggle.png)
 
 On peut faire passer Nmap via le serveur SOCKSv5 à condition que ce soit en mode connecté (avec -sT). De la même façon on ne pourra pas effectuer un ping-scan. Il faut donc choisir quel port tester, ici le port 80 sur la plage d'adresse *192.168.1.0/24* qui était mentionnée dans le fichier texte :  
 
@@ -305,7 +305,7 @@ TV5Monde
 
 Avec l'extension Firefox *Cookie Quick Manager* (mais plein d'autres font le job) j'édite la valeur du cookie ce qui me permet de me connecter au site comme si j'étais l'administrateur.  
 
-![VulnHub worst western hotel CCTV pictures](https://github.com/devl00p/blog/raw/master/images/vulnhub/wwhotel/cctv_website.png)
+![VulnHub worst western hotel CCTV pictures](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/cctv_website.png)
 
 Un javascript simule l'affichage de caméras de sécurité. La majorité sont des images fixes (une est animée) et sont toutes définies dans ce tableau :  
 
@@ -320,7 +320,7 @@ images[5] = "4063830e548b8aea3586473c668aac826516be33/6.jpg";
 
 Celle qui a le path le plus long est particulièrement intéressante car on peut y voir un bureau avec un écran d'ordinateur sur lequel est collé un postit avec la mention suivante :  
 
-![Worst Western Hotel VulnHub CTF password on postit](https://github.com/devl00p/blog/raw/master/images/vulnhub/wwhotel/postit.png)  
+![Worst Western Hotel VulnHub CTF password on postit](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/postit.png)  
 
 ```plain
 peterg
@@ -333,7 +333,7 @@ J'ai fouillé un très long moment dans l'interface web avant de trouver quelque
 
 La technique pour obtenir un webshell sur du PrestaShop est relativement similaire à ce qu'on ferait sur du Wordpress ou un autre CMS. La différence est que l'on ne peut pas éditer un fichier PHP directement, il faut créer un nouveau thème à partir d'un déjà existant, exporter ce nouveau thème, le supprimer, l'éditer en local (pour injecter notre backdoor) puis l'uploader sur le site.  
 
-![VulnHub Worst Western Hotel Prestashop theme duplication](https://github.com/devl00p/blog/raw/master/images/vulnhub/wwhotel/duplicate_prestashop_theme.png)  
+![VulnHub Worst Western Hotel Prestashop theme duplication](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/duplicate_prestashop_theme.png)  
 
 En temps normal ça ne doit pas prendre une demi heure (arghh !).  
 
@@ -530,7 +530,7 @@ Il s'agit d'une appli web qui expose à ce stade deux fonctionnalités : login e
 
 On peut changer la configuration de *Proxy Toggle* dans Firefox pour le faire pointer vers notre SOCKS4 local. De là quelques tests permettent de constater que le formulaire de récupération de mot de passe est vulnérable à une faille d'injection SQL de type test booléen.  
 
-![VulnHub CTF worst western hotel boolean-based SQL injection](https://github.com/devl00p/blog/raw/master/images/vulnhub/wwhotel/boolean_sql.png)  
+![VulnHub CTF worst western hotel boolean-based SQL injection](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/wwhotel/boolean_sql.png)  
 
 Par défaut (en ne passant que les options de base) SQLmap s'y cassait les dents, il a donc fallut le tenir par la main pour qu'il voit l'exploitation boolean-based :  
 
@@ -790,4 +790,4 @@ cc12d63f25ef unless-stopped
 
 Docker se charge ici de lancer (et relancer en cas de crash) tous les containers. Cette information ne peut se voir qu'avec la ligne de commande docker, le service Docker gérant ses containers à sa manière (les informations doivent être gardées dans un format trop compliqué pour le commun des mortels).
 
-*Published December 11 2021 at 23 11*
+*Published December 11 2021 at 23:11*

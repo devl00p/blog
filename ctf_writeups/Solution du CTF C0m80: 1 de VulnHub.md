@@ -194,7 +194,7 @@ L'exécutable semble packé et pour ne pas perdre du temps inutilement je l'ai s
 
 Il semble que le binaire soit packé avec UPX 1.25 (mais les noms classiques des sections n'apparaissent pas) et l'exécutable à des infos de copyright faisant référence à [Xlight FTP Server](http://www.xlightftpd.com/) en version 3.8.8.  
 
-![Xlight FTP Server copyright and version infos](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_xlightftp_version.png)  
+![Xlight FTP Server copyright and version infos](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_xlightftp_version.png)  
 
 Les captures prises par les sandbox confirment le nom du logiciel mais le numéro de version n’apparaît pas.  
 
@@ -340,7 +340,7 @@ Et victoire... on peut se connecter sur le *Mantis* avec *guest / guest*.
 
 Avec les droits dont on dispose on peut consulter la discussion sur le bug 6 pour le projet *NotepadPussPuss++* (on y trouve un lien vers l'archive *http://c0m80.ctf/bin/npp.zip*) et celle pour le bug 3 du projet *bestFTPserver\_public*.  
 
-![C0m80 MantisBT capture](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_bug3.png)
+![C0m80 MantisBT capture](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_bug3.png)
 
 Evidemment le lien vers le CVE est là pour nous troller :p  
 
@@ -509,7 +509,7 @@ Une fois le serveur lancé en local on peut faire notre essai d'injection de com
 http://www.perdu.com/ & echo PWNED > c:/windows/temp/yolo.txt & notepad c:/windows/temp/yolo.txt &
 ```
 
-![c0m80 command injection test](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_ftp_command_injection.png)  
+![c0m80 command injection test](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_ftp_command_injection.png)  
 
 Dès lors j'ai tenté quelques injections sympas Windows related :  
 
@@ -716,7 +716,7 @@ J'ai eu recours à un outil de *NirSoft* baptisé [PasswordFox](https://www.nirs
 
 Le programme demande deux dossiers : le dossier profil de l'utilisateur et le dossier d'installation de Firefox qu'il aura préalablement fallut récupérer en local.  
 
-![C0m80 PasswordFox passwords extraction](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_passwordfox.png)
+![C0m80 PasswordFox passwords extraction](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_passwordfox.png)
 
 Le mot de passe *3mrgnc33mrgnc33mrgnc3* s'avère être celui de bob dédié au MantisBT.  
 
@@ -726,11 +726,11 @@ Mais la partie vraiment intéressante concerne le fichier *~/.wine/drive\_c/user
 
 Il semble que bob se soit écrit un password manager maison en javascript. L'indice d'oubli de mot de passe est *superbuddies* et si on rentre *alice* comme master password on obtient la liste suivante :  
 
-![C0m80 JS password manager](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_passmngr.png)
+![C0m80 JS password manager](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_passmngr.png)
 
 Cette fois c'est clair qu'on dispose du password pour se connecter graphiquement. L'autre mot de passe correspond au pass-manager graphique utilisé par bob, ce qui va nous permettre de déchiffrer sa clé privée et de nous connecter sur le compte d'alice (enfin !).  
 
-![c0m80 alice shell](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_al1ce_shell.png)
+![c0m80 alice shell](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_al1ce_shell.png)
 Like a déjà vu
 --------------
 
@@ -762,7 +762,7 @@ chmod g+s g0tr00t
 
 Ce qui nous permet de récupérer le flag :  
 
-![C0m80 final flag](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_priv_esc.png)
+![C0m80 final flag](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_priv_esc.png)
 
 Je m'en tamponne le dépassement
 -------------------------------
@@ -880,7 +880,7 @@ Vu que la commande que l'on passe est un peu après l'adresse de ESP, ça vaut l
 
 La Structure de la pile ressemble à ça :  
 
-![C0m80 bestFTPServer stack structure before BOF](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_stack_structure.png)
+![C0m80 bestFTPServer stack structure before BOF](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_stack_structure.png)
 
 On commence par faire un test simple en passant la commande suivante :  
 
@@ -898,15 +898,15 @@ cd .&calc&BBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKK\x1c\x4x\x40\x00
 
 on écrase avec succès l'adresse de retour :  
 
-![C0m80 bestFTPServer stack structure after BOF](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_post_bof.png)
+![C0m80 bestFTPServer stack structure after BOF](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_post_bof.png)
 
 PWNED!!!  
 
-![C0m80 bestFTPServer stack overflow exploitation](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_bof_exploitation.png)
+![C0m80 bestFTPServer stack overflow exploitation](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_bof_exploitation.png)
 
 Le reste de l'injection ne semble pas poser de problèmes :  
 
-![C0m80 bestFTPServer stack overflow logs](https://github.com/devl00p/blog/raw/master/images/c0m80/c0m80_exec_log.png)
+![C0m80 bestFTPServer stack overflow logs](https://raw.githubusercontent.com/devl00p/blog/master/images/c0m80/c0m80_exec_log.png)
 
 On pourrait faire passer le reste en commentaire batch (::) pour que ce soit plus discret.
 
@@ -915,4 +915,4 @@ Closing credits
 
 Voilà un CTF qui fait partie des meilleurs que j'ai croisé sur VulnHub avec une bonne difficulté tout en restant fun, merci à [3mrgnc3](https://twitter.com/@3mrgnc3) pour le challenge.
 
-*Published March 04 2018 at 16 23*
+*Published March 04 2018 at 16:23*

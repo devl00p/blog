@@ -128,7 +128,7 @@ Ici se trouve un utilisateur *Franck Morris* qui a le hash bcrypt *$2y$10$bp5wBf
 
 J'ai tenté sans succès de le casser avec *Penglab* (j'ai laissé tomber après un moment) et j'ai préféré créer un nouvel utilisateur, privilégié lui aussi :  
 
-![DevGuru CTF October CMS account creation](https://github.com/devl00p/blog/raw/master/images/vulnhub/devguru_octobercms_new_account.png)
+![DevGuru CTF October CMS account creation](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/devguru_octobercms_new_account.png)
 
 J'ai eu recours au site [bcrypt-generator.com](https://bcrypt-generator.com/) pour obtenir un hash valide (qui correspond ici à *guest*).  
 
@@ -421,4 +421,4 @@ root@devguru:/root# cat msg.txt
 Vous pouvez aussi lire [cet article](https://www.hackingarticles.in/devguru-1-vulnhub-walkthrough/) pour une résolution un peu différente (Markup October + Hooks Gitea à la main)  
 
 
-*Published February 02 2022 at 18 03*
+*Published February 02 2022 at 18:03*

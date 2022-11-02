@@ -621,4 +621,4 @@ Para                       Ação        De
 Done ! I had some fun time with the firewall rules but I'm disappointed that the binary seems to lead to nowhere.  
 
 
-*Published January 09 2022 at 14 27*
+*Published January 09 2022 at 14:27*

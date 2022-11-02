@@ -99,4 +99,4 @@ root@Lollip0p:/root# crontab -l
 
 Le plus dur aura été l'énumération :p
 
-*Published November 17 2020 at 14 12*
+*Published November 17 2020 at 14:12*

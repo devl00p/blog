@@ -64,7 +64,7 @@ It looks like there is a home-made service listening on port 666 plus two intere
 
 The */personal/* URL is in fact a website dedicated to *g0tmi1k* (*VulnHub*'s creator).  
 
-![g0tmi1k fan club](https://github.com/devl00p/blog/raw/master/images/hell_1.png)
+![g0tmi1k fan club](https://raw.githubusercontent.com/devl00p/blog/master/images/hell_1.png)
 
 Under the */super\_secret\_login\_path\_muhahaha/* URL we find an *"Admin"* section asking us for credentials.  
 
@@ -1075,4 +1075,4 @@ while 1:
 
 Obvisously the binary was just a trap to waste our time... Even the segfault message was false. The 64bit ELF program was never launched on the system, there's only this Python code (U mad bro ?)
 
-*Published July 20 2014 at 11 01*
+*Published July 20 2014 at 11:01*

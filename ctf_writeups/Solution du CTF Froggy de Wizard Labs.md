@@ -238,4 +238,4 @@ proof.txt  root.txt
 ```
 
 
-*Published May 21 2019 at 18 09*
+*Published May 21 2019 at 18:09*

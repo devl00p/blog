@@ -184,11 +184,11 @@ et en injectant le code HTML suivant dans le *Display name* :
 
 On obtient enfin le fichier attendu :  
 
-![Gemini CTF /etc/passwd dump](https://github.com/devl00p/blog/raw/master/images/gemini_etc_passwd.png)
+![Gemini CTF /etc/passwd dump](https://raw.githubusercontent.com/devl00p/blog/master/images/gemini_etc_passwd.png)
 
 Je trouve facilement le fichier où sont stockés les identifiants SQL de l'appli (avec le Github c'est pas trop compliqué) :  
 
-![Gemini CTF SQL credentials dump](https://github.com/devl00p/blog/raw/master/images/gemini_settings_php.png)
+![Gemini CTF SQL credentials dump](https://raw.githubusercontent.com/devl00p/blog/master/images/gemini_settings_php.png)
 
 Mais ceux-çi s'avèrent inutiles. On a plus de chances en dumpant le contenu de */home/gemini1/.ssh/id\_rsa* qui nous offre un accès SSH :)  
 
@@ -295,4 +295,4 @@ Finish him
 C'était amusant d'avoir à faire à ce cas d'exploitation, même si le challenge était un peu court. J'espère d'autres CTF à venir dans la même série :)  
 
 
-*Published March 15 2018 at 18 07*
+*Published March 15 2018 at 18:07*

@@ -114,7 +114,7 @@ $ gobuster -u http://192.168.3.2/ -w raft-large-files.txt -s 200,204,301,302,307
 
 Ce script nous indique de passer une variable *cmd* alors on s'exécute... et lui exécute :)   
 
-![Vulnhub Escalate_Linux CTF first shell](https://github.com/devl00p/blog/raw/master/images/vulnhub/privesc_ctf_phpshell.png)
+![Vulnhub Escalate_Linux CTF first shell](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/privesc_ctf_phpshell.png)
 
 C'est aussi simple que cela !  
 
@@ -501,4 +501,4 @@ Tous les chemins mènent à root
 
 CTF très classique et basique, quelques privesc originales auraient été les bienvenues.
 
-*Published July 09 2019 at 18 06*
+*Published July 09 2019 at 18:06*

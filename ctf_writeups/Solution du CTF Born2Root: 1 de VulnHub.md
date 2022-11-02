@@ -301,4 +301,4 @@ Finish line
 
 Ce CTF se finit un peu en eau de boudin avec une solution qui montre peu d'intérêt et des épreuves visiblement buggés. Le second opus est en cours de création d'après son auteur.
 
-*Published March 13 2018 at 18 35*
+*Published March 13 2018 at 18:35*

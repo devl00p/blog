@@ -222,7 +222,7 @@ Une autre recherche rapide permet de retrouver ce hash sur le web qui correspond
 
 Une fois connecté en admin il est très aisé de créer une nouvelle page php pour y placer par exemple une backdoor.  
 
-![NanoCMS edit a PHP webpage](https://github.com/devl00p/blog/raw/master/images/ctf5.png)
+![NanoCMS edit a PHP webpage](https://raw.githubusercontent.com/devl00p/blog/master/images/ctf5.png)
 
 On peut ensuite lancer des commandes simplement via */~andy/data/pages/pwned.php?cmd=ls*  
 
@@ -430,4 +430,4 @@ guesses: 5  time: 0:00:20:01 DONE (Mon Jul 14 16:13:48 2014)  c/s: 35139  trying
 
 Pwned!
 
-*Published July 21 2014 at 19 11*
+*Published July 21 2014 at 19:11*

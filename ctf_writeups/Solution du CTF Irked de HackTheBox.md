@@ -161,7 +161,7 @@ Le binaire *viewuser* semble être le chemin tout tracé :
 
 Une fois ce binaire récupéré on l'ouvre dans *Cutter* pour voir le *main()* :  
 
-![HackTheBox Irked CTF viewuser disassembly in Cutter](https://github.com/devl00p/blog/raw/master/images/htb/irked_viewuser_main.png)
+![HackTheBox Irked CTF viewuser disassembly in Cutter](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/irked_viewuser_main.png)
 
 Et parmi les chaînes de caractères présentes dans le programme on voit */tmp/listusers* qui n'existe pas...  
 
@@ -185,4 +185,4 @@ pass.txt  root.txt
 ```
 
 
-*Published April 27 2019 at 17 44*
+*Published April 27 2019 at 17:44*

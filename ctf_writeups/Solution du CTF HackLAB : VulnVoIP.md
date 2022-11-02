@@ -58,11 +58,11 @@ Quand on se rend sur la racine web on trouve une page web avec deux liens, l'un 
 
 Cette page de login */recordings/* indique que l'on a affaire à une version 2.6 de *FreePBX*. Une indication informe qu'il faut se connecter avec l'extension comme nom d'utilisateur et comme mot de passe le même que celui du téléphone (donc très certainement numérique).  
 
-![Recordings FreePBX](https://github.com/devl00p/blog/raw/master/images/vulnvoip/recordings.png)
+![Recordings FreePBX](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnvoip/recordings.png)
 
 Un coup de *buster* via le récent module *Wapiti* du même nom permet de trouver des ressources supplémentaires comme sur */panel/* où l'on trouve une interface web (baptisée *Flash Operator Panel*) qui liste des utilisateurs avec leur extension téléphonique.  
 
-![FreePBX Flsh Panel](https://github.com/devl00p/blog/raw/master/images/vulnvoip/panel.png)
+![FreePBX Flsh Panel](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnvoip/panel.png)
 
 J'ai jeté aussi un coup d’œil dans les modules *Metasploit* : deux modules existent mais je n'ai pas eu de résultats probants et suis resté en *"manuel".*  
 
@@ -237,4 +237,4 @@ cc614640424f5bd60ce5d5264899c3be
 
 Finish
 
-*Published October 01 2014 at 18 57*
+*Published October 01 2014 at 18:57*

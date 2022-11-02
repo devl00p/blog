@@ -847,4 +847,4 @@ Until next time,
 ```
 
 
-*Published October 06 2014 at 08 12*
+*Published October 06 2014 at 08:12*

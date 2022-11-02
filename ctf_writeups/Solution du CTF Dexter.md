@@ -83,7 +83,7 @@ Ainsi si l'on se base sur l'article de *SpiderLabs*, le paramètre val envoyé p
 
 Son décodage (par Python ou tout autre site en ligne et utilitaire) retourne la clé *"gisha"* (le bot génère une clé aléatoire à chaque requête).  
 
-![Harry's Code](https://github.com/devl00p/blog/raw/master/images/dexter1.jpg)
+![Harry's Code](https://raw.githubusercontent.com/devl00p/blog/master/images/dexter1.jpg)
 
 J'ai écrit le programme suivant qui permet de chiffrer / déchiffrer des données transmises par *Dexter* :  
 
@@ -222,7 +222,7 @@ param = page, payload = ' OR sleep(5)#
 timeout !
 ```
 
-![Wonderfuck!](https://github.com/devl00p/blog/raw/master/images/dexter2.gif)
+![Wonderfuck!](https://raw.githubusercontent.com/devl00p/blog/master/images/dexter2.gif)
 
 Le paramètre page est donc vulnérable et il faut fermer une quote pour injecter du SQL.  
 
@@ -512,4 +512,4 @@ Un dièse est placé pour marquer un commentaire bash et une quote est là pour 
 Et miracle :  
 
 
-*Published June 13 2014 at 22 09*
+*Published June 13 2014 at 22:09*

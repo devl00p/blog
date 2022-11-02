@@ -136,7 +136,7 @@ Une fois rendu sur l'URL indiquée, on a un formulaire avec trois champs : usern
 
 On dispose aussi du code source de la page à notre disposition :  
 
-![Homeless MD5 check source code](https://github.com/devl00p/blog/raw/master/images/homeless_ctf_md5.png)  
+![Homeless MD5 check source code](https://raw.githubusercontent.com/devl00p/blog/master/images/homeless_ctf_md5.png)  
 
 Simple non ? Hmmm... pas vraiment.  
 
@@ -420,4 +420,4 @@ Bilan
 
 Le challenge alternait des étapes simples (brute-force) avec de véritables casses-têtes. Pas forcément très réaliste (peu de chances de tomber sur un formulaire limité aux fichiers de 8 octets et moins) mais ça a permis de redécouvrir des fonctionnalités oubliées de PHP. Enfin c'est toujours un plaisir de partager des idées sur un CTF avec quelqu'un d'autre :)
 
-*Published February 23 2018 at 18 08*
+*Published February 23 2018 at 18:08*

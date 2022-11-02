@@ -236,4 +236,4 @@ $q="select count(*) from passwd where username='".$_POST['username']."' and pass
 
 
 
-*Published January 11 2022 at 20 06*
+*Published January 11 2022 at 20:06*

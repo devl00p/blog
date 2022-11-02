@@ -298,4 +298,4 @@ Un peu déçu par ce challenge qui certes propose des cas qui changent un peu ma
 
 Tout comme le filtre dans *index.php* quelque peu ridicule...
 
-*Published January 22 2018 at 16 15*
+*Published January 22 2018 at 16:15*

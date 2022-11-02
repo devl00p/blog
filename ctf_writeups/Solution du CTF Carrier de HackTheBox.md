@@ -36,7 +36,7 @@ On a ici deux services accessibles, donc le choix est limité :p
 
 La page d'index affiche un formulaire ainsi que deux codes énigmatiques (45007, 45009).  
 
-![HackTheBox Carrier CTF index page](https://github.com/devl00p/blog/raw/master/images/htb/carrier/carrier_index.png)
+![HackTheBox Carrier CTF index page](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/carrier/carrier_index.png)
 
 En fouillant sur le serveur web avec un dir-buster quelconque on trouve la page *http://10.10.10.105/debug/index.php* avec des infos toujours bonnes à noter (versions de PHP, du kernel, de la distribution, utilisateur utilisé, racine web) :   
 
@@ -51,11 +51,11 @@ On trouve aussi un dossier *doc* à la racine contenant deux fichiers énigmatiq
 
 Le premier est un diagramme réseau :  
 
-![HackTheBox Carrier CTF BGP diagram](https://github.com/devl00p/blog/raw/master/images/htb/carrier/diagram_for_tac.png)
+![HackTheBox Carrier CTF BGP diagram](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/carrier/diagram_for_tac.png)
 
 Le second fichier est un document PDF qui énumère des codes d'erreurs. On y trouve les deux codes vu précédemment :  
 
-![HackTheBox Carrier CTF error codes](https://github.com/devl00p/blog/raw/master/images/htb/carrier/carrier_error_codes.png)
+![HackTheBox Carrier CTF error codes](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/carrier/carrier_error_codes.png)
 
 Il ne nous reste plus qu'à trouver ce numéro de châssis... Est-ce que... ?  
 
@@ -93,7 +93,7 @@ $ patator http_fuzz url="http://10.10.10.105/" method=POST body="username=FILE0&
 
 La zone admin contient différentes sections dont une avec des tickets de support et une autre (diagnostics) qui semble obtenir un extrait des processus du système quand on clique sur un bouton...  
 
-![HackTheBox Carrier CTF web admin](https://github.com/devl00p/blog/raw/master/images/htb/carrier/carrier_admin_zone.png)
+![HackTheBox Carrier CTF web admin](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/carrier/carrier_admin_zone.png)
 
 On relève quelques tickets qui semblent intéressants :  
 
@@ -129,7 +129,7 @@ Il y a de l'injection de commande dans l'air :)
 
 On peut tenter d'accoler une commande *ls* et renvoyer le tout après encodage :  
 
-![HackTheBox Carrier CTF web RCE](https://github.com/devl00p/blog/raw/master/images/htb/carrier/carrier_rce.png)
+![HackTheBox Carrier CTF web RCE](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/carrier/carrier_rce.png)
 
 J'ai écrit le code suivant qui effectue un download / execute d'un reverse *Meterpreter* (j'ai essuyé quelques refus avant que ça marche d'où les nombreux entêtes) :  
 
@@ -272,11 +272,11 @@ C'est ce que j'ai fait mais ça n'a mené à rien. Il est préférable de mettre
 
 Justement on voit que *ZaZa* :  
 
-![HackTheBox Carrier CTF ZaZa BPG announce](https://github.com/devl00p/blog/raw/master/images/htb/carrier/carrier_bgp_zaza.png)
+![HackTheBox Carrier CTF ZaZa BPG announce](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/carrier/carrier_bgp_zaza.png)
 
 ainsi que *CastCom* :  
 
-![HackTheBox Carrier CTF CastCom BGP announce](https://github.com/devl00p/blog/raw/master/images/htb/carrier/carrier_bgp_castcom.png)
+![HackTheBox Carrier CTF CastCom BGP announce](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/carrier/carrier_bgp_castcom.png)
 
 annoncent eux même la route *10.120.15.0/24* ce qui fait que notre propre annonce ne doit pas avoir d'effet sur leur trafic...  
 
@@ -363,4 +363,4 @@ You are being redirected
 
 Super CTF de *snowscan* :) Merci à lui !
 
-*Published March 17 2019 at 14 23*
+*Published March 17 2019 at 14:23*

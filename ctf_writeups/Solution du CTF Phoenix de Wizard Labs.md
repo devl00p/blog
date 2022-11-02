@@ -276,4 +276,4 @@ root
 
 Un CTF simple si on exclue la galère à avoir un outil de brute-force SMB fonctionnel ainsi que le léger guessing à devoir attaquer le compte root dès le début.
 
-*Published November 17 2020 at 14 25*
+*Published November 17 2020 at 14:25*

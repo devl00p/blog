@@ -121,7 +121,7 @@ On se dit alors que peut être l'authentification est mal écrite et qu'il est f
 
 Et le miracle s'accomplit :   
 
-![Wapiti htaccess bypass](https://github.com/devl00p/blog/raw/master/images/wapiti3_htaccess_bypass.png)  
+![Wapiti htaccess bypass](https://raw.githubusercontent.com/devl00p/blog/master/images/wapiti3_htaccess_bypass.png)  
 
 Mégateuf Wayne ! On peut accéder à la page si on effectue par exemple un POST à la place d'un GET sur */index.php*.  
 
@@ -348,7 +348,7 @@ cd /home/rene/backup; touch -- "--checkpoint=1" touch -- "--checkpoint-action=ex
 
 On attend un peu et on touche le jackpot :  
 
-![PIPE CTF flag](https://github.com/devl00p/blog/raw/master/images/pipe_ctf.png)  
+![PIPE CTF flag](https://raw.githubusercontent.com/devl00p/blog/master/images/pipe_ctf.png)  
 
 Au passage le script qui générait les fichiers BAK n'était là que pour la forme :  
 
@@ -360,4 +360,4 @@ chown rene:rene /home/rene/backup/*.BAK
 ```
 
 
-*Published November 17 2017 at 16 47*
+*Published November 17 2017 at 16:47*

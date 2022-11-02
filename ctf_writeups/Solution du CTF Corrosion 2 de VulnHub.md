@@ -277,7 +277,7 @@ Il s'agit d'un notebook Python à faire exécuter sur l'environnement d'exécuti
 
 Après environ 45 minutes le hash est tombé (*07051986randy*) :  
 
-![Corrosion 2 CTF cracking Randy hash using Google Colab](https://github.com/devl00p/blog/raw/master/images/vulnhub/corrosion_2_colab_crack.png)
+![Corrosion 2 CTF cracking Randy hash using Google Colab](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/corrosion_2_colab_crack.png)
 
 Note: si vous concevez un CTF n'utilisez JAMAIS un mot de passe aussi compliqué ou un algorithme de hashage aussi fort (pas de bcrypt ou de sha512 avec salt comme ici). Tout le monde n'a pas forcément votre carte graphique.  
 
@@ -327,4 +327,4 @@ root@corrosion:~# cat root.txt
 That's all folks!  
 
 
-*Published December 26 2021 at 11 33*
+*Published December 26 2021 at 11:33*

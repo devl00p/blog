@@ -204,4 +204,4 @@ Codename:       kali-rolling
 Bref un CTF inutile et inutilisable qui ne fait que gaspiller du temps, de l'espace disque et de la bande passante.  
 
 
-*Published January 09 2022 at 14 21*
+*Published January 09 2022 at 14:21*

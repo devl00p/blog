@@ -232,4 +232,4 @@ Cet utilisateur dispose d'un flag *user.txt* mais ça s'arrête là.
 
 Le CTF a un gros défaut : sans connaissance du nom d'utilisateur pour l'authentification HTTP, la quantité des combinaisons à tester pour l'attaque brute force rend le challenge impossible à résoudre.
 
-*Published February 10 2022 at 16 35*
+*Published February 10 2022 at 16:35*

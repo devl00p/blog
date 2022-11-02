@@ -109,7 +109,7 @@ Ces chaînes apparaissent en réalité accolées, j'ai découpé en lignes pour 
 
 Lancer un *ltrace* ou un *strace* retourne bien trop d'output sans intérêt. Le mieux que l'on puisse faire est de lancer *Wireshark* et de surveiller les communications générées entre notre machine et celle du CTF :  
 
-![VulnHub Replay CTF first trafic analysis](https://github.com/devl00p/blog/raw/master/images/vulnhub/replay_trafic1.png)
+![VulnHub Replay CTF first trafic analysis](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/replay_trafic1.png)
 
 Le premier comportement suspect c'est la façon dont sont envoyées les données au serveur, par petits blocs, ce qui explique notamment le temps de traitement assez long.  
 
@@ -119,4 +119,4 @@ Le client envoie ensuite un padding composé des caractères 0 jusqu'à obtenir 
 
 
 
-*Published July 19 2019 at 18 49*
+*Published July 19 2019 at 18:49*

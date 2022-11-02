@@ -173,7 +173,7 @@ Process 2 is leaving (no more tasks)
 
 Maintenant que l'on dispose d'un accès au Mongo on peut aller voir les collections présentes (ici avec *Studio 3T*) :  
 
-![WizardLabs Mangoo CTF credentials in mongodb passwords collection](https://github.com/devl00p/blog/raw/master/images/wizard-labs/mangoo_mongodb_credentials.png)
+![WizardLabs Mangoo CTF credentials in mongodb passwords collection](https://raw.githubusercontent.com/devl00p/blog/master/images/wizard-labs/mangoo_mongodb_credentials.png)
 
 On trouve des hashs facilement cassables (une recherche Google suffit) dans la collection *credentials*. J'ai rajouté les plaintext en rouge.  
 
@@ -336,4 +336,4 @@ cat /etc/tomcat8/tomcat-users.xml
 
 Plus qu'à ce connecter à SSH avec le compte root et obtenir le flag final :)
 
-*Published November 17 2020 at 14 33*
+*Published November 17 2020 at 14:33*

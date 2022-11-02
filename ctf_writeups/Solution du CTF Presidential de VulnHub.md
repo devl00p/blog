@@ -227,7 +227,7 @@ Bourriner n'ayant pas fonctionné je me suis penché sur l'inclusion de */proc/s
 
 Finalement le titre de l'interface web est un bon candidat :  
 
-![VulnHub Presidentials CTF phpMyAdmin title configuration](https://github.com/devl00p/blog/raw/master/images/vulnhub/presidentials_pma_settings.png)
+![VulnHub Presidentials CTF phpMyAdmin title configuration](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/presidentials_pma_settings.png)
 
 Le texte est bien présent :  
 
@@ -349,4 +349,4 @@ Please visit my blog and provide feedback - I will be glad to hear from you.
 
 Mission accomplie !](https://www.vulnhub.com/entry/presidential-1,500/)
 
-*Published December 26 2021 at 16 51*
+*Published December 26 2021 at 16:51*

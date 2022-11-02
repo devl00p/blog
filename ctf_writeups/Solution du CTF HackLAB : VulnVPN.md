@@ -323,4 +323,4 @@ cat trophy.txt
 
 C'est plus bourrin mais plus besoin d'attendre 6h25 :)
 
-*Published September 28 2014 at 14 51*
+*Published September 28 2014 at 14:51*

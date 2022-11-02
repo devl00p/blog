@@ -20,7 +20,7 @@ Les pages d'index des IIS ne nous offrent rien de plus que la tête d'un chien �
 
 Sur */remote* on trouve un *Powershell Web Access*. Sans trop savoir de quoi il s'agit on devine ce qu'il peut y avoir derrière.  
 
-![HackTheBox Giddy PowerShell Web Access login page](https://github.com/devl00p/blog/raw/master/images/htb/giddy_pwa.png)
+![HackTheBox Giddy PowerShell Web Access login page](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/giddy_pwa.png)
 
 Quelques essais de logins n'ont amenés nul part. A noter la présence de différents champs cachés de formulaire (dans le style *\_\_VIEWSTATE*) qui compliquent bien les attaques brute-force.  
 
@@ -38,7 +38,7 @@ Incorrect syntax near ''.
 
 Je lance [Wapiti](http://wapiti.sourceforge.net/) sur le site qui trouve différents points d'attaque pour l'injection SQL dont celle-ci en GET :  
 
-![HackTheBox Giddy Wapiti SQL injection report](https://github.com/devl00p/blog/raw/master/images/htb/giddy_wapiti.png)
+![HackTheBox Giddy Wapiti SQL injection report](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/giddy_wapiti.png)
 
 J'ai lancé SQLmap sur cette URL qui p'a permis d'obtenir la liste des utilisateurs suivants du système ainsi que différentes infos :  
 
@@ -147,7 +147,7 @@ Heureusement les identifiants fonctionnent sur *Powershell Web Access*. La mire 
 
 On obtient alors une session Powershell mais la joie est de courte durée puisque l'on est dans un mode de langage restreint (à différencier [des modes d'exécution](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6), ici la valeur par défaut est en place). Le plus gênant est que l'on ne peut pas créer de nouvel objet donc pas de *WebClient* pour télécharger d'autre code Powershell ou passer un meterpreter via *web\_delivery*.  
 
-![HackTheBox Giddy PowerShell Web Access session in constrained language](https://github.com/devl00p/blog/raw/master/images/htb/giddy_pwa_session.png)
+![HackTheBox Giddy PowerShell Web Access session in constrained language](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/giddy_pwa_session.png)
 
 On serait tenté d'utiliser les commandes DOS pour copier un exécutable (ou même l'appeler directement depuis un partage SMB) mais c'est sans compter sur les GPOs :  
 
@@ -399,4 +399,4 @@ Victory
 
 Encore une fois un challenge très intéressant qui a permis d'utiliser différentes techniques de contournement de la sécurité sous Windows.
 
-*Published February 16 2019 at 16 21*
+*Published February 16 2019 at 16:21*

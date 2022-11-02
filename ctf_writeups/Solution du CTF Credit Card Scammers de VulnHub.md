@@ -202,7 +202,7 @@ Une fois le cookie réutilisé dans le navigateur j’accède à l'interface d'a
 
 Via le tableau HTML du dashboard et les noms de colonnes on devine qu'il y a une table *orders* avec au moins un champ nommé *cvv*. Je tente donc une simple édition :  
 
-![Credit Card Scammers VulnHub CTF admin interface](https://github.com/devl00p/blog/raw/master/images/vulnhub/scammers.png)  
+![Credit Card Scammers VulnHub CTF admin interface](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/scammers.png)  
 
 ```plain
 update orders set cvv=current_user();
@@ -426,4 +426,4 @@ Il faut mettre son interface réseau en écoute pour voir les paquets qui arrive
 C'est loin d'être une science exacte : Selenium c'est bien pour des tests d'intégration mais il faut pas trop chercher à le pousser.  
 
 
-*Published December 23 2021 at 18 08*
+*Published December 23 2021 at 18:08*

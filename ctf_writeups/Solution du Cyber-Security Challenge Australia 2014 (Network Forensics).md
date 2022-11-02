@@ -668,4 +668,4 @@ Le PDF *"secret document"* ne contient que le flag : *HoardDirectCrumb136*
 
 Victory
 
-*Published December 09 2014 at 22 30*
+*Published December 09 2014 at 22:30*

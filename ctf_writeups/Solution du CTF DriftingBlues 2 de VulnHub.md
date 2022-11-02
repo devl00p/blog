@@ -163,4 +163,4 @@ congratulations!
 Cette exploitation cache l'input d'où l'absence des commandes dans l'affichage précédent.  
 
 
-*Published January 19 2022 at 21 01*
+*Published January 19 2022 at 21:01*

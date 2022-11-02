@@ -325,4 +325,4 @@ Finish it
 
 L'exploitation du fichier *.config* était intéressante et méritait le détour. L'escalade de privilèges était pour le moins simple.
 
-*Published October 27 2018 at 17 11*
+*Published October 27 2018 at 17:11*

@@ -408,4 +408,4 @@ root:$1$.GWA7rU/$lVPNjveio2K8Hpsuk.6N4/:15861:0:99999:7:::
 
 Game over
 
-*Published July 22 2014 at 13 25*
+*Published July 22 2014 at 13:25*

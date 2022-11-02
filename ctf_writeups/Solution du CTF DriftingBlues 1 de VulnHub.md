@@ -171,4 +171,4 @@ thank you for playing
 
 Un CTF du type jeu de pistes mais suffisamment logique pour être agréable.
 
-*Published January 19 2022 at 20 10*
+*Published January 19 2022 at 20:10*

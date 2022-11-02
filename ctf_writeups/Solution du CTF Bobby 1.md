@@ -82,7 +82,7 @@ Rien d'intéressant au niveau de ces pages. Le dossier */printers/* requiert des
 
 La page d'index du site est le blog d'un certain *Bobby* mais *Bobby* est un peu trop bavard :  
 
-![Blog de Bobby](https://github.com/devl00p/blog/raw/master/images/bobby_blog.png)  
+![Blog de Bobby](https://raw.githubusercontent.com/devl00p/blog/master/images/bobby_blog.png)  
 
 On trouve d'autres informations en commentaire dans le code HTML :  
 
@@ -374,7 +374,7 @@ meterpreter > portfwd add -l 3389 -p 3389 -r 127.0.0.1
 
 On peut maintenant se connecter via *TSE* avec les même identifiants que pour le FTP (sous *openSUSE* il y a un client tout ce qu'il y a d'épuré).  
 
-![Configuration du client RDP](https://github.com/devl00p/blog/raw/master/images/rdp.png)
+![Configuration du client RDP](https://raw.githubusercontent.com/devl00p/blog/master/images/rdp.png)
 
 Sous *Metasploit*, on relance le handler et depuis la session *Windows* on lance *rbd.exe*.  
 
@@ -497,4 +497,4 @@ ab74f8217d5619acb2b708c7bdc50748
 
 Terminated
 
-*Published March 28 2014 at 18 01*
+*Published March 28 2014 at 18:01*

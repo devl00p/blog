@@ -427,4 +427,4 @@ et d'après l'historique bash de l'utilisateur *vulnosadmin* il a aussi tenté d
 
 Certaines des applis installées (OpenClinic, tikiwiki) n'ont pas de base de données créées quand aux autres les tables sont souvent vides...
 
-*Published May 29 2014 at 11 51*
+*Published May 29 2014 at 11:51*

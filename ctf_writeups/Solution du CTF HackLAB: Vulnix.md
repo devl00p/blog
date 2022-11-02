@@ -316,4 +316,4 @@ Il manquait plus que du *NIS* et la boucle était bouclé. *NIS* ? ... Non, lais
 
 Un challenge sympathique mais c'est dommage de ne pas avoir pu le terminer.
 
-*Published July 04 2014 at 22 26*
+*Published July 04 2014 at 22:26*

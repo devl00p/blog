@@ -216,4 +216,4 @@ root@kb-server:~# cat root.txt
 ```
 
 
-*Published December 08 2021 at 12 10*
+*Published December 08 2021 at 12:10*

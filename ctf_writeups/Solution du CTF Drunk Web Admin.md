@@ -366,4 +366,4 @@ Lorsqu'on rentre ces coordonnées (sans les apostrophes) dans *Google Maps*, cel
 
 Heureusement pour *Bob* et *Alice*, ce n'est pas *Mykonos* :p
 
-*Published June 29 2014 at 17 09*
+*Published June 29 2014 at 17:09*

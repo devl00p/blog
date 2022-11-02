@@ -342,7 +342,7 @@ Cette discussion nous permet de comprendre la présence du fichier *Documents/de
 
 L'avantage c'est que l'on sait ce que l'on recherche (une requête HTTP POST sur le port 80) c'est donc assez facile de s'y retrouver avec le bon filtre dans Wireshark.  
 
-![DerpNStink CTF Wireshark Wordpress password](https://github.com/devl00p/blog/raw/master/images/derpnstink_derp_password.png)
+![DerpNStink CTF Wireshark Wordpress password](https://raw.githubusercontent.com/devl00p/blog/master/images/derpnstink_derp_password.png)
 
 Ainsi on peut passer de *stinky* à *mrderp* via la commande su et le mot de passe *derpderpderpderpderpderpderp*.  
 
@@ -478,4 +478,4 @@ Pour info le fichier *elidumfy.php* présent était bien un reverse shell qui te
 Si l'auteur avait laissé une indication sur cette configuration réseau le fichier aurait pu alors être réutilisé.  
 
 
-*Published March 14 2018 at 12 01*
+*Published March 14 2018 at 12:01*

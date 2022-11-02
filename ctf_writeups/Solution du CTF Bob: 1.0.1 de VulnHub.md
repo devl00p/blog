@@ -252,4 +252,4 @@ Il aurait alors fallut un indice supplémentaire pour garder le focus sur le fic
 Et sur le plan cet technique ce CTF n'a pas vraiment d'intérêt :| mais il en faut pour tous les goûts   
 
 
-*Published March 20 2018 at 13 33*
+*Published March 20 2018 at 13:33*

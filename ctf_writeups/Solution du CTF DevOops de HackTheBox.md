@@ -43,7 +43,7 @@ Un serveur web classique (comme *Apache*) aura tendance à rediriger vers la ver
 
 Gobuster trouve quasi instantanément une page à */upload* qui nous invite visiblement à soumettre un fichier XML. Ça sent la faille XXE à plein nez.  
 
-![DevOops HackTheBox CTF XXE vulnerable form](https://github.com/devl00p/blog/raw/master/images/htb/devoops_upload.png)
+![DevOops HackTheBox CTF XXE vulnerable form](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/devoops_upload.png)
 
 Ni une ni deux on met un port 80 en écoute et on envoie un fichier XML pour voir si le script va aller chercher la DTD (fichier servant à la validation de notre XML).  
 
@@ -281,11 +281,11 @@ Les fichiers *authcredentials.key* sont des clés privées RSA mais aucune ne no
 
 On voit tout de même que le dossier *blogfeed* est versionné par Git donc je récupère le dépôt en local et comme je suis une grosse feignasse qui n'aime pas taper des commandes Git je charge ça dans *PyCharm* et je vais voir les logs :  
 
-![DevOops HackTheBox CTF Git logs](https://github.com/devl00p/blog/raw/master/images/htb/devoops_git_log.png)
+![DevOops HackTheBox CTF Git logs](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/devoops_git_log.png)
 
 Et on peut voir la présence d'une ancienne clé privée RSA via diff :  
 
-![DevOops HackTheBox CTF Git commit rsa key](https://github.com/devl00p/blog/raw/master/images/htb/devoops_auth_key_diff.png)
+![DevOops HackTheBox CTF Git commit rsa key](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/devoops_auth_key_diff.png)
 
 Cette fois c'est la bonne :  
 
@@ -312,4 +312,4 @@ Happy ending
 
 Un challenge sympa qui a permis d'exploiter une faille XXE dans du code Python et nécessitait un XML dans un format spécifique. Fouiller dans Git n'était pas bien compliqué mais rajoutait un peu d'originalité.
 
-*Published October 14 2018 at 08 47*
+*Published October 14 2018 at 08:47*

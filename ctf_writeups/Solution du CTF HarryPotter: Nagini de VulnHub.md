@@ -509,7 +509,7 @@ Bingo ! J'obtiens la modification espérée sur la page. Pus qu'à y placer le p
 update joomla.joomla_menu set title = (select password from joomla.joomla_users where email = 'site_admin@nagini.hogwarts') where title = 'HiThere';
 ```
 
-![Altered Joomla database VulnHub Nagini CTF](https://github.com/devl00p/blog/raw/master/images/vulnhub/nagini.png)  
+![Altered Joomla database VulnHub Nagini CTF](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/nagini.png)  
 
 Le hash semble assez corsé à casser, il faut dire déjà que c'est du *brcrypt*. A la place je récupère le hash présent dans mon conteneur MySQL et dont je connais le clair (*mysuperpassword*) et j'écrase celui du CTF :  
 
@@ -617,4 +617,4 @@ Here is your third hocrux: horcrux_{NTogRGlhZGVtIG9mIFJhdmVuY2xhdyBkZXN0cm95ZWQg
 Groovy !  
 
 
-*Published November 28 2021 at 17 29*
+*Published November 28 2021 at 17:29*

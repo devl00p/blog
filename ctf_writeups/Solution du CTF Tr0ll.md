@@ -131,7 +131,7 @@ overflow
 
 et dans le dossier */0x0856BF/this\_folder\_contains\_the\_password/* on trouve un fichier qui à priori contient le mot de passe :  
 
-![Dossier web tr0ll](https://github.com/devl00p/blog/raw/master/images/troll.png)  
+![Dossier web tr0ll](https://raw.githubusercontent.com/devl00p/blog/master/images/troll.png)  
 
 le mot de passe devrait alors être *Good\_job\_:)* Mais évidemment aucun utilisateur n'accepte ce mot de passe.  
 
@@ -511,4 +511,4 @@ for f in SECRET_FILES:
 ```
 
 
-*Published August 23 2014 at 15 08*
+*Published August 23 2014 at 15:08*

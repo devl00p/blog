@@ -218,4 +218,4 @@ update users set password=md5('chuck33') where user_id = 12;
 
 Un goût de trop peu ?
 
-*Published July 21 2014 at 22 09*
+*Published July 21 2014 at 22:09*

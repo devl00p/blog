@@ -126,7 +126,7 @@ https://10.10.10.71/exchweb/ - HTTP 302 (147 bytes, plain) redirects to https://
 
 La pèche est meilleure avec le serveur Apache. La page d'index est un ascii-art avec un lapin.  
 
-![HackTheBox Rabbit ascii-art](https://github.com/devl00p/blog/raw/master/images/htb/rabbit_ascii_art.jpg)
+![HackTheBox Rabbit ascii-art](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/rabbit_ascii_art.jpg)
 
 ```plain
 http://10.10.10.71:8080/phpmyadmin/
@@ -214,7 +214,7 @@ Table: users
 
 A ce stade, vu qu'on dispose des droits les plus importants de MySQL et qu'en plus j'ai aussi trouvé le DocumentRoot via un message d'erreur, on serait tenter de poser une backdoor PHP sur le système avec INTO OUTFILE ([voir Tales of pentest #1](http://devloop.users.sourceforge.net/index.php?article128/tales-of-pentest-1-celui-qui-donnait-la-permission-file)).  
 
-![HackTheBox Rabbit CTF php file disclosing path](https://github.com/devl00p/blog/raw/master/images/htb/rabbit_repo_error_path.jpg)
+![HackTheBox Rabbit CTF php file disclosing path](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/rabbit_repo_error_path.jpg)
 
 Seulement on ne peut pas le faire en raison d'un MySQL 5.7.19 avec l'option *secure\_file\_priv* lisible via *--sql-shell* de sqlmap :  
 
@@ -283,7 +283,7 @@ APT 101
 
 Une fois connecté sur le webmail (par exemple avec *Ariel*) on voit que quelqu'un attend de recevoir son rapport *TPS* (kezako ? aucune importance).  
 
-![HackTheBox Rabbit TPS report email](https://github.com/devl00p/blog/raw/master/images/htb/rabbit_tps_reports_mail.jpg)
+![HackTheBox Rabbit TPS report email](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/rabbit_tps_reports_mail.jpg)
 
 Il y a aussi deux emails, l'un pour indiquer que l'entreprise est passée à *Open Office*, l'autre pour indiquer la sécurisation des systèmes avec Windows Defender et le passage de Powershell en mode *Constrained Language* (voir [ici](https://blogs.msdn.microsoft.com/powershell/2017/11/02/powershell-constrained-language-mode/)).  
 
@@ -316,7 +316,7 @@ Il faut ensuite :
 2. Aller sur l'entrée *Standard* sous le nom de notre document
 3. Créer un nouveau module
 
-![HackTheBox Rabbit ODT Macro creation](https://github.com/devl00p/blog/raw/master/images/htb/rabbit_new_macro.jpg)
+![HackTheBox Rabbit ODT Macro creation](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/rabbit_new_macro.jpg)
 
 On place alors une macro avec un nom quelconque, par exemple :  
 
@@ -334,7 +334,7 @@ Il faut ensuite ferme la fenêtre d'édition des Macros et aller dans *Tools > C
 4. Et la macro
 5. S'assurer que c'est enregistré dans le fichier
 
-![Rabbit HackTheBox assign macro to open document event](https://github.com/devl00p/blog/raw/master/images/htb/rabbit_assign_load_macro.png)
+![Rabbit HackTheBox assign macro to open document event](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/rabbit_assign_load_macro.png)
 
 On envoi le document à tous les destinataires du carnet d'adresse et on attend. Au bout d'un moment il y a de l'activité dans le *tshark* :  
 
@@ -398,14 +398,14 @@ Final pwnage
 
 La dernière étape aura été la plus simple. Pour avoir déjà croisé WAMP dans un pentest je sais que [ce dernier fait tourner les scripts avec les droits SYSTEM](http://devloop.users.sourceforge.net/index.php?article128/tales-of-pentest-1-celui-qui-donnait-la-permission-file).  
 
-![HackTheBox Rabbit php code running as SYSTEM](https://github.com/devl00p/blog/raw/master/images/htb/rabbit_whoami_upload_joomla.png)
+![HackTheBox Rabbit php code running as SYSTEM](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/rabbit_whoami_upload_joomla.png)
 
 Dès lors il suffisait de placer une backdoor PHP sous la racine du Apache et on pouvait accéder au flag de l'administrateur.  
 
-![HackTheBox Rabbit root flag](https://github.com/devl00p/blog/raw/master/images/htb/rabbit_root_flag.png)
+![HackTheBox Rabbit root flag](https://raw.githubusercontent.com/devl00p/blog/master/images/htb/rabbit_root_flag.png)
 
 Autant vous dire que j'étais content que ce CTF soit enfin terminé :D Ça a été très fun de jouer avec les macros mais ça aurait été encore plus fun si l'expérience n'avait pas été aussi irritante (on se demande pourquoi autant de tentatives ont échouées alors qu'elles fonctionnait parfaitement en ayant recréé l’environnement en local).  
 
 En jouant une nouvelle fois avec la machine plus tard j'ai vu que l'on pouvait tout simplement faire exécuter une backdoor générée via *Shellter* en appelant un chemin UNC dans la macro. Bien sûr le comportement du *Meterpreter* pouvait être détecté en fonction de l'action utilisée.
 
-*Published August 18 2018 at 21 47*
+*Published August 18 2018 at 21:47*

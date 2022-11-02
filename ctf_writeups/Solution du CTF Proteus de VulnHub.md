@@ -36,13 +36,13 @@ PORT     STATE SERVICE
 
 L'interface web est plutôt basique mais ressemble beaucoup à des outils existants d'analyse de malware. On pourrait penser qu'il s'agit d'un logiciel open-source existant mais après recherche il semble qu'il n'en est rien.  
 
-![VulnHub CTF Proteus web interface](https://github.com/devl00p/blog/raw/master/images/vulnhub/proteus/website.png)
+![VulnHub CTF Proteus web interface](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/proteus/website.png)
 
 La mire de connexion n'a pas de failles bénignes : à titre d'exemple le message d'erreur n'est pas explicite si on a saisit un nom d'utilisateur ou un mot de passe invalide empêchant ainsi les énumérations.  
 
 Wapiti remonte des anomalies dans le traitement du nom d'utilisateur et sur le nom des fichiers que l'on peut uploader mais il s'agit uniquement d'erreurs 500 donc potentiellement des faux positifs.  
 
-![VulnHub CTF Proteus Wapiti report](https://github.com/devl00p/blog/raw/master/images/vulnhub/proteus/wapiti.png)
+![VulnHub CTF Proteus Wapiti report](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/proteus/wapiti.png)
 
 Quand on uploade un fichier dans le format attendu (binaire ELF) il semble que le site applique les exécutables *strings* et *objdump* dessus.  
 
@@ -50,7 +50,7 @@ L'output obtenu laisse supposer que le nom de fichier est encodé en base64 pour
 
 *Objdump* semble lui travailler sur un nom de fichier correspondant à une partie du hash du fichier.  
 
-![VulnHub CTF Proteus sample analysis](https://github.com/devl00p/blog/raw/master/images/vulnhub/proteus/analysis.png)
+![VulnHub CTF Proteus sample analysis](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/proteus/analysis.png)
 
 Quand on regarde le code source de la page de l'analyse on remarque que certains caractères ne sont pas échappés correctement (ici un guillemet) laissant supposer que l'output de la commande strings n'est pas proprement échappé et donc vulnérable à une faille XSS :  
 
@@ -92,7 +92,7 @@ Host: 192.168.3.254:8000
 
 Une fois le cookie injecté dans notre navigateur via *EditThisCookie* on a droit à un bouton supplémentaire pour la suppression des samples :  
 
-![VulnHub CTF Proteus sample admin button](https://github.com/devl00p/blog/raw/master/images/vulnhub/proteus/malwareadm.png)
+![VulnHub CTF Proteus sample admin button](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/proteus/malwareadm.png)
 
 Ce bouton est juste un lien vers *http://192.168.3.2/delete/NWQyOTA4ODgwMDVkMC4=*. La partie encodée correspondant au base64 d'un début de hash et d'un point.  
 
@@ -100,7 +100,7 @@ Ce point terminal est assez étrange et laisse supposer un traitement particulie
 
 On mise sur une injection de commande. Je renomme mon fichier (*mv yolo.bin 'yolo.;id;uname -a;'*) et quand je l'uploade :  
 
-![VulnHub CTF Proteus web RCE](https://github.com/devl00p/blog/raw/master/images/vulnhub/proteus/command_exec.png)
+![VulnHub CTF Proteus web RCE](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/proteus/command_exec.png)
 
 Un upload de *tsh* plus loin et j'ai mon shell :)  
 
@@ -160,11 +160,11 @@ L'analyse du binaire se fait rapidement avec la dernière version de *Cutter*.
 
 Il y a deux pointeurs qui sont alloués via *malloc()*. Une première chaîne baptisée *dest* de 450 octets et une seconde nommée *path* de 21 octets.  
 
-![VulnHub CTF Proteus malloc 2 strings](https://github.com/devl00p/blog/raw/master/images/vulnhub/proteus/malloc.png)
+![VulnHub CTF Proteus malloc 2 strings](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/proteus/malloc.png)
 
 On a ensuite un beau *strcpy()* sur *dest* avec *argv[1]* comme source. Comme *dest* vient avant *path* dans l'ordre des *malloc()* on est en mesure d'écraser le chunk contenant *path* (heap overflow basique).  
 
-![VulnHub CTF Proteus strcpy vulnerability](https://github.com/devl00p/blog/raw/master/images/vulnhub/proteus/strcpy.png)
+![VulnHub CTF Proteus strcpy vulnerability](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/proteus/strcpy.png)
 
 Et ce path est justement ouvert en écriture pour y placer l'UID utilisateur au format brut (si votre UID est 65 ça écrira le caractère A) suivi des données passées via *argv[1]*.  
 
@@ -258,9 +258,9 @@ Boum
 
 On peut profiter de nos privilèges pour changer les permissions sur le flag puis le rapatrier avec *tsh get*.  
 
-![VulnHub CTF Proteus final flag](https://github.com/devl00p/blog/raw/master/images/vulnhub/proteus/flag.png)
+![VulnHub CTF Proteus final flag](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/proteus/flag.png)
 
 Ce fut un CTF très intéressant avec une escalade de privilèges originale :)  
 
 
-*Published July 22 2019 at 21 17*
+*Published July 22 2019 at 21:17*

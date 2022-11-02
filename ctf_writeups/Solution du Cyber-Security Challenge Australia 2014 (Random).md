@@ -17,19 +17,19 @@ Pour résoudre l'exercice je ne me suis donc pas tourné vers un quelconque logi
 
 Pour celà il suffit d'ouvrir le fichier chiffré comme s'il s'agissait d'une image brute (*GIMP -> open as raw*) :  
 
-![Ouverture en mode raw](https://github.com/devl00p/blog/raw/master/images/cysca/gimp_raw_open.png)  
+![Ouverture en mode raw](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_raw_open.png)  
 
 Comme les entêtes sont inconnus on doit spécifier nous même la longueur et largeur de l'image :  
 
-![Premiere ouverture](https://github.com/devl00p/blog/raw/master/images/cysca/gimp_alpha_rvb.png)  
+![Premiere ouverture](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_alpha_rvb.png)  
 
 Par tâtonnements on trouve des paramètres valides :  
 
-![Recherche des bons paramètres](https://github.com/devl00p/blog/raw/master/images/cysca/gimp_ecb_size.png)  
+![Recherche des bons paramètres](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_ecb_size.png)  
 
 Et après quelques retouches artistiques :  
 
-![Après quelques retouches](https://github.com/devl00p/blog/raw/master/images/cysca/gimp_final.png)  
+![Après quelques retouches](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/gimp_final.png)  
 
 Le flag est BoxingDesktopGutter798.  
 
@@ -219,13 +219,13 @@ Les plus curieux pourront aller sur cet article pour tout savoir sur le sujet : 
 
 On va donc s'attarder sur ce fichu code barre que voici (je n'ai pas inclus l'image dans sa totalité en raison de sa taille) :  
 
-![Code QR extrait de la photo](https://github.com/devl00p/blog/raw/master/images/cysca/wounded_qr_code.jpg)
+![Code QR extrait de la photo](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/wounded_qr_code.jpg)
 
 Bien sûr ça ne scanne pas avec les lecteurs QR de smartphones. La première chose que j'ai faite c'est recréer le QR code (du moins ce qu'on peut avoir) dans une image GIMP de 29\*29 pixels en l'ayant remise dans le sens officiel de la lecture.  
 
 J'ai aussi ajouté le *finder* caché (voir plus loin pour les explications) :  
 
-![QR clean](https://github.com/devl00p/blog/raw/master/images/cysca/qr.png)  
+![QR clean](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/qr.png)  
 
 Bien sûr ça ne scanne toujours pas :p  
 
@@ -241,7 +241,7 @@ Un module c'est la plus petite unité graphique du code QR, c'est à dire un pet
 
 Voici une image de ma création représentant la structure d'un code QR (ici en version 3 qui est la version du challenge).  
 
-![QR code V3](https://github.com/devl00p/blog/raw/master/images/cysca/pattern_big.png)  
+![QR code V3](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/pattern_big.png)  
 
 Sur 3 coins du code QR on trouve des *"finders"*, ce sont des carrés qui permettent aux scanneurs de code barre de délimiter la zone du code QR et déterminer son orientation.  
 
@@ -632,7 +632,7 @@ echo -en "H\x00a\x00c\x00k\x00T\x00h\x00e\x00P\x00l\x00a\x00n\x00e\x00t\x001\x00
 
 Il suffit de colorier avec GIMP les modules manquants en se basant sur l'image générée :  
 
-![Code QR en partie corrigé](https://github.com/devl00p/blog/raw/master/images/cysca/qr_fixed.png)
+![Code QR en partie corrigé](https://raw.githubusercontent.com/devl00p/blog/master/images/cysca/qr_fixed.png)
 
 En violet le format et le timing, en jaune le padding, en bleu les données. Ainsi on a remis suffisamment de données dans l'image pour atteindre le pourcentage nécessaire à la correction.  
 
@@ -640,4 +640,4 @@ Et quand on la passe au lecteur de code barre : *HackThePlanet790*
 
 Content d'en être sorti :p
 
-*Published June 15 2015 at 16 22*
+*Published June 15 2015 at 16:22*

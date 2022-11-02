@@ -27,7 +27,7 @@ Comme je n'ai pas eu plus de résultats avec les ports UDP je me suis dit que si
 
 Quand la VM se lance on observe un *DHCP Discover* partant de la VM tournant sur un système *CentOS* :  
 
-![Sokar CTF - DHCP Discover](https://github.com/devl00p/blog/raw/master/images/sokar/capt1.png)  
+![Sokar CTF - DHCP Discover](https://raw.githubusercontent.com/devl00p/blog/master/images/sokar/capt1.png)  
 
 On remarque aussi qu'une fois que la machine a obtenu un bail DHCP elle fait des requêtes DNS concernant *sokar* en utilisant le serveur DNS de *Google* (8.8.8.8).  
 
@@ -128,7 +128,7 @@ Voilà, voilà... On reboot la VM et cette fois :
 
 Tout se passe bien comme prévu... sauf qu'il n'y a pas de cocktail surprise :( Aucune autre connexion n'est tentée par la VM.  
 
-![Sokar - DNS hijack](https://github.com/devl00p/blog/raw/master/images/sokar/capt2.png)
+![Sokar - DNS hijack](https://raw.githubusercontent.com/devl00p/blog/master/images/sokar/capt2.png)
 
 Puisqu'un client DHCP tourne sur la machine j'ai choisi de m'orienter vers la faille [Shellshock](http://d4n3ws.polux-hosting.com/2014/09/24/vulnerabilite-dans-bash/) qui concerne aussi DHCP.  
 
@@ -166,7 +166,7 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 
 Il faut attendre un peu avoir de pouvoir profiter de l'attaque car comme on le voit dans la capture réseau l'exécution se fait via une tache cron :  
 
-![Sokar shellshocked via DHCP](https://github.com/devl00p/blog/raw/master/images/sokar/capt3.png)
+![Sokar shellshocked via DHCP](https://raw.githubusercontent.com/devl00p/blog/master/images/sokar/capt3.png)
 
 Facile... mais sans grands intérêts.  
 
@@ -847,4 +847,4 @@ Checking connectivity... done.
 
 Victory ! Conclusion de tout ça : l'IPv6 ça a du bon :p
 
-*Published March 13 2015 at 18 03*
+*Published March 13 2015 at 18:03*

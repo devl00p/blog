@@ -322,7 +322,7 @@ Et quand on pointe notre browser sur http://10.10.10.82/test\_xxx.txt... bingo i
 
 J'ai alors uploadé [cette backdoor ASPX](https://github.com/fuzzdb-project/fuzzdb/blob/master/web-backdoors/asp/cmdasp.aspx) qui nous offre une sympathique exécution de commande.  
 
-![HackTheBox Silo ASPX webshell](https://github.com/devl00p/blog/raw/master/images/silo_webshell.png)  
+![HackTheBox Silo ASPX webshell](https://raw.githubusercontent.com/devl00p/blog/master/images/silo_webshell.png)  
 
 Avec ça on peut accéder au flag de l'utilisateur *Phineas* : *92ede778a1cc8d27cb6623055c331617.*  
 
@@ -333,4 +333,4 @@ Ce fut un CTF intéressant qui une fois de plus n'aurait pas pu être proposé s
 
 Grace à ODAT terrasser l'*incassable* (tm) Oracle n'aura pas été compliqué :D
 
-*Published August 04 2018 at 19 31*
+*Published August 04 2018 at 19:31*

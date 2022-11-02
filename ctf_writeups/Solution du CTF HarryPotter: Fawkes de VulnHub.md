@@ -85,7 +85,7 @@ Analyze du binaire
 
 On ouvre le binaire dans [Cutter](https://cutter.re/) qui nous reporte certaines de ses caractéristiques.  
 
-![VulnHub CTF Fawkes binary protections](https://github.com/devl00p/blog/raw/master/images/vulnhub/fawkes/server_hogwarts_binary_characteristics.png)
+![VulnHub CTF Fawkes binary protections](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_binary_characteristics.png)
 
 L'exécutable a sa stack exécutable (pas de NX) donc en cas d'exploitation on pourra poser un shellcode sur la stack (pas besoin de faire du Return Oriented Programming).  
 
@@ -93,7 +93,7 @@ Le flag des canary est activé mais comme on le verra ci-dessous ce n'est en ré
 
 Le programme a deux grosses boucles que l'on peut voir via la visualisation des graphes de *Cutter* (pour la fonction *main()*).  
 
-![VulnHub CTF Fawkes binary graph of main function](https://github.com/devl00p/blog/raw/master/images/vulnhub/fawkes/server_hogwarts_main_graph.png)
+![VulnHub CTF Fawkes binary graph of main function](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_main_graph.png)
 
 La première boucle est celle de la gestion des clients (tout le code qui suit un *accept()*).  
 
@@ -101,13 +101,13 @@ La seconde boucle s'occupe de la communication avec le client : le programme dem
 
 On peut voir ici la logique de if/else pour chaque cas. Tous ces cas sont très simples (provoquent juste de l'envoi de données) et ne sont donc pas exploitables.  
 
-![VulnHub CTF Fawkes logic graph](https://github.com/devl00p/blog/raw/master/images/vulnhub/fawkes/server_hogwarts_perform_magic.png)  
+![VulnHub CTF Fawkes logic graph](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_perform_magic.png)  
 
 En revanche juste après la réception des données (on voit que le programme cherche à lire jusqu'à 0x400 octets dans le buffer *var\_450h*) ces dernières sont passées en argument à une fonction baptisée *copy()* que voici :  
 
-![VulnHub CTF Fawkes read loop](https://github.com/devl00p/blog/raw/master/images/vulnhub/fawkes/server_hogwarts_read_loop.png)  
+![VulnHub CTF Fawkes read loop](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_read_loop.png)  
 
-![VulnHub CTF Fawkes copy disassembly](https://github.com/devl00p/blog/raw/master/images/vulnhub/fawkes/server_hogwarts_vulnerable_copy.png)
+![VulnHub CTF Fawkes copy disassembly](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_vulnerable_copy.png)
 
 Le code n'est pas très parlant car le désassembleur indique *section..plt* mais il s'agit en réalité d'un appel à *strcpy()* bien connue pour ne pas vérifier si le buffer de destination a la capacité de stocker le nombre d'octets attendu.  
 
@@ -127,7 +127,7 @@ La vue de dump hexa de Cutter a la particularité d'apposer certains flags sur l
 
 Dans l'image ci-dessous on voit le buffer que j'ai envoyé et plusieurs zones encadrées qui ont un flag.  
 
-![VulnHub CTF Fawkes stack memory hexdump](https://github.com/devl00p/blog/raw/master/images/vulnhub/fawkes/server_hogwarts_memory.png)
+![VulnHub CTF Fawkes stack memory hexdump](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/fawkes/server_hogwarts_memory.png)
 
 On voit ainsi *esp* (sommet de la pile) qui est écrasé mais aussi le début de notre buffer dont l'adresse correspond à la valeur de *eax*.  
 
@@ -441,4 +441,4 @@ Here is your last hocrux: horcrux_{ODogVm9sRGVNb3JUIGRFZmVBdGVkIGJZIGhBcnJZIFBvV
 ```
 
 
-*Published December 07 2021 at 12 04*
+*Published December 07 2021 at 12:04*

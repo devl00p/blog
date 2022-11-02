@@ -222,7 +222,7 @@ var $gzip = '0';
 
 Avec les identifiants on se connecte sur *phpMyAdmin* puis on place une backdoor PHP via l'utilisation de l'instruction *INTO OUTFILE* :  
 
-![INTO OUTFILE backdoor creation](https://github.com/devl00p/blog/raw/master/images/into_outfile.png)
+![INTO OUTFILE backdoor creation](https://raw.githubusercontent.com/devl00p/blog/master/images/into_outfile.png)
 
 On utilise cette backdoor pour rappatrier un *tshd* et obtenir un accès terminal. On dispose des droits de l'utilisateur *www-data* et on a affaire à un kernel 2.6.32 :  
 
@@ -232,7 +232,7 @@ Du coup on réutilise l'exploit RDS pour le kernel pour passer root ([comme pour
 
 Une fois le fichier décodé (*base64 -d key.txt > file.out*) on obtient la clé suivante :  
 
-![Image obtenue via decodage base64](https://github.com/devl00p/blog/raw/master/images/rtb2_flag.png)
+![Image obtenue via decodage base64](https://raw.githubusercontent.com/devl00p/blog/master/images/rtb2_flag.png)
 
 Victoire !  
 
@@ -320,4 +320,4 @@ A noter que le fichier de configuration de [knockkock](http://www.thoughtcrime.o
 
 Bon, je pense que je vais mettre une sous-section CTF directement dans la page articles du site :p
 
-*Published April 04 2014 at 16 48*
+*Published April 04 2014 at 16:48*

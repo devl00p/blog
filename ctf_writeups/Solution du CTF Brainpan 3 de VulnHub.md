@@ -251,7 +251,7 @@ Disallow: /bp3_repo
 
 On y trouve seulement une gif animée de [asshole mario](https://iwastesomuchtime.com/94218). Un dirbuster trouvera facilement le dossier /repo qui se veut plus engageant.  
 
-![Brainpan 3 CTF http repository](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_repo.png)
+![Brainpan 3 CTF http repository](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_repo.png)
 
 On a même droit à un fichier README avec un message d'encouragement :  
 
@@ -259,7 +259,7 @@ On a même droit à un fichier README avec un message d'encouragement :
 
 L'image présente donne à rire (jaune) :  
 
-![Brainpan 3 CTF How to pwn joke image](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_how-to-pwn.jpg)
+![Brainpan 3 CTF How to pwn joke image](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_how-to-pwn.jpg)
 
 Les autres fichiers présents sont des exécutables Linux (ELF) mais en dehors de *report* tous semblent être des trolls comme le binaire shell qui ne fait qu'un *puts()* de l'ascii suivant :  
 
@@ -314,7 +314,7 @@ On peut commencer par examiner les adresses mémoires de la stack. Il faut mettr
 
 Petit rappel sur la structure d'un binaire 32bits en mémoire : les adresses correspondant à la stack seront plus grandes que celles correspondant au code.  
 
-![Linux x86 process memory layout](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_program_in_memory.png)
+![Linux x86 process memory layout](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_program_in_memory.png)
 
 ```python
 import socket
@@ -529,17 +529,17 @@ Une poignée de fonctions restaient à retrouver. C'est le cas de quelques appel
 
 On voit aussi que *system()* est utilisé par le binaire... toujours bon à savoir.  
 
-![Brainpan 3 CTF repo activation function](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_repo_code.png)
+![Brainpan 3 CTF repo activation function](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_repo_code.png)
 
 J'ai pu retrouver la fonction que j'ai baptisé *choice()* qui lance les commandes en fonction du numéro reçu :  
 
-![Brainpan 3 CTF choice function](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_choice.png)
+![Brainpan 3 CTF choice function](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_choice.png)
 
 Si on remonte à la fonction appelante on peut voir la conversion du PIN saisi et sa vérification, des caractères Y et N passés à *choice()* et tout en bas OH l'adresse de retour vu plus tôt :-)  
 
 Mais même si il y a bien des façons d'exploiter ce programme (ret-into-libc ou écriture d'un shellcode dans une partie de la stack non-utilisé et saut dessus) on n'aura pas besoin d'un venir jusque là car on trouve une faille d'injection de commande dans la fonction de report, pourvu qu'on l'active correctement :p   
 
-![Brainpan 3 CTF report function](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_report_func.png)
+![Brainpan 3 CTF report function](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_report_func.png)
 
 On voit ici plusieurs instructions *repne sbasb*. Cette instruction va scanner les octets dans la chaîne pointée par *EDI* jusqu'à trouver un octet matchant la valeur de *EAX* (ici ça recherche la fin de chaîne au final, rien de compliqué).  
 
@@ -588,7 +588,7 @@ sock.close()
 
 L’utilisation du module *telnetlib* de Python permet de rediriger facilement notre socket client vers l'entrée/sortie de notre terminal afin de dialoguer avec le shell obtenu.  
 
-![Brainpan 3 CTF format string exploit anansi shell](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_anansi_shell.png)
+![Brainpan 3 CTF format string exploit anansi shell](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_anansi_shell.png)
 
 Note importante: faire transiter le shell par le même port n'est pas un choix car les connexions sortantes sont bloquées par le pare feu et comme on a activé le port 8080 via la commande 2 on ne peut pas profiter de ce port. Redémarrer la VM serait une solution pour utiliser ce port mais on pourrait considérer cela comme de la triche.  
 
@@ -610,7 +610,7 @@ Le programme *cryptor* nécessite deux arguments : un nom de fichier ainsi qu'un
 
 Il est très simple et la totalité du code réside dans une fonction à *0x080485ed* appelée par le *main()*. Cette fonction lit le fichier source caractère par caractère, effectue un XOR avec la clé passée et écrit dans un fichier correspondant au fichier original auquel le suffixe *.enc* a été ajouté.  
 
-![Brainpan 3 CTF cryptor assembly code XOR loop](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_cryptor_code.png)
+![Brainpan 3 CTF cryptor assembly code XOR loop](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_cryptor_code.png)
 
 Si on XOR un fichier avec la clé 0 on obtiendra un fichier identique. Dès lors on peut obtenir le contenu du secret encodé avec la commande suivante :  
 
@@ -708,7 +708,7 @@ Première particularité ? Il effectue un *ptrace()* pour déterminer s'il est e
 
 Pour le reste ça se résume à ceci :  
 
-![Brainpan 3 CTF trixd assembly](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_trixd.png)
+![Brainpan 3 CTF trixd assembly](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_trixd.png)
 
 Le programme compare simplement le contenu de */mnt/usb/key.txt* avec le contenu de */home/puck/key.txt*. S'ils correspondent il nous donne gracieusement un shell, sinon un message d'échec.  
 
@@ -722,7 +722,7 @@ drwxrwx--- 2 reynard dev 4096 Jun 17  2015 /mnt/usb
 
 On en revient donc au programme *cryptor* et en particulier à ce qui est fait avant le cryptage :  
 
-![Brainpan 3 CTF cryptor assembly code](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_cryptor_2.png)
+![Brainpan 3 CTF cryptor assembly code](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_cryptor_2.png)
 
 Le code effectue un *strlen()* sur le nom du fichier source et effectue soit un *strncpy* soit un *strcpy* si la taille est supérieure ou non à 116.  
 
@@ -1019,7 +1019,7 @@ On passe ensuite par 3 boucles successives :
 
 Ces éléments sont stockés dans des structures et leurs adresses sont stockées dans un tableau dans la stack situé à *ebp-0x44*. On peut schématiser ainsi :  
 
-![Brainpan 3 CTF msg_admin memory structures](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_msg_admin_memory.png)
+![Brainpan 3 CTF msg_admin memory structures](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_msg_admin_memory.png)
 
 On a donc dans le tableau des adresses vers des structures d'une taille de 12 octets (3 dwords) stockées sur le tas.  
 
@@ -1235,7 +1235,7 @@ with open("bad_message.msg", "wb") as fd:
 
 On copie le fichier généré dans */opt/.messenger* et notre backdoor */tmp/foo* est exécutée, nous donnant les droits root et l'accès au flag qui est sous format TROFF (manpage) :)  
 
-![Brainpan 3 final flag](https://github.com/devl00p/blog/raw/master/images/brainpan_3/bp3_flag.png)
+![Brainpan 3 final flag](https://raw.githubusercontent.com/devl00p/blog/master/images/brainpan_3/bp3_flag.png)
 Outro dramatique
 ----------------
 
@@ -1243,4 +1243,4 @@ Une grande satisfaction d'avoir terminé ce 3ème opus de *Brainpan*. Merci à [
 
 PS: en lisant les writeups d'autres participants il s'avère que l'on peut simplement activer la fonctionnalité *report* sur le service initial en passant un nom de session avec beaucoup de Y qui écraseront les valeurs sur la stack :p
 
-*Published June 18 2019 at 14 57*
+*Published June 18 2019 at 14:57*

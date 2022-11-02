@@ -194,4 +194,4 @@ Conclusion
 
 Un CTF original qui mettait le focus sur une fonctionnalité méconnue de Windows. Toutefois j'ai hâte de voir si d'autres participants ont trouvé des solutions alternatives :)
 
-*Published November 03 2018 at 17 09*
+*Published November 03 2018 at 17:09*

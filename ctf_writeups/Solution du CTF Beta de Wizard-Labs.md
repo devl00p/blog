@@ -86,7 +86,7 @@ On a un port telnet, pas très commun pour du Windows, en revanche on retrouve l
 
 Toutefois la curiosité ma porté naturellement sur le port 3000 qui fait tourner une appli web baptisée *Gogs* .  
 
-![Wizard Labs Beta CTF Gogs index](https://github.com/devl00p/blog/raw/master/images/wizard-labs/beta_gogs_index.png)
+![Wizard Labs Beta CTF Gogs index](https://raw.githubusercontent.com/devl00p/blog/master/images/wizard-labs/beta_gogs_index.png)
 
 Cette application est connue pour être vulnérable à deux failles d'injection SQL :  
 
@@ -397,4 +397,4 @@ Zeta
 
 C'est tout pour ce CTF qui était très facile :)
 
-*Published November 17 2020 at 13 55*
+*Published November 17 2020 at 13:55*

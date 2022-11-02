@@ -51,7 +51,7 @@ Le site dispose d'une zone privée pour les utilisateurs connectés depuis laque
 
 Une page liste les utilisateurs enregistrés, voici un extrait :  
 
-![Utilisateurs enregistrés](https://github.com/devl00p/blog/raw/master/images/secos_users.png)  
+![Utilisateurs enregistrés](https://raw.githubusercontent.com/devl00p/blog/master/images/secos_users.png)  
 
 Je lance [dirb](http://dirb.sourceforge.net/) qui me trouve une page */hint* dans laquelle on trouve en code source :  
 
@@ -94,7 +94,7 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 
 On se connecte alors avec l'utilisateur *spiderman* et le mot de passe *hacked* sur la webapp. Direction les messages privés...  
 
-![spiderman private messages](https://github.com/devl00p/blog/raw/master/images/secos_spiderman_msg.png)  
+![spiderman private messages](https://raw.githubusercontent.com/devl00p/blog/master/images/secos_spiderman_msg.png)  
 
 Visiblement pirate a fait le travail pour nous :) Il ne reste qu'à se connecter en SSH sur la machine avec *spiderman* et *CrazyPassword!* :  
 
@@ -183,7 +183,7 @@ int main(void)
 
 Il n'y a plus qu'à injecter *;chown root:root /tmp/gotroot;chmod 4755 /tmp/gotroot* comme adresse IP.  
 
-![injection de commande dans le formulaire ping](https://github.com/devl00p/blog/raw/master/images/secos_ping.png)  
+![injection de commande dans le formulaire ping](https://raw.githubusercontent.com/devl00p/blog/master/images/secos_ping.png)  
 
 On lance la backdoor qui nous donne les bons droits...  
 
@@ -207,4 +207,4 @@ GitHub : PaulSec
 
 Done !
 
-*Published May 24 2014 at 17 27*
+*Published May 24 2014 at 17:27*
