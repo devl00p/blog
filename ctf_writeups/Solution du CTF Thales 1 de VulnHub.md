@@ -1,6 +1,6 @@
 # Solution du CTF Thales de VulnHub
 
-[Ce CTF]([Thales: 1 ~ VulnHub](https://www.vulnhub.com/entry/thales-1,749/)) proposé sur VulnHub a été créé par [machineboy414](https://twitter.com/machineboy141) qui est déjà l'auteur de la série de CTFs KB-VULN pour lesquels j'ai déjà écrit quelques writeups.
+[Ce CTF](https://www.vulnhub.com/entry/thales-1,749/) proposé sur VulnHub a été créé par [machineboy414](https://twitter.com/machineboy141) qui est déjà l'auteur de la série de CTFs KB-VULN pour lesquels j'ai déjà écrit quelques writeups.
 
 On lance notre scanner de ports favoris et... oh ! un Tomcat !
 
@@ -26,7 +26,7 @@ J'ai beau avoir croisé quelques Tomcat dans les CTFs il fallait que je retrouve
 
 Les différents liens sur le site mènent en effet presque tous à une demande d'authentification. Notemment si on tente d'accèder à `/manager`.
 
-J'ai recherché un outil de brute force pour Tomcat mais j'aurais très bien avoir recours sau classique Hydra. J'ai finalement jeté mon dévolu sur [ce petit script Python]([GitHub - b33lz3bub-1/Tomcat-Manager-Bruteforce: This script will bruteforce the credential of tomcat manager or host-manager](https://github.com/b33lz3bub-1/Tomcat-Manager-Bruteforce)) qui n'a besoin que de deux dépendances (`requests` et `termcolor`).
+J'ai recherché un outil de brute force pour Tomcat mais j'aurais très bien avoir recours sau classique Hydra. J'ai finalement jeté mon dévolu sur [ce petit script Python](https://github.com/b33lz3bub-1/Tomcat-Manager-Bruteforce) qui n'a besoin que de deux dépendances (`requests` et `termcolor`).
 
 Je lui ait fournit en entrée deux wordlists provenant de fuzzdb, l'une pour les noms d'utilisateurs et l'autre pour les mots de passe.
 
