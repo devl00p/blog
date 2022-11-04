@@ -2,9 +2,9 @@
 
 On attaque ce CTF [blogger qui nous vient de VulnHub](https://www.vulnhub.com/entry/blogger-1,675/). Il y a quelques manipulations pour pouvoir bien importer l'image virtuelle dans VirtualBox. D'abord désactiver les ports série ainsi que les dossiers partagés qui pointaient vers des paths sur le système de l'auteur.
 
-## Enumération
-
 Sans ça l'importation ne fonctionne pas ou au mieux vous aurez des messages de warning.
+
+## Enumération
 
 ```shellsession
 $ sudo nmap -T5 -p- -sCV 192.168.56.41
@@ -60,8 +60,8 @@ Le seul formulaire effectif trouvé correspond à la possibilité de poster un c
 
 J'ai lancé un feroxbuster avec la commande suivante :
 
-```bash
-feroxbuster -u http://blogger.thm/ -w fuzzdb/discovery/predictable-filepaths/filename-dirname-bruteforce/raft-large-directories.txt
+```shellsession
+$ feroxbuster -u http://blogger.thm/ -w fuzzdb/discovery/predictable-filepaths/filename-dirname-bruteforce/raft-large-directories.txt
 ```
 
 mais voyant que ça commençait à scanner dans des dossiers inutiles (assets, css, images, js, etc) j'ai stoppé l'énumération.
