@@ -36,7 +36,7 @@ PORT     STATE SERVICE    VERSION
 
 Comme d'habitude, quand il s'agit de reverse engineering, je me dirige automatiquement vers [Cutter](https://cutter.re/) parce que c'est gratuit et open-source. Que demander de mieux ?
 
-Quand on n'ouvre l'exécutable dans Cutter on voit sur la gauche la liste des fonctions dans le binaire. Plusieurs ont un nom qui semble un bon début d'analyse :
+Quand on ouvre l'exécutable dans Cutter on voit sur la gauche la liste des fonctions dans le binaire. Plusieurs ont un nom qui semble un bon début d'analyse :
 
 * entry0
 
@@ -62,7 +62,7 @@ Si tout se passe bien on entre dans la dernière boucle qui est celle du `accept
 
 ![VulnHub Netstart login.exe ConnectionHandler](https://raw.githubusercontent.com/devl00p/blog/master/images/vulnhub/netstart_handler.png)
 
-Cette fonction a deux points inétessants. D'abord juste avant le dernier bloc on voit un appel à une fonction baptisée `_f3` qui semble recevoir les données reçues sur la socket.
+Cette fonction a deux points intéressants. D'abord juste avant le dernier bloc on voit un appel à une fonction baptisée `_f3` qui semble recevoir les données reçues sur la socket.
 
 Ensuite on a toute une boucle de petites d'opérationsqui ressemblent à ceci :
 
@@ -264,7 +264,7 @@ sock.close()
 
 On place quelques NOPs histoire d'être sûr que notre shellcode est bien callé en mémoire.
 
-Après un test local on peut appliquer sur la VM :
+Après un test local on peut appliquer sur la VM. On obtient bien notre reverse shell :
 
 ```shellsession
 $ ncat -l -p 4444 -v
