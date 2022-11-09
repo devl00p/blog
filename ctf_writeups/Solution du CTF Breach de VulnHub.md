@@ -2,7 +2,7 @@
 
 ## VM Setup
 
-Pour une fois la VM n'est pas tout à fait plug-and-play. Celle-ci n'est pas configurée pour obtenir son adresse IP via DHCP via utilise une adresse statique `192.168.110.140`.
+Pour une fois la VM n'est pas tout à fait plug-and-play. Celle-ci n'est pas configurée pour obtenir son adresse IP via DHCP mais utilise une adresse statique `192.168.110.140`.
 
 Ca semblait facile d'aller rajouter directement une interface host only dans l'interface de VirtualBox mais *Surprise!* on se fait jeter avec un message d'erreur enigmatique.
 
