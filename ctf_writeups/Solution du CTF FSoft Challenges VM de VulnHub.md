@@ -215,10 +215,10 @@ Celui ci aussi contient une configuration Wordpress :
 ```php
 /** The name of the database for WordPress */                                                                          
 define( 'DB_NAME', 'wordpress_db' );                                                                                   
-                                                                                                                       
+
 /** MySQL database username */                                                                                         
 define( 'DB_USER', 'wordpress_user' );                                                                                 
-                                                                                                                       
+
 /** MySQL database password */                                                                                         
 define( 'DB_PASSWORD', '3b72186be8360b30c16625df95509b22acba1' );
 ```
@@ -292,11 +292,11 @@ En fouillant on voit qu'il y a comme un sac de noeud dû au fait que `ld` est un
 
 ```shellsession
 www-data@fsoft:/tmp$ ls -al /usr/bin/ld
-lrwxrwxrwx 1 devloop root 19 Mar 21  2019 /usr/bin/ld -> x86_64-linux-gnu-ld
+lrwxrwxrwx 1 root root 19 Mar 21  2019 /usr/bin/ld -> x86_64-linux-gnu-ld
 www-data@fsoft:/tmp$ ls /usr/bin/x86_64-linux-gnu-ld
-lrwxrwxrwx 1 devloop root 23 Mar 21  2019 /usr/bin/x86_64-linux-gnu-ld -> x86_64-linux-gnu-ld.bfd
+lrwxrwxrwx 1 root root 23 Mar 21  2019 /usr/bin/x86_64-linux-gnu-ld -> x86_64-linux-gnu-ld.bfd
 www-data@fsoft:/tmp$ ls /usr/bin/x86_64-linux-gnu-ld.bfd 
--rwxr-xr-x 1 devloop root 1.8M Mar 21  2019 /usr/bin/x86_64-linux-gnu-ld.bfd
+-rwxr-xr-x 1 root root 1.8M Mar 21  2019 /usr/bin/x86_64-linux-gnu-ld.bfd
 www-data@fsoft:/tmp$ cp /usr/bin/x86_64-linux-gnu-ld.bfd /tmp/
 www-data@fsoft:/tmp$ export PATH=/tmp:$PATH
 ```
@@ -328,7 +328,7 @@ www-data@fsoft:/tmp$ ./screen_exploit.sh
 No Sockets found in /run/screen/S-www-data.
 
 # id
-uid=0(devloop) gid=0(root) groups=0(root),33(www-data)
+uid=0(root) gid=0(root) groups=0(root),33(www-data)
 # cd /root
 # ls
 root.txt
