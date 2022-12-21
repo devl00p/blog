@@ -42,7 +42,6 @@ On a donc deux et seul SMB est intéressant pour le moment.
 ```
  ==================( Users on 192.168.56.81 via RID cycling (RIDS: 500-550,1000-1050) )==================
                                                                                                                                                                                                                                             
-                                                                                                                                                                                                                                            
 [I] Found new SID:                                                                                                                                                                                                                          
 S-1-22-1                                                                                                                                                                                                                                    
 
@@ -169,12 +168,10 @@ J'ai alors mis en écoute `Responder` :
 La requête à destination de `videosearch` avait un user-agent *Unity Video Lens Remote Scope v0.4* que j'avais jamais vu.
 
 ```http
-```http
 GET /v0/search?q=&sources=Amazon HTTP/1.1
 Host: videosearch.ubuntu.com
 User-Agent: Unity Video Lens Remote Scope v0.4
 Connection: Keep-Alive
-```
 ```
 
 Après recherche c'est lié à ce paquet et potentiellement à *UbuntuTV* :
