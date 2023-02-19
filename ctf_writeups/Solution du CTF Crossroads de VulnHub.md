@@ -213,7 +213,6 @@ flag 1/2
 ░░█░░▌░█░░█░░█░░░█░░█░░█
 ░░█░░▀▀░░██░░█░░░█░░█░░█
 ░░░▀▀▄▄▀▀░█░░░▀▄▀▀▀▀█░░█
-
 ```
 
 Maintenant passons à ce `magic script`. J'ai créé le script suivant :
@@ -262,7 +261,7 @@ Il est très basique comme le montre le code C décompilé par `Cutter` :
 /* jsdec pseudo code output */
 /* /tmp/beroot @ 0x1145 */
 #include <stdint.h>
- 
+
 int32_t main (void) {
     edi = 0;
     eax = 0;
@@ -377,5 +376,13 @@ else
         /usr/bin/echo "wrong password!!!"
 fi
 ```
+
+**EDIT**: Après avoir vu différents writeups d'autres participants sur Internet il semble que tous aient utilisé un outil de stéganographie nommé [GitHub - bannsec/stegoVeritas: Yet another Stego Tool](https://github.com/bannsec/stegoVeritas).
+
+Cela permettait alors d'extraire une wordlist depuis l'image et il fallait écrire un script de brute force pour trouver le bon mot de passe pour le script bash.
+
+Voir par exemple https://infosecwriteups.com/vulnhub-crossroads-walkthrough-ab67c827bc5c
+
+Il semble que personne n'ai utilisé `xtrace`, ma solution est donc un très beau *Kansas City Shuffle* :)
 
 *Publié le 19 février 2023*
